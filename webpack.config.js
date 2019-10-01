@@ -7,7 +7,7 @@ const WebpackUserScript = require('webpack-userscript')
 module.exports = {
   entry: './src/index.ts',
   output: {
-    filename: '[name].js',
+    filename: 'mtdeck.js',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
