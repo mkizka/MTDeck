@@ -42,6 +42,9 @@ body.mtdeck div.drawer[data-drawer=compose] {
   left: -100%;
   width: 100%;
 }
+body.mtdeck button.js-hide-drawer {
+  display: none !important;
+}
 `);
 
 new Deck().ready();
