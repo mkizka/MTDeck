@@ -1,7 +1,9 @@
 {
   "name": "mtdeck",
-  "description": "TweetDeckをモバイルで見やすくする",
-  "version": "1.0.0",
+  "description": "TweetDeckをモバイルで見やすくするUserScript",
+  "author": "Compeito",
+  "homepage": "https://github.com/Compeito/mtdeck",
+  "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
