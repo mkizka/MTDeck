@@ -5,13 +5,14 @@ const scrollOpt = {
 } as ScrollIntoViewOptions;
 
 export class Deck {
+  private $drawerButton: undefined | Element;
   private columnIndex: number = 0;
   private $columns: Element[] = [];
 
   public ready(): void {
     const initInterval = setInterval(() => {
-      const $button = document.querySelector('button[data-drawer=compose]');
-      if ($button) {
+      this.$drawerButton = document.querySelector('button[data-drawer=compose]');
+      if (this.$drawerButton) {
         this.init();
         clearInterval(initInterval);
       }
@@ -48,9 +49,13 @@ export class Deck {
     document.body.addEventListener('swipeleft', e => this.pushColumn());
     document.body.addEventListener('swiperight', e => this.backColumn());
 
-    const $appContent = document.querySelector('div.app-content');
+    const $appContent = document.querySelector('div.app-columns-container');
     $appContent.addEventListener('tap', e => {
       this.update();
+      this.closeDrawer();
+    });
+
+    this.$drawerButton.addEventListener('tap', e => {
       this.closeDrawer();
     });
   }
