@@ -4,6 +4,9 @@ import { Deck } from './deck';
 declare function GM_addStyle(css: string): void;
 
 GM_addStyle(`
+html, body.mtdeck {
+  overflow-x: hidden !important;
+}
 body.mtdeck button[data-drawer=compose] {
   z-index: 1;
   position: fixed !important;

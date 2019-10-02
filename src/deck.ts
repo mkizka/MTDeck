@@ -44,6 +44,7 @@ export class Deck {
 
     this.update();
 
+    document.body.addEventListener('touchmove', e => e.preventDefault(), {passive: false});
     document.body.addEventListener('swipeleft', e => this.pushColumn());
     document.body.addEventListener('swiperight', e => this.backColumn());
 
