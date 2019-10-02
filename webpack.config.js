@@ -18,7 +18,7 @@ module.exports = {
         return {
           name: 'MTDeck',
           grant: 'GM_addStyle',
-          match: 'http*://tweetdeck.twitter.com*'
+          match: 'https://tweetdeck.twitter.com'
         }
       },
       metajs: false
