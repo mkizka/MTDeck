@@ -42,6 +42,11 @@ body.mtdeck-close div.app-columns-container {
   left: 0px !important;
 }
 
+/* 2カラムモーダルの開閉 */
+body.mtdeck-mdl-left-close .mdl-column:first-child {
+  width: 0 !important;
+}
+
 /* ツイートドロワーの開閉 */
 body.mtdeck div.app-content.is-open {
   margin-right: 0 !important;
