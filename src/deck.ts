@@ -42,7 +42,6 @@ export class Deck {
   private init(): void {
     document.body.classList.add('mtdeck');
     document.body.classList.add('mtdeck-close');
-    document.body.classList.add('mtdeck-mdl-left-close');
 
     this.update();
 
