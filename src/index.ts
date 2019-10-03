@@ -21,8 +21,13 @@ body.mtdeck div.app-columns-container {
   overflow-x: hidden;
   overflow-y: auto;
 }
-body.mtdeck section.column {
+body.mtdeck section.column, body.mtdeck .js-modal-panel,
+body.mtdeck .js-modal-inner, body.mtdeck .prf-header,
+body.mtdeck .prf-header-inner-overlay, body.mtdeck .social-proof-container {
   width: 100% !important;
+}
+body.mtdeck .js-modal-context:before {
+  height: 0 !important;
 }
 body.mtdeck .old-composer-footer {
   display: none;
