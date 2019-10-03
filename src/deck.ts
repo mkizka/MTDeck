@@ -54,9 +54,42 @@ export class Deck {
     $appContent.addEventListener('swipeleft', e => this.pushColumn());
     $appContent.addEventListener('swiperight', e => this.backColumn());
 
+    history.pushState(null, null, null);
+    window.addEventListener('popstate', e => this.back());
+
     this.$drawerButton.addEventListener('tap', e => {
       this.closeDrawer();
     });
+  }
+
+  private get hasDetail() {
+    return document.querySelectorAll('.js-column-state-detail-view').length > 0;
+  }
+
+  private get hasModal() {
+    return document.querySelectorAll('.js-modal-panel').length > 0;
+  }
+
+  private get hasDrawer() {
+    return document.querySelectorAll('.app-content.is-open').length > 0;
+  }
+
+  private back() {
+    if (this.hasDetail) {
+      const $backButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.js-column-back');
+      $backButtons.forEach(($button) => {
+        $button.click();
+      });
+    }
+    if (this.hasModal) {
+      const $dismissButton: HTMLAnchorElement = document.querySelector('.js-dismiss');
+      $dismissButton.click();
+    }
+    if (this.hasDrawer) {
+      const drawerCloseButton: HTMLSpanElement = document.querySelector('.js-compose-close');
+      drawerCloseButton.click();
+    }
+    history.pushState(null, null, null);
   }
 
   private pushColumn() {
