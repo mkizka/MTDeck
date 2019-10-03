@@ -1,3 +1,4 @@
+(window as any).TAP_PRECISION = 10;
 import 'tocca';
 import { Deck } from './deck';
 
@@ -10,9 +11,10 @@ body.mtdeck button[data-drawer=compose] {
   position: fixed !important;
   right: 0;
   bottom: 0;
-  margin: 10px;
+  margin: 20px !important;
   width: 4.5rem !important;
   height: 4.5rem !important;
+  filter: drop-shadow(5px 5px 5px rgb(0, 0, 0));
 }
 body.mtdeck div.app-content {
   left: 0 !important;
