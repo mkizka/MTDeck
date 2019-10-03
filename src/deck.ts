@@ -45,15 +45,14 @@ export class Deck {
 
     this.update();
 
-    document.body.addEventListener('touchmove', e => e.preventDefault(), {passive: false});
-    document.body.addEventListener('swipeleft', e => this.pushColumn());
-    document.body.addEventListener('swiperight', e => this.backColumn());
-
     const $appContent = document.querySelector('div.app-columns-container');
     $appContent.addEventListener('tap', e => {
       this.update();
       this.closeDrawer();
     });
+
+    $appContent.addEventListener('swipeleft', e => this.pushColumn());
+    $appContent.addEventListener('swiperight', e => this.backColumn());
 
     this.$drawerButton.addEventListener('tap', e => {
       this.closeDrawer();

@@ -5,9 +5,6 @@ declare function GM_addStyle(css: string): void;
 
 GM_addStyle(`
 /* mtdeckに影響を受ける要素 */
-html, body.mtdeck {
-  overflow-x: hidden !important;
-}
 body.mtdeck button[data-drawer=compose] {
   z-index: 1;
   position: fixed !important;
@@ -19,6 +16,10 @@ body.mtdeck button[data-drawer=compose] {
 }
 body.mtdeck div.app-content {
   left: 0 !important;
+}
+body.mtdeck div.app-columns-container {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 body.mtdeck section.column {
   width: 100% !important;
