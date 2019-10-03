@@ -5,14 +5,14 @@ const scrollOpt = {
 } as ScrollIntoViewOptions;
 
 export class Deck {
-  private $drawerButton: undefined | Element;
   private columnIndex: number = 0;
   private $columns: Element[] = [];
+  private $drawerOpenButton: undefined | Element;
 
   public ready(): void {
     const initInterval = setInterval(() => {
-      this.$drawerButton = document.querySelector('button[data-drawer=compose]');
-      if (this.$drawerButton) {
+      this.$drawerOpenButton = document.querySelector('button[data-drawer=compose]');
+      if (this.$drawerOpenButton) {
         this.init();
         clearInterval(initInterval);
       }
@@ -48,7 +48,7 @@ export class Deck {
     const $appContent = document.querySelector('div.app-columns-container');
     $appContent.addEventListener('tap', e => {
       this.update();
-      this.closeDrawer();
+      this.closeMenu();
     });
 
     $appContent.addEventListener('swipeleft', e => this.pushColumn());
@@ -57,8 +57,8 @@ export class Deck {
     history.pushState(null, null, null);
     window.addEventListener('popstate', e => this.back());
 
-    this.$drawerButton.addEventListener('tap', e => {
-      this.closeDrawer();
+    this.$drawerOpenButton.addEventListener('tap', e => {
+      this.closeMenu();
     });
   }
 
@@ -94,7 +94,7 @@ export class Deck {
 
   private pushColumn() {
     this.update();
-    this.closeDrawer();
+    this.closeMenu();
     if (this.columnIndex < this.$columns.length - 1) {
       this.columnIndex++;
       this.$columns[this.columnIndex].scrollIntoView(scrollOpt);
@@ -103,27 +103,27 @@ export class Deck {
 
   private backColumn() {
     this.update();
-    this.closeDrawer();
+    this.closeMenu();
     if (this.columnIndex == 0) {
-      this.openDrawer();
+      this.openMenu();
     } else {
       this.columnIndex--;
       this.$columns[this.columnIndex].scrollIntoView(scrollOpt);
     }
   }
 
-  private get hasDrawerOpen(): boolean {
+  private get hasMenuOpen(): boolean {
     return !document.body.classList.contains('mtdeck-close');
   }
 
-  private openDrawer(): void {
-    if (!this.hasDrawerOpen) {
+  private openMenu(): void {
+    if (!this.hasMenuOpen) {
       document.body.classList.remove('mtdeck-close');
     }
   }
 
-  private closeDrawer(): void {
-    if (this.hasDrawerOpen) {
+  private closeMenu(): void {
+    if (this.hasMenuOpen) {
       document.body.classList.add('mtdeck-close');
     }
   }
