@@ -26,11 +26,27 @@ body.mtdeck .js-modal-inner, body.mtdeck .prf-header,
 body.mtdeck .prf-header-inner-overlay, body.mtdeck .social-proof-container {
   width: 100% !important;
 }
+body.mtdeck .mdl {
+  overflow-x: hidden !important;
+}
+body.mtdeck .mdl-content {
+  overflow: scroll !important;
+}
+body.mtdeck .med-tweet {
+  width: 100% !important;
+  left: 0 !important;
+}
+body.mtdeck .mdl .mdl-dismiss {
+  right: 10px !important;
+}
 body.mtdeck .js-modal-context:before {
   height: 0 !important;
 }
 body.mtdeck .old-composer-footer {
   display: none;
+}
+body.mtdeck .js-search-in-popover .popover {
+  width: 200px !important;
 }
 
 /* サイドバーの開閉 */
