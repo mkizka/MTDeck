@@ -24,6 +24,9 @@ body.mtdeck div.app-columns-container {
 body.mtdeck section.column {
   width: 100% !important;
 }
+body.mtdeck .old-composer-footer {
+  display: none;
+}
 
 /* サイドバーの開閉 */
 body.mtdeck-close header.app-header {
