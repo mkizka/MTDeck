@@ -12,7 +12,6 @@
   },
   "devDependencies": {
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "clean-webpack-plugin": "^3.0.0",
     "tocca": "^2.0.4",
     "ts-loader": "^6.2.0",
     "typescript": "^3.6.3",

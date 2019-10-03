@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const WebpackUserScript = require('webpack-userscript')
 
 module.exports = {
@@ -12,7 +11,6 @@ module.exports = {
   },
   plugins: [
     new webpack.ProgressPlugin(),
-    new CleanWebpackPlugin(),
     new WebpackUserScript({
       headers: (data) => {
         return {
