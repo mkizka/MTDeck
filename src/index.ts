@@ -12,7 +12,7 @@ body.mtdeck button[data-drawer=compose] {
   margin: 20px !important;
   width: 4rem !important;
   height: 4rem !important;
-  filter: drop-shadow(5px 5px 5px rgb(0, 0, 0));
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7));
 }
 body.mtdeck div.app-content {
   left: 0 !important;
