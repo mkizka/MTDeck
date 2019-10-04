@@ -1,4 +1,5 @@
 import Hammer from 'hammerjs';
+import { styles, insertStyle } from './styles';
 
 const scrollOpt = {
   behavior: 'smooth',
@@ -15,6 +16,7 @@ export class Deck {
     const initInterval = setInterval(() => {
       this.$drawerOpenButton = document.querySelector('button[data-drawer=compose]');
       if (this.$drawerOpenButton) {
+        insertStyle(styles);
         this.init();
         clearInterval(initInterval);
       }

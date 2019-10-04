@@ -15,7 +15,6 @@ module.exports = {
       headers: (data) => {
         return {
           name: 'MTDeck',
-          grant: 'GM_addStyle',
           match: 'https://tweetdeck.twitter.com'
         }
       },
