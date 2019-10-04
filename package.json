@@ -11,8 +11,9 @@
     "dev": "webpack-dev-server --no-inline"
   },
   "devDependencies": {
+    "@types/hammerjs": "^2.0.36",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "tocca": "^2.0.4",
+    "hammerjs": "^2.0.8",
     "ts-loader": "^6.2.0",
     "typescript": "^3.6.3",
     "webpack": "^4.41.0",

@@ -1,5 +1,3 @@
-(window as any).TAP_PRECISION = 10;
-import 'tocca';
 import { Deck } from './deck';
 
 declare function GM_addStyle(css: string): void;

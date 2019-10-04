@@ -1,3 +1,5 @@
+import Hammer from 'hammerjs';
+
 const scrollOpt = {
   behavior: 'smooth',
   block: 'center',
@@ -45,19 +47,27 @@ export class Deck {
 
     this.update();
 
-    const $appContent = document.querySelector('div.app-columns-container');
-    $appContent.addEventListener('tap', e => {
+    const $appContainer = document.querySelector('div.app-columns-container');
+    const touchManager = new Hammer.Manager($appContainer);
+    touchManager.add(new Hammer.Swipe());
+
+    touchManager.on('tap', e => {
       this.update();
       this.closeMenu();
     });
 
-    $appContent.addEventListener('swipeleft', e => this.pushColumn());
-    $appContent.addEventListener('swiperight', e => this.backColumn());
+    touchManager.on('swipe', e => {
+      if (e.deltaX > 0) {
+        this.backColumn();
+      } else {
+        this.pushColumn();
+      }
+    });
 
     history.pushState(null, null, null);
     window.addEventListener('popstate', e => this.back());
 
-    this.$drawerOpenButton.addEventListener('tap', e => {
+    this.$drawerOpenButton.addEventListener('click', e => {
       this.closeMenu();
     });
   }
