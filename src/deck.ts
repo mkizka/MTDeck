@@ -79,8 +79,7 @@ export class Deck {
   }
 
   private get hasModal() {
-    return document.querySelectorAll('.js-modal-panel').length > 0 ||
-      document.querySelectorAll('.js-modal-context').length > 0;
+    return document.querySelectorAll('.js-dismiss').length > 0;
   }
 
   private get hasDrawer() {
