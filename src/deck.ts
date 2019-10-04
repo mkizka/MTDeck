@@ -49,6 +49,7 @@ export class Deck {
 
     const $appContainer = document.querySelector('div.app-columns-container');
     const touchManager = new Hammer.Manager($appContainer);
+    touchManager.add(new Hammer.Tap());
     touchManager.add(new Hammer.Swipe({
       direction: Hammer.DIRECTION_HORIZONTAL
     }));
