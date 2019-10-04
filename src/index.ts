@@ -22,11 +22,12 @@ body.mtdeck div.app-columns-container {
   overflow-y: auto;
 }
 body.mtdeck section.column, body.mtdeck .js-modal-panel,
-body.mtdeck .js-modal-inner, body.mtdeck .prf-header,
-body.mtdeck .prf-header-inner-overlay, body.mtdeck .social-proof-container {
+body.mtdeck .prf-header, body.mtdeck .prf-header-inner-overlay,
+body.mtdeck .social-proof-container {
   width: 100% !important;
 }
 body.mtdeck .mdl {
+  width: 100% !important;
   overflow-x: hidden !important;
 }
 body.mtdeck .mdl-content {
