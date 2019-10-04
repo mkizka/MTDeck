@@ -49,6 +49,13 @@ body.mtdeck .old-composer-footer {
 body.mtdeck .js-search-in-popover .popover {
   width: 200px !important;
 }
+body.mtdeck .js-mediaembed .js-media-native-video {
+  width: 100% !important;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
 
 /* サイドバーの開閉 */
 body.mtdeck-close header.app-header {
