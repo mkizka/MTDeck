@@ -78,6 +78,6 @@ body.mtdeck button.js-hide-drawer {
 
 export const insertStyle = (css: string) => {
   const styleSheet = document.createElement('style');
-  styleSheet.innerHTML = css;
+  styleSheet.appendChild(document.createTextNode(css));
   document.head.appendChild(styleSheet);
 };
