@@ -7,10 +7,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode production",
-    "build:ext": "webpack --mode production && web-ext build -s dist",
+    "build": "webpack --mode production && web-ext build -s dist -o",
     "dev": "webpack --mode development --watch",
-    "ext": "web-ext run -s dist"
+    "ext": "web-ext run -s dist -u tweetdeck.twitter.com"
   },
   "devDependencies": {
     "@types/hammerjs": "^2.0.36",
