@@ -1,6 +1,11 @@
 # MTDeck
 TweetDeckをモバイル端末から見やすくするUserScript
 
+[動画デモ](https://streamable.com/q1u99)
+
+<img src="https://i.imgur.com/BQriwwQ.png" width="300">
+<img src="https://i.imgur.com/yC7sVrI.png" width="300">
+
 ## 使い方
 ### Android
 1. [Firefox](https://play.google.com/store/apps/details?id=org.mozilla.firefox)をインストール
