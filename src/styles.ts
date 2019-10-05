@@ -80,7 +80,9 @@ body.mtdeck button.js-hide-drawer {
 `;
 
 export const insertStyle = (css: string) => {
+  document.querySelectorAll('#mtdeck-stylesheet').forEach($oldStyle => $oldStyle.remove());
   const styleSheet = document.createElement('style');
+  styleSheet.id = 'mtdeck-stylesheet';
   styleSheet.appendChild(document.createTextNode(css));
   document.head.appendChild(styleSheet);
 };
