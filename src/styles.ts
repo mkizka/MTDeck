@@ -45,11 +45,14 @@ body.mtdeck .old-composer-footer {
 body.mtdeck .js-search-in-popover .popover {
   width: 200px !important;
 }
-body.mtdeck .js-mediaembed .js-media-native-video {
+body.mtdeck .js-mediaembed .js-media-native-video,
+body.mtdeck .js-mediaembed .youtube-player {
   width: 100% !important;
   position: fixed;
   left: 0;
   top: 0;
+  bottom: 0;
+  margin: auto !important;
   z-index: 1;
 }
 
