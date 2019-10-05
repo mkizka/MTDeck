@@ -2,6 +2,9 @@ const path = require('path')
 const webpack = require('webpack')
 
 const WebpackUserScript = require('webpack-userscript')
+const CopyPlugin = require('copy-webpack-plugin')
+
+const packageJson = require('./package')
 
 module.exports = {
   entry: './src/index.ts',
@@ -19,7 +22,22 @@ module.exports = {
         }
       },
       metajs: false
-    })
+    }),
+    new CopyPlugin([
+      {
+        from: './src/manifest.json',
+        transform: (buffer) => {
+          const manifest = JSON.parse(buffer.toString())
+          manifest.version = packageJson.version
+          manifest.description = packageJson.description
+          manifest.developer = {
+            name: packageJson.author,
+            url: packageJson.homepage
+          }
+          return JSON.stringify(manifest, null, 2)
+        }
+      }
+    ])
   ],
   module: {
     rules: [

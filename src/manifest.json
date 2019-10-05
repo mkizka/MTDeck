@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "MTDeck",
+  "content_scripts": [
+    {
+      "js": [
+        "./mtdeck.user.js"
+      ],
+      "matches": [
+        "https://tweetdeck.twitter.com/*"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
