@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "MTDeck",
+  "content_scripts": [
+    {
+      "js": [
+        "./mtdeck.user.js"
+      ],
+      "matches": [
+        "https://tweetdeck.twitter.com/*"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "version": "1.0.2",
+  "description": "TweetDeckをモバイルで見やすくするUserScript",
+  "developer": {
+    "name": "Compeito",
+    "url": "https://github.com/Compeito/mtdeck"
+  }
+}
