@@ -5,7 +5,7 @@ body.mtdeck button[data-drawer=compose] {
   position: fixed !important;
   right: 0;
   bottom: 0;
-  margin: 70px 20px !important;
+  margin: 55px 20px !important;
   width: 4rem !important;
   height: 4rem !important;
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7));
@@ -56,6 +56,9 @@ body.mtdeck .js-mediaembed .youtube-player {
   margin: auto !important;
   z-index: 1;
 }
+body.mtdeck .column-navigator {
+  top: 50px;
+}
 
 /* サイドバーを下へ */
 body.mtdeck .js-int-scroller {
@@ -67,6 +70,17 @@ body.mtdeck .js-int-scroller {
   overflow-x: auto;
   white-space: nowrap;
   padding-top: 10px
+}
+body.mtdeck .js-int-scroller .column-nav-item {
+  height: 35px;
+}
+body.mtdeck .js-int-scroller .column-nav-item .icon {
+  font-size: 20px;
+}
+body.mtdeck .js-int-scroller .column-nav-item .js-header-action {
+  height: 35px;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
 }
 body.mtdeck .hide-detail-view-inline .js-int-scroller {
   display: none;
