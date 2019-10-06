@@ -3,8 +3,8 @@ TweetDeckをモバイル端末から見やすくするUserScript
 
 [動画デモ](https://streamable.com/oocea)
 
-<img src="https://i.imgur.com/lcvhbJ5.png" width="300">
-<img src="https://i.imgur.com/elEf7l9.png" width="300">
+<img src="https://i.imgur.com/xBrApsM.png" width="300">
+<img src="https://i.imgur.com/aFG6fBr.png" width="300">
 
 ## 使い方
 ### Android
