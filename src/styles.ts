@@ -5,7 +5,7 @@ body.mtdeck button[data-drawer=compose] {
   position: fixed !important;
   right: 0;
   bottom: 0;
-  margin: 20px !important;
+  margin: 70px 20px !important;
   width: 4rem !important;
   height: 4rem !important;
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7));
@@ -39,7 +39,8 @@ body.mtdeck .mdl .mdl-dismiss {
 body.mtdeck .js-modal-context:before {
   height: 0 !important;
 }
-body.mtdeck .old-composer-footer {
+body.mtdeck .old-composer-footer,
+body.mtdeck .column-nav-flyout {
   display: none;
 }
 body.mtdeck .js-search-in-popover .popover {
@@ -54,6 +55,24 @@ body.mtdeck .js-mediaembed .youtube-player {
   bottom: 0;
   margin: auto !important;
   z-index: 1;
+}
+
+/* サイドバーを下へ */
+body.mtdeck .js-int-scroller {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1c2938;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-top: 10px
+}
+body.mtdeck .hide-detail-view-inline .js-int-scroller {
+  display: none;
+}
+body.mtdeck .column-nav-item {
+  display: inline-block;
 }
 
 /* サイドバーの開閉 */
