@@ -9,7 +9,7 @@
   "scripts": {
     "build": "webpack --mode production && web-ext build -s dist -o",
     "dev:pack": "webpack --mode development --watch",
-    "dev:ext": "web-ext run -s dist -u tweetdeck.twitter.com",
+    "dev:ext": "web-ext run -s dist -u tweetdeck.twitter.com -p default",
     "dev": "concurrently --kill-others \"yarn dev:ext\" \"yarn dev:pack\""
   },
   "devDependencies": {
