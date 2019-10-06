@@ -1,10 +1,10 @@
 # MTDeck
 TweetDeckをモバイル端末から見やすくするUserScript
 
-[動画デモ](https://streamable.com/q1u99)
+[動画デモ](https://streamable.com/oocea)
 
-<img src="https://i.imgur.com/BQriwwQ.png" width="300">
-<img src="https://i.imgur.com/yC7sVrI.png" width="300">
+<img src="https://i.imgur.com/lcvhbJ5.png" width="300">
+<img src="https://i.imgur.com/elEf7l9.png" width="300">
 
 ## 使い方
 ### Android
