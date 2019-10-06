@@ -22,7 +22,7 @@ body.mtdeck .prf-header, body.mtdeck .prf-header-inner-overlay,
 body.mtdeck .social-proof-container {
   width: 100% !important;
 }
-body.mtdeck .mdl {
+body.mtdeck .mdl, body.mtdeck .mdl section.column-temp {
   width: 100% !important;
   overflow-x: hidden !important;
 }
