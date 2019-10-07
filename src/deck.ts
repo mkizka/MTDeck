@@ -85,7 +85,7 @@ export class Deck {
     return document.querySelectorAll('.js-dismiss').length > 0;
   }
 
-  private get hasDrawer() {
+  private get hasDrawerOpen() {
     return document.querySelectorAll('.app-content.is-open').length > 0;
   }
 
@@ -104,8 +104,8 @@ export class Deck {
       const $dismissButton: HTMLAnchorElement = document.querySelector('.js-dismiss');
       $dismissButton.click();
     }
-    if (this.hasDrawer) {
-      const $drawerCloseButton: HTMLSpanElement = document.querySelector('.js-compose-close');
+    if (this.hasDrawerOpen) {
+      const $drawerCloseButton: HTMLAnchorElement = document.querySelector('.js-drawer-close');
       $drawerCloseButton.click();
     }
     if (this.hasOptionsOpen) {
@@ -113,6 +113,9 @@ export class Deck {
       $optionToggleButtons.forEach($button => {
         $button.click();
       });
+    }
+    if (this.hasMenuOpen) {
+      this.closeMenu();
     }
     history.pushState(null, null, null);
   }
