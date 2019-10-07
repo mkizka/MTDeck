@@ -109,7 +109,7 @@ export class Deck {
       $drawerCloseButton.click();
     }
     if (this.hasOptionsOpen) {
-      const $optionToggleButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.js-action-header-button');
+      const $optionToggleButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.is-options-open .js-action-header-button');
       $optionToggleButtons.forEach($button => {
         $button.click();
       });
