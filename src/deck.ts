@@ -1,5 +1,6 @@
 import Hammer from 'hammerjs';
 import { styles, insertStyle } from './styles';
+import { Config } from './config';
 
 const scrollOpt = {
   behavior: 'smooth',
@@ -8,6 +9,7 @@ const scrollOpt = {
 } as ScrollIntoViewOptions;
 
 export class Deck {
+  private config: Config = new Config();
   private columnIndex: number = 0;
   private $columns: Element[] = [];
   private $drawerOpenButton: undefined | Element;
@@ -18,6 +20,7 @@ export class Deck {
       if (this.$drawerOpenButton) {
         insertStyle(styles);
         this.init();
+        this.config.init();
         clearInterval(initInterval);
       }
     }, 100);
@@ -114,9 +117,8 @@ export class Deck {
         $button.click();
       });
     }
-    if (this.hasMenuOpen) {
-      this.closeMenu();
-    }
+    if (this.hasMenuOpen) this.closeMenu();
+    if (this.config.isOpen()) this.config.close();
     history.pushState(null, null, null);
   }
 

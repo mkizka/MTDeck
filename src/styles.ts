@@ -110,6 +110,20 @@ body.mtdeck div.drawer[data-drawer=compose] {
 body.mtdeck button.js-hide-drawer {
   display: none !important;
 }
+
+/* コンフィグ */
+.mtdeck-config {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 201;
+  background-color: #1c2938;
+  padding: 20px;
+}
+.mtdeck-config.is-open {
+  display: block;
+}
 `;
 
 export const insertStyle = (css: string) => {
