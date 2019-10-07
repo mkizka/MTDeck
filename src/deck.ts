@@ -2,17 +2,19 @@ import Hammer from 'hammerjs';
 import { styles, insertStyle } from './styles';
 import { Config } from './config';
 
-const scrollOpt = {
-  behavior: 'smooth',
-  block: 'center',
-  inline: 'nearest',
-} as ScrollIntoViewOptions;
-
 export class Deck {
   private config: Config = new Config();
   private columnIndex: number = 0;
   private $columns: Element[] = [];
   private $drawerOpenButton: undefined | Element;
+
+  private get scrollOpt(): ScrollIntoViewOptions {
+    return {
+      behavior: this.config.getBoolean('mtdColumnAnimation') ? 'smooth' : 'auto',
+      block: 'center',
+      inline: 'nearest',
+    };
+  }
 
   public ready(): void {
     const initInterval = setInterval(() => {
@@ -127,7 +129,7 @@ export class Deck {
     this.closeMenu();
     if (this.columnIndex < this.$columns.length - 1) {
       this.columnIndex++;
-      this.$columns[this.columnIndex].scrollIntoView(scrollOpt);
+      this.$columns[this.columnIndex].scrollIntoView(this.scrollOpt);
     }
   }
 
@@ -138,7 +140,7 @@ export class Deck {
       this.openMenu();
     } else {
       this.columnIndex--;
-      this.$columns[this.columnIndex].scrollIntoView(scrollOpt);
+      this.$columns[this.columnIndex].scrollIntoView(this.scrollOpt);
     }
   }
 
