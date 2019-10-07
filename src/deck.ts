@@ -89,6 +89,10 @@ export class Deck {
     return document.querySelectorAll('.app-content.is-open').length > 0;
   }
 
+  private get hasOptionsOpen() {
+    return document.querySelectorAll('.is-options-open').length > 0;
+  }
+
   private back() {
     if (this.hasDetail) {
       const $backButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.js-column-back');
@@ -101,8 +105,14 @@ export class Deck {
       $dismissButton.click();
     }
     if (this.hasDrawer) {
-      const drawerCloseButton: HTMLSpanElement = document.querySelector('.js-compose-close');
-      drawerCloseButton.click();
+      const $drawerCloseButton: HTMLSpanElement = document.querySelector('.js-compose-close');
+      $drawerCloseButton.click();
+    }
+    if (this.hasOptionsOpen) {
+      const $optionToggleButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.js-action-header-button');
+      $optionToggleButtons.forEach($button => {
+        $button.click();
+      });
     }
     history.pushState(null, null, null);
   }
