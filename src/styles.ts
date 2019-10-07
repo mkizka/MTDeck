@@ -3,9 +3,8 @@ export const styles = `
 body.mtdeck button[data-drawer=compose] {
   z-index: 1;
   position: fixed !important;
-  right: 0;
-  bottom: 0;
-  margin: 55px 20px !important;
+  right: 20px;
+  bottom: 50px;
   width: 4rem !important;
   height: 4rem !important;
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7));
@@ -123,6 +122,12 @@ body.mtdeck button.js-hide-drawer {
 }
 .mtdeck-config.is-open {
   display: block;
+}
+.mtdeck-config-button {
+  color: blueviolet !important;
+}
+.mtdeck-config-back {
+  margin-bottom: 20px;
 }
 `;
 
