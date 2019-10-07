@@ -8,7 +8,7 @@ export interface ConfigItem {
 export class Config {
   private $el: HTMLDivElement;
   private items: ConfigItem[] = [
-    {label: 'カラム移動時にアニメーションする(スワイプのみ)', name: 'mtdColumnAnimation', type: 'checkbox', default: 'true'},
+    {label: '左右スワイプ時にアニメーションするかどうか', name: 'mtdColumnAnimation', type: 'checkbox', default: 'true'},
   ];
 
   public getString(key: string): string {
