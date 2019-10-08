@@ -73,7 +73,7 @@ body.mtdeck .js-int-scroller {
 body.mtdeck .js-int-scroller .column-nav-item {
   height: 35px;
 }
-body.mtdeck .js-int-scroller .column-nav-item .icon {
+body.mtdeck .js-int-scroller .column-nav-item .icon-medium {
   font-size: 20px;
 }
 body.mtdeck .js-int-scroller .column-nav-item .js-header-action {
