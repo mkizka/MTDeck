@@ -12,8 +12,8 @@
       "run_at": "document_start"
     }
   ],
-  "version": "1.1.1",
-  "description": "TweetDeckをモバイルで見やすくするUserScript",
+  "version": "1.2.0",
+  "description": "TweetDeckをスマホアプリのように使えるようにする",
   "developer": {
     "name": "Compeito",
     "url": "https://github.com/Compeito/mtdeck"
