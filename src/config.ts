@@ -60,7 +60,7 @@ export class Config {
     $backButton.innerText = '戻る';
     $backButton.classList.add('mtdeck-config-back');
     $backButton.addEventListener('click', e => this.close());
-    this.$el.appendChild($backButton);
+    this.$el.insertAdjacentElement('beforeend', $backButton);
   }
 
   private createForm() {
@@ -96,9 +96,12 @@ export class Config {
     this.saveDefault();
     this.$el = document.createElement('div');
     this.$el.classList.add('mtdeck-config');
+    this.$el.insertAdjacentHTML('afterbegin', `
+      <h1 class="mtdeck-config-title">MTDeck 設定メニュー(仮)</h1>
+    `);
     document.body.appendChild(this.$el);
-    this.createBackButton();
     this.createForm();
+    this.createBackButton();
     this.createSettingButton();
   }
 }

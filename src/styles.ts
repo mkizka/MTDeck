@@ -129,8 +129,11 @@ body.mtdeck button.js-hide-drawer {
 .mtdeck-config-button {
   color: blueviolet !important;
 }
+.mtdeck-config-title {
+  margin-bottom: 20px !important;
+}
 .mtdeck-config-back {
-  margin-bottom: 20px;
+  margin-top: 20px !important;
 }
 `;
 
