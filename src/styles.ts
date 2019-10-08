@@ -87,6 +87,9 @@ body.mtdeck .hide-detail-view-inline .js-int-scroller {
 body.mtdeck .column-nav-item {
   display: inline-block;
 }
+body.mtdeck .column-content, body.mtdeck .tweet-detail-reply {
+  padding-bottom: 50px;
+}
 
 /* サイドバーの開閉 */
 body.mtdeck-close header.app-header {
