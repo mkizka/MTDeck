@@ -7,7 +7,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode production && web-ext build -s dist -o",
+    "build": "webpack --mode production && web-ext build -s dist -o && web-ext lint -s dist",
     "dev:pack": "webpack --mode development --watch",
     "dev:ext": "web-ext run -s dist -u tweetdeck.twitter.com -p default",
     "dev": "concurrently --kill-others \"yarn dev:ext\" \"yarn dev:pack\""
