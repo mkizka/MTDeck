@@ -87,7 +87,8 @@ body.mtdeck .hide-detail-view-inline .js-int-scroller {
 body.mtdeck .column-nav-item {
   display: inline-block;
 }
-body.mtdeck .column-content, body.mtdeck .tweet-detail-reply {
+body.mtdeck section.column .column-content,
+body.mtdeck section.column .tweet-detail-reply {
   padding-bottom: 50px;
 }
 
