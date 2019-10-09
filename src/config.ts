@@ -1,9 +1,16 @@
-export interface ConfigItem {
+interface ConfigItem {
   label: string
   type: 'checkbox' | 'number'
   name: string
   default: string
 }
+
+const safeHtml = (html: string): Element => {
+  const parser = new DOMParser();
+  const parsed = parser.parseFromString(html, `text/html`);
+  const body = parsed.querySelector('body');
+  return body.firstElementChild;
+};
 
 export class Config {
   private $el: HTMLDivElement;
@@ -74,10 +81,10 @@ export class Config {
       } else {
         $inputEl.defaultValue = localStorage.getItem(item.name) || '';
       }
-      this.$el.insertAdjacentHTML('beforeend', `
+      this.$el.insertAdjacentElement('beforeend', safeHtml(`
         <p>${item.label}</p>
         <div class="mtdeck-config-item">${$inputEl.outerHTML}</div>
-      `);
+      `));
     });
   }
 
@@ -88,7 +95,7 @@ export class Config {
     $copiedSettingsButton.dataset.title = 'MTDeck Config';
     $copiedSettingsButton.classList.add('mtdeck-config-button');
     $copiedSettingsButton.querySelector('.app-nav-link-text').insertAdjacentText('afterbegin', 'MTD');
-    $settingsButton.parentElement.insertAdjacentHTML('afterbegin', $copiedSettingsButton.outerHTML);
+    $settingsButton.parentElement.insertAdjacentElement('afterbegin', safeHtml($copiedSettingsButton.outerHTML));
     $settingsButton.parentElement.firstChild.addEventListener('click', e => this.open());
   }
 
@@ -96,9 +103,9 @@ export class Config {
     this.saveDefault();
     this.$el = document.createElement('div');
     this.$el.classList.add('mtdeck-config');
-    this.$el.insertAdjacentHTML('afterbegin', `
+    this.$el.insertAdjacentElement('afterbegin', safeHtml(`
       <h1 class="mtdeck-config-title">MTDeck 設定メニュー(仮)</h1>
-    `);
+    `));
     document.body.appendChild(this.$el);
     this.createForm();
     this.createBackButton();
