@@ -12,7 +12,7 @@
       "run_at": "document_start"
     }
   ],
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "TweetDeckをスマホアプリのように使えるようにする",
   "developer": {
     "name": "Compeito",

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        MTDeck
-// @version     1.2.0
+// @version     1.2.1
 // @author      Compeito
 // @description TweetDeckをスマホアプリのように使えるようにする
 // @homepage    https://github.com/Compeito/mtdeck
