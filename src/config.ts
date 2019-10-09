@@ -63,27 +63,31 @@ export class Config {
   }
 
   private createBackButton() {
-    const $backButton = document.createElement('button');
-    $backButton.innerText = '戻る';
-    $backButton.classList.add('mtdeck-config-back');
+    const $backButton = safeHtml(`
+      <button class="mtdeck-config-back">保存</button>
+    `) as HTMLButtonElement;
+
     $backButton.addEventListener('click', e => this.close());
     this.$el.insertAdjacentElement('beforeend', $backButton);
   }
 
   private createForm() {
     this.items.forEach(item => {
-      const $inputEl = document.createElement('input');
-      $inputEl.classList.add('mtdeck-config-input');
-      $inputEl.type = item.type;
-      $inputEl.name = item.name;
+      const inputElement = safeHtml(`
+        <input class="mtdeck-config-input" type="${item.type}" name="${item.name}"/>
+      `) as HTMLInputElement;
+
       if (item.type === 'checkbox') {
-        $inputEl.defaultChecked = localStorage.getItem(item.name) === 'true';
+        inputElement.defaultChecked = this.getBoolean(item.name);
       } else {
-        $inputEl.defaultValue = localStorage.getItem(item.name) || '';
+        inputElement.defaultValue = this.getString(item.name);
       }
+
       this.$el.insertAdjacentElement('beforeend', safeHtml(`
-        <p>${item.label}</p>
-        <div class="mtdeck-config-item">${$inputEl.outerHTML}</div>
+        <div class="mtdeck-config-item">
+          <p>${item.label}</p>
+          ${inputElement.outerHTML}  
+        </div>
       `));
     });
   }
@@ -99,14 +103,18 @@ export class Config {
     $settingsButton.parentElement.firstChild.addEventListener('click', e => this.open());
   }
 
+  private createConfigBase() {
+    this.$el = safeHtml(`
+      <div class="mtdeck-config">
+        <h1 class="mtdeck-config-title">MTDeck 設定メニュー(仮)</h1>
+      </div>
+    `) as HTMLDivElement;
+    document.body.appendChild(this.$el);
+  }
+
   public init() {
     this.saveDefault();
-    this.$el = document.createElement('div');
-    this.$el.classList.add('mtdeck-config');
-    this.$el.insertAdjacentElement('afterbegin', safeHtml(`
-      <h1 class="mtdeck-config-title">MTDeck 設定メニュー(仮)</h1>
-    `));
-    document.body.appendChild(this.$el);
+    this.createConfigBase();
     this.createForm();
     this.createBackButton();
     this.createSettingButton();
