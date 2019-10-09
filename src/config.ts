@@ -117,6 +117,6 @@ export class Config {
     this.createConfigBase();
     this.createForm();
     this.createBackButton();
-    this.createSettingButton();
+    // this.createSettingButton();
   }
 }
