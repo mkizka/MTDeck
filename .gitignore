@@ -2,3 +2,5 @@
 node_modules
 *.log
 web-ext-artifacts
+dist/manifest.json
+dist/icons/*

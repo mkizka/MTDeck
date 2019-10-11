@@ -36,6 +36,10 @@ module.exports = {
           }
           return JSON.stringify(manifest, null, 2)
         }
+      },
+      {
+        from: './src/icons',
+        to: 'icons'
       }
     ])
   ],
