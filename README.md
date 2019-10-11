@@ -7,10 +7,9 @@ TweetDeckをスマホアプリのように使えるようにするUserScript
 <img src="https://i.imgur.com/aFG6fBr.png" width="300">
 
 ## 使い方
-### Android(KiwiBrowser + Tempermonkey)
+### Android
 1. [KiwiBrowser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser)をインストール
-2. Kiwiに[Tempermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)アドオンを追加
-3. [mtdeck.user.js](https://github.com/Compeito/mtdeck/raw/master/dist/mtdeck.user.js)をTempermonkeyに追加
+2. Kiwiに[MTDeck](https://chrome.google.com/webstore/detail/mtdeck/ednjoleioepmccklimdkcbbchlcjhpij)アドオンを追加
 4. [TweetDeck](https://tweetdeck.twitter.com)を開く
 5. メニューの「ホームに追加」からアプリ化
 
