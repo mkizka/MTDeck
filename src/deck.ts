@@ -106,8 +106,10 @@ export class Deck {
       });
     }
     if (this.hasModal) {
-      const $dismissButton: HTMLAnchorElement = document.querySelector('.js-dismiss');
-      $dismissButton.click();
+      const $dismissButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.js-dismiss');
+      $dismissButtons.forEach($button => {
+        $button.click();
+      });
     }
     if (this.hasDrawerOpen) {
       const $drawerCloseButton: HTMLAnchorElement = document.querySelector('.js-drawer-close');
