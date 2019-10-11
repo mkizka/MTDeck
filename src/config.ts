@@ -15,7 +15,7 @@ const safeHtml = (html: string): Element => {
 export class Config {
   private $el: HTMLDivElement;
   private items: ConfigItem[] = [
-    {label: '左右スワイプ時にアニメーションするかどうか', name: 'mtdColumnAnimation', type: 'checkbox', default: 'true'},
+    {label: '起動直後に開いている通知などを閉じる', name: 'mtdEnforceBackAtMounted', type: 'checkbox', default: 'true'},
   ];
 
   public getString(key: string): string {
@@ -106,7 +106,7 @@ export class Config {
   private createConfigBase() {
     this.$el = safeHtml(`
       <div class="mtdeck-config">
-        <h1 class="mtdeck-config-title">MTDeck 設定メニュー(仮)</h1>
+        <h1 class="mtdeck-config-title">MTDeck 設定メニュー</h1>
       </div>
     `) as HTMLDivElement;
     document.body.appendChild(this.$el);
@@ -117,6 +117,6 @@ export class Config {
     this.createConfigBase();
     this.createForm();
     this.createBackButton();
-    // this.createSettingButton();
+    this.createSettingButton();
   }
 }

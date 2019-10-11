@@ -10,7 +10,7 @@ export class Deck {
 
   private get scrollOpt(): ScrollIntoViewOptions {
     return {
-      behavior: this.config.getBoolean('mtdColumnAnimation') ? 'smooth' : 'auto',
+      behavior: 'smooth',
       block: 'center',
       inline: 'nearest',
     };
@@ -21,8 +21,8 @@ export class Deck {
       this.$drawerOpenButton = document.querySelector('button[data-drawer=compose]');
       if (this.$drawerOpenButton) {
         insertStyle(styles);
-        this.init();
         this.config.init();
+        this.init();
         clearInterval(initInterval);
       }
     }, 100);
@@ -52,6 +52,9 @@ export class Deck {
     document.body.classList.add('mtdeck');
     document.body.classList.add('mtdeck-close');
 
+    if (this.config.getBoolean('mtdEnforceBackAtMounted')) {
+      this.back();
+    }
     this.update();
 
     const $appContainer = document.querySelector('div.app-columns-container');
