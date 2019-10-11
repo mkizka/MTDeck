@@ -68,7 +68,8 @@ body.mtdeck .js-int-scroller {
   background-color: #1c2938;
   overflow-x: auto;
   white-space: nowrap;
-  padding-top: 10px
+  padding-top: 10px;
+  height: 40px;
 }
 body.mtdeck .js-int-scroller .column-nav-item {
   height: 35px;
@@ -77,7 +78,6 @@ body.mtdeck .js-int-scroller .column-nav-item .icon-medium {
   font-size: 20px;
 }
 body.mtdeck .js-int-scroller .column-nav-item .js-header-action {
-  height: 35px;
   padding-left: 12px !important;
   padding-right: 12px !important;
 }
