@@ -3,7 +3,7 @@
   "description": "TweetDeckをスマホアプリのように使えるようにする",
   "author": "Compeito",
   "homepage": "https://github.com/Compeito/mtdeck",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
