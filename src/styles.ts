@@ -81,7 +81,8 @@ body.mtdeck .js-int-scroller .column-nav-item .js-header-action {
   padding-left: 12px !important;
   padding-right: 12px !important;
 }
-body.mtdeck .hide-detail-view-inline .js-int-scroller {
+body.mtdeck .hide-detail-view-inline .js-int-scroller,
+body.mtdeck .with-nav-border-t:before {
   display: none;
 }
 body.mtdeck .column-nav-item {
