@@ -88,8 +88,8 @@ body.mtdeck .with-nav-border-t:before {
 body.mtdeck .column-nav-item {
   display: inline-block;
 }
-body.mtdeck .app-content {
-  bottom: 50px;
+body.mtdeck .app-columns {
+  padding-bottom: 50px;
 }
 
 /* サイドバーの開閉 */
