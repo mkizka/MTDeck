@@ -1,16 +1,11 @@
+import { safeHtml } from './styles';
+
 interface ConfigItem {
   label: string
   type: 'checkbox' | 'number'
   name: string
   default: string
 }
-
-const safeHtml = (html: string): Element => {
-  const parser = new DOMParser();
-  const parsed = parser.parseFromString(html, `text/html`);
-  const body = parsed.querySelector('body');
-  return body.firstElementChild;
-};
 
 export class Config {
   private $el: HTMLDivElement;

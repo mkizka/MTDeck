@@ -145,3 +145,10 @@ export const insertStyle = (css: string) => {
   styleSheet.appendChild(document.createTextNode(css));
   document.head.appendChild(styleSheet);
 };
+
+export const safeHtml = (html: string): Element => {
+  const parser = new DOMParser();
+  const parsed = parser.parseFromString(html, `text/html`);
+  const body = parsed.querySelector('body');
+  return body.firstElementChild;
+};
