@@ -85,19 +85,30 @@ export class Deck {
     });
   }
 
-  private get hasDetail() {
-    return document.querySelectorAll('.js-column-state-detail-view').length > 0;
+  private get hasDetail(): boolean {
+    return document.querySelectorAll('#container .js-column-state-detail-view').length > 0;
+  }
+
+  private get hasModalDetail(): boolean {
+    return document.querySelectorAll('#open-modal .js-column-state-detail-view').length > 0;
   }
 
   private closeDetail() {
-    const $backButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.js-column-back');
+    const $backButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('#container .js-column-back');
     $backButtons.forEach(($button) => {
       $button.click();
     });
   }
 
-  private get hasModal() {
-    return document.querySelectorAll('.js-dismiss').length > 0;
+  private closeModalDetail() {
+    const $backButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('#open-modal .js-column-back');
+    $backButtons.forEach(($button) => {
+      $button.click();
+    });
+  }
+
+  private get hasModal(): boolean {
+    return document.querySelectorAll('header .js-dismiss').length > 0;
   }
 
   private closeModal() {
@@ -119,12 +130,18 @@ export class Deck {
     if (this.hasMenuOpen) this.closeMenu();
     if (this.config.isOpen()) this.config.close();
 
-    if (this.hasDetail) {
+    if (this.hasDetail && this.hasModal && this.hasModalDetail) {
+      this.closeModalDetail();
+    } else if (this.hasDetail && this.hasModal) {
+      this.closeModal();
+    } else if (this.hasModal && this.hasModalDetail) {
+      this.closeModalDetail();
+    } else if (this.hasDetail) {
       this.closeDetail();
-    }
-    if (this.hasModal) {
+    } else {
       this.closeModal();
     }
+
     if (this.hasDrawerOpen) {
       const $drawerCloseButton: HTMLAnchorElement = document.querySelector('.js-drawer-close');
       $drawerCloseButton.click();
