@@ -89,8 +89,22 @@ export class Deck {
     return document.querySelectorAll('.js-column-state-detail-view').length > 0;
   }
 
+  private closeDetail() {
+    const $backButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.js-column-back');
+    $backButtons.forEach(($button) => {
+      $button.click();
+    });
+  }
+
   private get hasModal() {
     return document.querySelectorAll('.js-dismiss').length > 0;
+  }
+
+  private closeModal() {
+    const $dismissButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.js-dismiss');
+    $dismissButtons.forEach($button => {
+      $button.click();
+    });
   }
 
   private get hasDrawerOpen() {
@@ -102,17 +116,14 @@ export class Deck {
   }
 
   private back() {
+    if (this.hasMenuOpen) this.closeMenu();
+    if (this.config.isOpen()) this.config.close();
+
     if (this.hasDetail) {
-      const $backButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.js-column-back');
-      $backButtons.forEach(($button) => {
-        $button.click();
-      });
+      this.closeDetail();
     }
     if (this.hasModal) {
-      const $dismissButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.js-dismiss');
-      $dismissButtons.forEach($button => {
-        $button.click();
-      });
+      this.closeModal();
     }
     if (this.hasDrawerOpen) {
       const $drawerCloseButton: HTMLAnchorElement = document.querySelector('.js-drawer-close');
@@ -124,8 +135,7 @@ export class Deck {
         $button.click();
       });
     }
-    if (this.hasMenuOpen) this.closeMenu();
-    if (this.config.isOpen()) this.config.close();
+
     history.pushState(null, null, null);
   }
 
