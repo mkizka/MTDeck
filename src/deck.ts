@@ -107,6 +107,10 @@ export class Deck {
   }
 
   private get hasModal(): boolean {
+    return document.querySelectorAll('.js-dismiss').length > 0;
+  }
+
+  private get hasHeaderedModal(): boolean {
     return document.querySelectorAll('header .js-dismiss').length > 0;
   }
 
@@ -123,10 +127,13 @@ export class Deck {
   }
 
   private back() {
-    if (this.hasMenuOpen) this.closeMenu();
-    if (this.config.isOpen()) this.config.close();
-
-    if (this.hasDetail && this.hasModal && this.hasModalDetail) {
+    if (this.hasDrawerOpen) {
+      clickAll('.js-drawer-close');
+    } else if (this.config.isOpen()) {
+      this.config.close();
+    } else if (this.hasMenuOpen) {
+      this.closeMenu();
+    } else if (this.hasDetail && this.hasHeaderedModal && this.hasModalDetail) {
       this.closeModalDetail();
     } else if (this.hasDetail && this.hasModal) {
       this.closeModal();
@@ -134,14 +141,9 @@ export class Deck {
       this.closeModalDetail();
     } else if (this.hasDetail) {
       this.closeDetail();
-    } else {
+    } else if (this.hasModal) {
       this.closeModal();
-    }
-
-    if (this.hasDrawerOpen) {
-      clickAll('.js-drawer-close');
-    }
-    if (this.hasOptionsOpen) {
+    } else if (this.hasOptionsOpen) {
       clickAll('.is-options-open .js-action-header-button');
     }
     history.pushState(null, null, null);
