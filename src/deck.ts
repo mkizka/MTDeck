@@ -131,8 +131,6 @@ export class Deck {
       clickAll('.js-drawer-close');
     } else if (this.config.isOpen()) {
       this.config.close();
-    } else if (this.hasMenuOpen) {
-      this.closeMenu();
     } else if (this.hasDetail && this.hasHeaderedModal && this.hasModalDetail) {
       this.closeModalDetail();
     } else if (this.hasDetail && this.hasModal) {
@@ -143,6 +141,8 @@ export class Deck {
       this.closeDetail();
     } else if (this.hasModal) {
       this.closeModal();
+    } else if (this.hasMenuOpen) {
+      this.closeMenu();
     } else if (this.hasOptionsOpen) {
       clickAll('.is-options-open .js-action-header-button');
     }
