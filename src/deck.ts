@@ -2,6 +2,11 @@ import Hammer from 'hammerjs';
 import { styles, insertStyle } from './styles';
 import { Config } from './config';
 
+const clickAll = (query: string) => {
+  const $buttons: NodeListOf<HTMLElement> = document.querySelectorAll(query);
+  $buttons.forEach(($button) => $button.click());
+};
+
 export class Deck {
   private config: Config = new Config();
   private columnIndex: number = 0;
@@ -89,22 +94,16 @@ export class Deck {
     return document.querySelectorAll('#container .js-column-state-detail-view').length > 0;
   }
 
+  private closeDetail() {
+    clickAll('#container .js-column-back');
+  }
+
   private get hasModalDetail(): boolean {
     return document.querySelectorAll('#open-modal .js-column-state-detail-view').length > 0;
   }
 
-  private closeDetail() {
-    const $backButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('#container .js-column-back');
-    $backButtons.forEach(($button) => {
-      $button.click();
-    });
-  }
-
   private closeModalDetail() {
-    const $backButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('#open-modal .js-column-back');
-    $backButtons.forEach(($button) => {
-      $button.click();
-    });
+    clickAll('#open-modal .js-column-back');
   }
 
   private get hasModal(): boolean {
@@ -112,10 +111,7 @@ export class Deck {
   }
 
   private closeModal() {
-    const $dismissButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.js-dismiss');
-    $dismissButtons.forEach($button => {
-      $button.click();
-    });
+    clickAll('.js-dismiss');
   }
 
   private get hasDrawerOpen() {
@@ -143,16 +139,11 @@ export class Deck {
     }
 
     if (this.hasDrawerOpen) {
-      const $drawerCloseButton: HTMLAnchorElement = document.querySelector('.js-drawer-close');
-      $drawerCloseButton.click();
+      clickAll('.js-drawer-close');
     }
     if (this.hasOptionsOpen) {
-      const $optionToggleButtons: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('.is-options-open .js-action-header-button');
-      $optionToggleButtons.forEach($button => {
-        $button.click();
-      });
+      clickAll('.is-options-open .js-action-header-button');
     }
-
     history.pushState(null, null, null);
   }
 
