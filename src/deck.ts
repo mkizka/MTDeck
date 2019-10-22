@@ -58,7 +58,7 @@ export class Deck {
     document.body.classList.add('mtdeck-close');
 
     if (this.config.getBoolean('mtdEnforceBackAtMounted')) {
-      this.back();
+      clickAll('.js-dismiss');
     }
     this.update();
 
@@ -107,7 +107,7 @@ export class Deck {
   }
 
   private get hasModal(): boolean {
-    return document.querySelectorAll('.js-dismiss').length > 0;
+    return document.querySelectorAll('.mdl .js-dismiss').length > 0;
   }
 
   private get hasHeaderedModal(): boolean {
