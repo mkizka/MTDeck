@@ -3,49 +3,67 @@ export const clickAll = (query: string) => {
   $buttons.forEach(($button) => $button.click());
 };
 
-interface Backable {
+class Backable {
   activeQuery: string;
   clickQuery: string;
+
+  get exists(): boolean {
+    return document.querySelectorAll(this.activeQuery).length > 0;
+  }
+
+  back(): void {
+    clickAll(this.clickQuery);
+  }
+}
+
+class TweetDrawer extends Backable {
+  activeQuery = '.app-content.is-open';
+  clickQuery = '.js-drawer-close';
+}
+
+class ModalDetail extends Backable {
+  activeQuery = '#open-modal .js-column-state-detail-view';
+  clickQuery = '#open-modal .js-column-back';
+}
+
+class Modal extends Backable {
+  activeQuery = '.mdl .js-dismiss';
+  clickQuery = '.mdl .js-dismiss';
+}
+
+class ColumnDetail extends Backable {
+  activeQuery = '#container .js-column-state-detail-view';
+  clickQuery = '#container .js-column-back';
+}
+
+class ColumnOption extends Backable {
+  activeQuery = '.is-options-open';
+  clickQuery = '.is-options-open .js-action-header-button';
 }
 
 export class BackController {
   private backables: Array<Backable> = [
-    {
-      activeQuery: '.app-content.is-open',
-      clickQuery: '.js-drawer-close',
-    }, // ツイートドロワー
-    {
-      activeQuery: '#open-modal .js-column-state-detail-view',
-      clickQuery: '#open-modal .js-column-back',
-    }, // モーダル上の詳細ビュー
-    {
-      activeQuery: '.mdl .js-dismiss',
-      clickQuery: '.mdl .js-dismiss',
-    }, // モーダル
-    {
-      activeQuery: '#container .js-column-state-detail-view',
-      clickQuery: '#container .js-column-back',
-    }, // 詳細ビュー
-    {
-      activeQuery: '.is-options-open',
-      clickQuery: '.is-options-open .js-action-header-button',
-    }, // カラムオプション
+    new TweetDrawer(),
+    new ModalDetail(),
+    new Modal,
+    new ColumnDetail(),
+    new ColumnOption()
   ];
   private queue: Array<Backable> = [];
 
-  updateQueue() {
+  updateQueue(): void {
     this.queue = [];
     for (let backable of this.backables) {
-      if (document.querySelectorAll(backable.activeQuery).length > 0) {
+      if (backable.exists) {
         this.queue.push(backable);
       }
     }
   }
 
-  back() {
+  back(): void {
     this.updateQueue();
     if (this.queue.length > 0) {
-      clickAll(this.queue[0].clickQuery);
+      this.queue[0].back();
     }
   }
 }
