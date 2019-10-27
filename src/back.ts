@@ -1,3 +1,5 @@
+import { Menu } from './menu';
+
 export const clickAll = (query: string) => {
   const $buttons: NodeListOf<HTMLElement> = document.querySelectorAll(query);
   $buttons.forEach(($button) => $button.click());
@@ -41,13 +43,24 @@ class ColumnOption extends Backable {
   clickQuery = '.is-options-open .js-action-header-button';
 }
 
+class SideMenu extends Backable {
+  get exists(): boolean {
+    return Menu.isOpen;
+  }
+
+  back(): void {
+    Menu.close();
+  }
+}
+
 export class BackController {
   private backables: Array<Backable> = [
     new TweetDrawer(),
     new ModalDetail(),
     new Modal,
     new ColumnDetail(),
-    new ColumnOption()
+    new ColumnOption(),
+    new SideMenu(),
   ];
   private queue: Array<Backable> = [];
 
