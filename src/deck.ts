@@ -2,6 +2,7 @@ import Hammer from 'hammerjs';
 import { styles, insertStyle } from './styles';
 import { BackController, clickAll } from './back';
 import { Config } from './config';
+import { Menu } from './menu';
 
 export class Deck {
   private config: Config = new Config();
@@ -68,7 +69,7 @@ export class Deck {
 
     touchManager.on('tap', e => {
       this.update();
-      this.closeMenu();
+      Menu.close();
     });
 
     touchManager.on('swipe', e => {
@@ -83,7 +84,7 @@ export class Deck {
     window.addEventListener('popstate', e => this.back());
 
     this.$drawerOpenButton.addEventListener('click', e => {
-      this.closeMenu();
+      Menu.close();
     });
   }
 
@@ -98,7 +99,7 @@ export class Deck {
 
   private pushColumn() {
     this.update();
-    this.closeMenu();
+    Menu.close();
     if (this.columnIndex < this.$columns.length - 1) {
       this.columnIndex++;
       this.$columns[this.columnIndex].scrollIntoView(this.scrollOpt);
@@ -107,28 +108,12 @@ export class Deck {
 
   private backColumn() {
     this.update();
-    this.closeMenu();
+    Menu.close();
     if (this.columnIndex == 0) {
-      this.openMenu();
+      Menu.open();
     } else {
       this.columnIndex--;
       this.$columns[this.columnIndex].scrollIntoView(this.scrollOpt);
-    }
-  }
-
-  private get hasMenuOpen(): boolean {
-    return !document.body.classList.contains('mtdeck-close');
-  }
-
-  private openMenu(): void {
-    if (!this.hasMenuOpen) {
-      document.body.classList.remove('mtdeck-close');
-    }
-  }
-
-  private closeMenu(): void {
-    if (this.hasMenuOpen) {
-      document.body.classList.add('mtdeck-close');
     }
   }
 }
