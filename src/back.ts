@@ -23,6 +23,11 @@ class TweetDrawer extends Backable {
   clickQuery = '.js-drawer-close';
 }
 
+class ModalSocial extends Backable {
+  activeQuery = '#open-modal .js-column-state-social-proof';
+  clickQuery = '#open-modal .js-tweet-social-proof-back';
+}
+
 class ModalDetail extends Backable {
   activeQuery = '#open-modal .js-column-state-detail-view';
   clickQuery = '#open-modal .js-column-back';
@@ -31,6 +36,11 @@ class ModalDetail extends Backable {
 class Modal extends Backable {
   activeQuery = '.mdl .js-dismiss';
   clickQuery = '.mdl .js-dismiss';
+}
+
+class ColumnSocial extends Backable {
+  activeQuery = '#container .js-column-state-social-proof';
+  clickQuery = '#container .js-tweet-social-proof-back';
 }
 
 class ColumnDetail extends Backable {
@@ -56,8 +66,10 @@ class SideMenu extends Backable {
 export class BackController {
   private backables: Array<Backable> = [
     new TweetDrawer(),
+    new ModalSocial(),
     new ModalDetail(),
     new Modal,
+    new ColumnSocial(),
     new ColumnDetail(),
     new ColumnOption(),
     new SideMenu(),
