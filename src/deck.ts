@@ -1,14 +1,11 @@
 import Hammer from 'hammerjs';
 import { styles, insertStyle } from './styles';
+import { BackController, clickAll } from './back';
 import { Config } from './config';
-
-const clickAll = (query: string) => {
-  const $buttons: NodeListOf<HTMLElement> = document.querySelectorAll(query);
-  $buttons.forEach(($button) => $button.click());
-};
 
 export class Deck {
   private config: Config = new Config();
+  private backController: BackController = new BackController();
   private columnIndex: number = 0;
   private $columns: Element[] = [];
   private $drawerOpenButton: undefined | Element;
@@ -90,61 +87,11 @@ export class Deck {
     });
   }
 
-  private get hasDetail(): boolean {
-    return document.querySelectorAll('#container .js-column-state-detail-view').length > 0;
-  }
-
-  private closeDetail() {
-    clickAll('#container .js-column-back');
-  }
-
-  private get hasModalDetail(): boolean {
-    return document.querySelectorAll('#open-modal .js-column-state-detail-view').length > 0;
-  }
-
-  private closeModalDetail() {
-    clickAll('#open-modal .js-column-back');
-  }
-
-  private get hasModal(): boolean {
-    return document.querySelectorAll('.mdl .js-dismiss').length > 0;
-  }
-
-  private get hasHeaderedModal(): boolean {
-    return document.querySelectorAll('header .js-dismiss').length > 0;
-  }
-
-  private closeModal() {
-    clickAll('.js-dismiss');
-  }
-
-  private get hasDrawerOpen() {
-    return document.querySelectorAll('.app-content.is-open').length > 0;
-  }
-
-  private get hasOptionsOpen() {
-    return document.querySelectorAll('.is-options-open').length > 0;
-  }
-
   private back() {
-    if (this.hasDrawerOpen) {
-      clickAll('.js-drawer-close');
-    } else if (this.config.isOpen()) {
+    if (this.config.isOpen()) {
       this.config.close();
-    } else if (this.hasDetail && this.hasHeaderedModal && this.hasModalDetail) {
-      this.closeModalDetail();
-    } else if (this.hasDetail && this.hasModal) {
-      this.closeModal();
-    } else if (this.hasModal && this.hasModalDetail) {
-      this.closeModalDetail();
-    } else if (this.hasDetail) {
-      this.closeDetail();
-    } else if (this.hasModal) {
-      this.closeModal();
-    } else if (this.hasMenuOpen) {
-      this.closeMenu();
-    } else if (this.hasOptionsOpen) {
-      clickAll('.is-options-open .js-action-header-button');
+    } else {
+      this.backController.back();
     }
     history.pushState(null, null, null);
   }
