@@ -44,10 +44,13 @@ export class Deck {
 
   private init(): void {
     document.body.classList.add('mtdeck');
-    document.body.classList.add('mtdeck-close');
+    Menu.close();
 
-    if (this.config.getBoolean('mtdEnforceBackAtMounted')) {
+    if (this.config.getBoolean('mtdBackAtMounted')) {
       clickAll('.js-dismiss');
+    }
+    if (this.config.getBoolean('mtdNoAnimation')) {
+      document.body.classList.add('mtdeck-no-animation');
     }
     this.update();
 
