@@ -1,7 +1,8 @@
 import Hammer from 'hammerjs';
-import { BackController, clickAll } from './back';
+import { BackController } from './back';
 import { Config } from './config';
 import { Menu } from './menu';
+import { clickAll } from './utils';
 
 export class Deck {
   private config: Config = new Config();

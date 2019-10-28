@@ -1,9 +1,5 @@
 import { Menu } from './menu';
-
-export const clickAll = (query: string) => {
-  const $buttons: NodeListOf<HTMLElement> = document.querySelectorAll(query);
-  $buttons.forEach(($button) => $button.click());
-};
+import { clickAll } from './utils';
 
 class Backable {
   activeQuery: string;
