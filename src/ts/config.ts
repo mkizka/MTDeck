@@ -58,9 +58,25 @@ export class Config {
     }
   }
 
+  private createSaveButton() {
+    const $backButton = safeHtml(`
+      <div class="mtdeck-config-item">
+        <button class="">保存して再読み込み</button>
+      </div>
+    `) as HTMLButtonElement;
+
+    $backButton.addEventListener('click', e => {
+      this.save();
+      location.reload();
+    });
+    this.$el.insertAdjacentElement('beforeend', $backButton);
+  }
+
   private createBackButton() {
     const $backButton = safeHtml(`
-      <button class="mtdeck-config-back">保存</button>
+      <div class="mtdeck-config-item">
+        <button class="">保存せずに戻る</button>
+      </div>
     `) as HTMLButtonElement;
 
     $backButton.addEventListener('click', e => this.close());
@@ -81,8 +97,8 @@ export class Config {
 
       this.$el.insertAdjacentElement('beforeend', safeHtml(`
         <div class="mtdeck-config-item">
-          <p>${item.label}</p>
           ${inputElement.outerHTML}  
+          <span>${item.label}</span>
         </div>
       `));
     });
@@ -102,7 +118,7 @@ export class Config {
   private createConfigBase() {
     this.$el = safeHtml(`
       <div class="mtdeck-config">
-        <h1 class="mtdeck-config-title">MTDeck 設定メニュー</h1>
+        <h1 class="mtdeck-config-item">MTDeck 設定メニュー</h1>
       </div>
     `) as HTMLDivElement;
     document.body.appendChild(this.$el);
@@ -112,6 +128,7 @@ export class Config {
     this.saveDefault();
     this.createConfigBase();
     this.createForm();
+    this.createSaveButton();
     this.createBackButton();
     this.createSettingButton();
   }
