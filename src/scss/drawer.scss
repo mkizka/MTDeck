@@ -1,0 +1,15 @@
+body.mtdeck {
+  .app-content.is-open {
+    margin-right: 0 !important;
+    transform: translateX(100%) !important;
+  }
+
+  .drawer[data-drawer=compose] {
+    left: -100%;
+    width: 100%;
+  }
+
+  button.js-hide-drawer {
+    display: none !important;
+  }
+}

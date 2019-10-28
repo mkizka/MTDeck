@@ -1,0 +1,25 @@
+.mtdeck-config {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 201;
+  background-color: #1c2938;
+  padding: 20px;
+
+  &.is-open {
+    display: block;
+  }
+
+  &-button {
+    color: blueviolet !important;
+  }
+
+  &-title {
+    margin-bottom: 20px !important;
+  }
+
+  &-back {
+    margin-top: 20px !important;
+  }
+}

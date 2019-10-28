@@ -1,0 +1,77 @@
+body.mtdeck {
+  button[data-drawer=compose] {
+    z-index: 1;
+    position: fixed !important;
+    right: 20px;
+    bottom: 50px;
+    width: 4rem !important;
+    height: 4rem !important;
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7));
+  }
+
+  div {
+    &.app-content {
+      left: 0 !important;
+    }
+
+    &.app-columns-container {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
+
+  section.column, .js-modal-panel, .prf-header, .prf-header-inner-overlay, .social-proof-container {
+    width: 100% !important;
+  }
+
+  .mdl {
+    width: 100% !important;
+    overflow-x: hidden !important;
+
+    section.column-temp {
+      width: 100% !important;
+      overflow-x: hidden !important;
+    }
+  }
+
+  .mdl-content {
+    overflow: scroll !important;
+  }
+
+  .med-tweet {
+    width: 100% !important;
+    left: 0 !important;
+  }
+
+  .mdl .mdl-dismiss {
+    right: 10px !important;
+  }
+
+  .js-modal-context:before {
+    height: 0 !important;
+  }
+
+  .old-composer-footer, .column-nav-flyout {
+    display: none;
+  }
+
+  .js-search-in-popover .popover {
+    width: 200px !important;
+  }
+
+  .js-mediaembed {
+    .js-media-native-video, .youtube-player {
+      width: 100% !important;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto !important;
+      z-index: 1;
+    }
+  }
+
+  .column-navigator {
+    top: 50px;
+  }
+}
