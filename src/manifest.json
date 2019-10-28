@@ -14,7 +14,7 @@
       "matches": [
         "https://tweetdeck.twitter.com/*"
       ],
-      "run_at": "document_start"
+      "run_at": "document_end"
     }
   ]
 }
