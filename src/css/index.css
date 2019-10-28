@@ -1,4 +1,3 @@
-export const styles = `
 /* mtdeckに影響を受ける要素 */
 body.mtdeck button[data-drawer=compose] {
   z-index: 1;
@@ -98,7 +97,7 @@ body.mtdeck-close header.app-header {
   top: -50px
 }
 body.mtdeck-close div.app-columns-container {
-  left: 0px !important;
+  left: 0 !important;
 }
 
 /* ツイートドロワーの開閉 */
@@ -136,19 +135,3 @@ body.mtdeck button.js-hide-drawer {
 .mtdeck-config-back {
   margin-top: 20px !important;
 }
-`;
-
-export const insertStyle = (css: string) => {
-  document.querySelectorAll('#mtdeck-stylesheet').forEach($oldStyle => $oldStyle.remove());
-  const styleSheet = document.createElement('style');
-  styleSheet.id = 'mtdeck-stylesheet';
-  styleSheet.appendChild(document.createTextNode(css));
-  document.head.appendChild(styleSheet);
-};
-
-export const safeHtml = (html: string): Element => {
-  const parser = new DOMParser();
-  const parsed = parser.parseFromString(html, `text/html`);
-  const body = parsed.querySelector('body');
-  return body.firstElementChild;
-};

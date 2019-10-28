@@ -46,10 +46,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.(ts|tsx)?$/,
+        test: /\.ts$/,
         loader: 'ts-loader',
         include: [path.resolve(__dirname, 'src')],
         exclude: [/node_modules/]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ]
       }
     ]
   },

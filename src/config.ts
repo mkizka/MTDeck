@@ -1,4 +1,4 @@
-import { safeHtml } from './styles';
+import { safeHtml } from './utils';
 
 interface ConfigItem {
   label: string

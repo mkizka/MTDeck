@@ -1,5 +1,4 @@
 import Hammer from 'hammerjs';
-import { styles, insertStyle } from './styles';
 import { BackController, clickAll } from './back';
 import { Config } from './config';
 import { Menu } from './menu';
@@ -23,7 +22,6 @@ export class Deck {
     const initInterval = setInterval(() => {
       this.$drawerOpenButton = document.querySelector('button[data-drawer=compose]');
       if (this.$drawerOpenButton) {
-        insertStyle(styles);
         this.config.init();
         this.init();
         clearInterval(initInterval);
