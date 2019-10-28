@@ -11,14 +11,6 @@ export class Deck {
   private $columns: Element[] = [];
   private $drawerOpenButton: undefined | Element;
 
-  private get scrollOpt(): ScrollIntoViewOptions {
-    return {
-      behavior: 'smooth',
-      block: 'center',
-      inline: 'nearest',
-    };
-  }
-
   public ready(): void {
     const initInterval = setInterval(() => {
       this.$drawerOpenButton = document.querySelector('button[data-drawer=compose]');
@@ -101,7 +93,7 @@ export class Deck {
     Menu.close();
     if (this.columnIndex < this.$columns.length - 1) {
       this.columnIndex++;
-      this.$columns[this.columnIndex].scrollIntoView(this.scrollOpt);
+      this.$columns[this.columnIndex].scrollIntoView(scrollOpt);
     }
   }
 
@@ -112,7 +104,13 @@ export class Deck {
       Menu.open();
     } else {
       this.columnIndex--;
-      this.$columns[this.columnIndex].scrollIntoView(this.scrollOpt);
+      this.$columns[this.columnIndex].scrollIntoView(scrollOpt);
     }
   }
 }
+
+const scrollOpt: ScrollIntoViewOptions = {
+  behavior: 'smooth',
+  block: 'center',
+  inline: 'nearest',
+};
