@@ -11,7 +11,7 @@ export class Config {
   private $el: HTMLDivElement;
   private items: ConfigItem[] = [
     {label: '起動直後に開いている通知などを閉じる', name: 'mtdBackAtMounted', type: 'checkbox', default: 'true'},
-    {label: '基本アニメーションを無効化', name: 'mtdNoAnimation', type: 'checkbox', default: 'false'},
+    {label: 'アニメーションの無効化', name: 'mtdNoAnimation', type: 'checkbox', default: 'false'},
   ];
 
   public getString(key: string): string {
