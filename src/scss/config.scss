@@ -26,7 +26,7 @@
 }
 
 body.mtdeck-no-animation {
-  &, * {
+  &, *:not(iframe) {
     transition-duration: 1ms !important;
   }
 }
