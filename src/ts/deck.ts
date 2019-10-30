@@ -1,4 +1,5 @@
 import Hammer from 'hammerjs';
+import { ScrollController } from './scroll';
 import { BackController } from './back';
 import { Config } from './config';
 import { Menu } from './menu';
@@ -6,6 +7,7 @@ import { clickAll } from './utils';
 
 export class Deck {
   private config: Config = new Config();
+  private scrollController: ScrollController = new ScrollController();
   private backController: BackController = new BackController();
   private columnIndex: number = 0;
   private $columns: Element[] = [];
@@ -17,6 +19,7 @@ export class Deck {
       if (this.$drawerOpenButton) {
         this.config.init();
         this.init();
+        this.scrollController.init();
         clearInterval(initInterval);
       }
     }, 100);
@@ -96,7 +99,7 @@ export class Deck {
     Menu.close();
     if (this.columnIndex < this.$columns.length - 1) {
       this.columnIndex++;
-      this.$columns[this.columnIndex].scrollIntoView(scrollOpt);
+      this.scrollController.scrollTo(this.$columns[this.columnIndex]);
     }
   }
 
@@ -107,13 +110,7 @@ export class Deck {
       Menu.open();
     } else {
       this.columnIndex--;
-      this.$columns[this.columnIndex].scrollIntoView(scrollOpt);
+      this.scrollController.scrollTo(this.$columns[this.columnIndex]);
     }
   }
 }
-
-const scrollOpt: ScrollIntoViewOptions = {
-  behavior: 'smooth',
-  block: 'center',
-  inline: 'nearest',
-};
