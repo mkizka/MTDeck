@@ -58,29 +58,32 @@ export class Config {
     }
   }
 
-  private createSaveButton() {
-    const $backButton = safeHtml(`
+  private createInfo() {
+    this.$el.appendChild(safeHtml(`
       <div class="mtdeck-config-item">
-        <button class="">保存して再読み込み</button>
+        <p>MTDeck v${require('../../package.json').version}</p>
+        <p>バグ報告/機能提案など:
+          <a href="https://github.com/Compeito/MTDeck" target="_blank">Github</a>
+          <a href="https://twitter.com/ugo_compeito">Twitter</a>
+        </p>
       </div>
-    `) as HTMLButtonElement;
+    `));
+  }
 
-    $backButton.addEventListener('click', e => {
+  private createFooter() {
+    this.$el.appendChild(safeHtml(`
+      <div class="mtdeck-config-footer">
+        <button id="mtdeck-config-save">保存して再読み込み</button>
+        <button id="mtdeck-config-back">戻る</button>
+      </div>
+    `));
+    document.querySelector('#mtdeck-config-save').addEventListener('click', () => {
       this.save();
       location.reload();
     });
-    this.$el.insertAdjacentElement('beforeend', $backButton);
-  }
-
-  private createBackButton() {
-    const $backButton = safeHtml(`
-      <div class="mtdeck-config-item">
-        <button class="">保存せずに戻る</button>
-      </div>
-    `) as HTMLButtonElement;
-
-    $backButton.addEventListener('click', e => this.close());
-    this.$el.insertAdjacentElement('beforeend', $backButton);
+    document.querySelector('#mtdeck-config-back').addEventListener('click', () => {
+      this.close();
+    });
   }
 
   private createForm() {
@@ -96,10 +99,10 @@ export class Config {
       }
 
       this.$el.insertAdjacentElement('beforeend', safeHtml(`
-        <div class="mtdeck-config-item">
+        <label class="mtdeck-config-item">
           ${inputElement.outerHTML}  
-          <span>${item.label}</span>
-        </div>
+          ${item.label}
+        </label>
       `));
     });
   }
@@ -118,7 +121,7 @@ export class Config {
   private createConfigBase() {
     this.$el = safeHtml(`
       <div class="mtdeck-config">
-        <h1 class="mtdeck-config-item">MTDeck 設定メニュー</h1>
+        <h1 class="mtdeck-config-item">設定メニュー</h1>
       </div>
     `) as HTMLDivElement;
     document.body.appendChild(this.$el);
@@ -127,9 +130,9 @@ export class Config {
   public init() {
     this.saveDefault();
     this.createConfigBase();
+    this.createInfo();
     this.createForm();
-    this.createSaveButton();
-    this.createBackButton();
+    this.createFooter();
     this.createSettingButton();
   }
 }

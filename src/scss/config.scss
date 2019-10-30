@@ -18,6 +18,11 @@
   &-item {
     margin-bottom: 20px !important;
   }
+
+  &-footer {
+    position: fixed;
+    bottom: 20px;
+  }
 }
 
 body.mtdeck-no-animation {
