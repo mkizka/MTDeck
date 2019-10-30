@@ -9,15 +9,17 @@ body.mtdeck {
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7));
   }
 
-  div {
-    &.app-content {
-      left: 0 !important;
-    }
+  .app-columns {
+    padding: 0 !important;
+  }
 
-    &.app-columns-container {
-      overflow-x: hidden;
-      overflow-y: auto;
-    }
+  .app-content {
+    left: 0 !important;
+  }
+
+  .app-columns-container {
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   section.column, .js-modal-panel, .prf-header, .prf-header-inner-overlay, .social-proof-container {
