@@ -12,6 +12,7 @@ export class Config {
   private items: ConfigItem[] = [
     {label: _('configOptionBackAtMounted'), name: 'mtdBackAtMounted', type: 'checkbox', default: 'true'},
     {label: _('configOptionNoAnimation'), name: 'mtdNoAnimation', type: 'checkbox', default: 'false'},
+    {label: _('configOptionHideImages'), name: 'mtdHideImages', type: 'checkbox', default: 'false'},
   ];
 
   public getString(key: string): string {

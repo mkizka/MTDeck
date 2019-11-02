@@ -55,6 +55,9 @@ export class Deck {
     if (this.config.getBoolean('mtdNoAnimation')) {
       document.body.classList.add('mtdeck-no-animation');
     }
+    if (this.config.getBoolean('mtdHideImages')) {
+      document.body.classList.add('mtdeck-hide-images');
+    }
     this.update();
 
     const $appContainer = document.querySelector('div.app-columns-container');

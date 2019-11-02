@@ -19,5 +19,8 @@
   },
   "configOptionNoAnimation": {
     "message": "アニメーションの無効化"
+  },
+  "configOptionHideImages": {
+    "message": "ツイートの画像サムネイルを非表示"
   }
 }

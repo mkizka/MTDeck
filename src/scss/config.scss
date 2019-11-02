@@ -30,3 +30,25 @@ body.mtdeck-no-animation {
     transition-duration: 1ms !important;
   }
 }
+
+body.mtdeck-hide-images {
+  .stream-item .media-preview:not(.detail-preview) {
+    height: 40px !important;
+    border-radius: 0 !important;
+
+    a {
+      height: inherit;
+      width: max-content;
+      background-image: none !important;
+
+      &::before {
+        display: block;
+        content: attr(href);
+      }
+
+      * {
+        display: none;
+      }
+    }
+  }
+}
