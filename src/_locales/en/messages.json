@@ -1,0 +1,23 @@
+{
+  "extensionDescription": {
+    "message": "A browser extension to customize TweetDeck for mobile"
+  },
+  "configTitle": {
+    "message": "Preference"
+  },
+  "configSaveLabel": {
+    "message": "Save and Reload"
+  },
+  "configBackLabel": {
+    "message": "Close"
+  },
+  "configLinksLabel": {
+    "message": "Bug/Feature Report"
+  },
+  "configOptionBackAtMounted": {
+    "message": "Close notifications at startup"
+  },
+  "configOptionNoAnimation": {
+    "message": "Disable animation"
+  }
+}

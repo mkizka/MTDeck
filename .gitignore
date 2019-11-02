@@ -4,3 +4,4 @@ node_modules
 web-ext-artifacts
 dist/manifest.json
 dist/icons/*
+dist/_locales/*

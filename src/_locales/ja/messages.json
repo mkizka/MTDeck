@@ -1,0 +1,23 @@
+{
+  "extensionDescription": {
+    "message": "TweetDeckをスマホアプリのように使えるようにするアドオン"
+  },
+  "configTitle": {
+    "message": "設定メニュー"
+  },
+  "configSaveLabel": {
+    "message": "保存して再読み込み"
+  },
+  "configBackLabel": {
+    "message": "戻る"
+  },
+  "configLinksLabel": {
+    "message": "バグ報告/機能提案など"
+  },
+  "configOptionBackAtMounted": {
+    "message": "起動直後に開いている通知などを閉じる"
+  },
+  "configOptionNoAnimation": {
+    "message": "アニメーションの無効化"
+  }
+}

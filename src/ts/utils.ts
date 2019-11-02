@@ -9,3 +9,11 @@ export const clickAll = (query: string) => {
   const $buttons: NodeListOf<HTMLElement> = document.querySelectorAll(query);
   $buttons.forEach(($button) => $button.click());
 };
+
+export const _ = (messageName: string): string => {
+  if (typeof chrome !== 'undefined') {
+    return chrome.i18n.getMessage(messageName);
+  }
+  const lang = window.navigator.language === 'ja' ? 'ja' : 'en';
+  return require(`../_locales/${lang}/messages.json`)[messageName].message || '';
+};

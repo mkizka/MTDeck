@@ -29,7 +29,6 @@ module.exports = {
         transform: (buffer) => {
           const manifest = JSON.parse(buffer.toString())
           manifest.version = packageJson.version
-          manifest.description = packageJson.description
           manifest.developer = {
             name: packageJson.author,
             url: packageJson.homepage
@@ -40,6 +39,10 @@ module.exports = {
       {
         from: './src/icons',
         to: 'icons'
+      },
+      {
+        from: './src/_locales',
+        to: '_locales'
       }
     ])
   ],

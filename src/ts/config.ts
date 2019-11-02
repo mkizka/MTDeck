@@ -1,4 +1,4 @@
-import { safeHtml } from './utils';
+import { safeHtml, _ } from './utils';
 
 interface ConfigItem {
   label: string
@@ -10,8 +10,8 @@ interface ConfigItem {
 export class Config {
   private $el: HTMLDivElement;
   private items: ConfigItem[] = [
-    {label: '起動直後に開いている通知などを閉じる', name: 'mtdBackAtMounted', type: 'checkbox', default: 'true'},
-    {label: 'アニメーションの無効化', name: 'mtdNoAnimation', type: 'checkbox', default: 'false'},
+    {label: _('configOptionBackAtMounted'), name: 'mtdBackAtMounted', type: 'checkbox', default: 'true'},
+    {label: _('configOptionNoAnimation'), name: 'mtdNoAnimation', type: 'checkbox', default: 'false'},
   ];
 
   public getString(key: string): string {
@@ -62,7 +62,7 @@ export class Config {
     this.$el.appendChild(safeHtml(`
       <div class="mtdeck-config-item">
         <p>MTDeck v${require('../../package.json').version}</p>
-        <p>バグ報告/機能提案など:
+        <p>${_('configLinksLabel')}:
           <a href="https://github.com/Compeito/MTDeck" target="_blank">Github</a>
           <a href="https://twitter.com/ugo_compeito">Twitter</a>
         </p>
@@ -73,8 +73,8 @@ export class Config {
   private createFooter() {
     this.$el.appendChild(safeHtml(`
       <div class="mtdeck-config-footer">
-        <button id="mtdeck-config-save">保存して再読み込み</button>
-        <button id="mtdeck-config-back">戻る</button>
+        <button id="mtdeck-config-save">${_('configSaveLabel')}</button>
+        <button id="mtdeck-config-back">${_('configBackLabel')}</button>
       </div>
     `));
     document.querySelector('#mtdeck-config-save').addEventListener('click', () => {
@@ -121,7 +121,7 @@ export class Config {
   private createConfigBase() {
     this.$el = safeHtml(`
       <div class="mtdeck-config">
-        <h1 class="mtdeck-config-item">設定メニュー</h1>
+        <h1 class="mtdeck-config-item">${_('configTitle')}</h1>
       </div>
     `) as HTMLDivElement;
     document.body.appendChild(this.$el);
