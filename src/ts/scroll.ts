@@ -1,4 +1,4 @@
-import { safeHtml } from './utils';
+import { safeHtml, Settings } from './utils';
 
 export class ScrollController {
   private $container: undefined | Element;
@@ -8,11 +8,13 @@ export class ScrollController {
   init() {
     this.$container = document.querySelector('#container');
     this.$columnNavigator = document.querySelector('#column-navigator');
-    this.isNoAnimation = document.body.classList.contains('mtdeck-no-animation');
-    if (this.isNoAnimation) {
-      this.setNoAnimationJump();
-      this.setNoAnimationObserver();
-    }
+    Settings.getBool('mtdNoAnimation', isTrue => {
+      this.isNoAnimation = isTrue;
+      if (this.isNoAnimation) {
+        this.setNoAnimationJump();
+        this.setNoAnimationObserver();
+      }
+    });
   }
 
   scrollTo($target: Element) {

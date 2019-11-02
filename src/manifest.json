@@ -10,6 +10,7 @@
   },
   "permissions": [
     "*://*/*",
+    "storage",
     "webRequest",
     "webRequestBlocking"
   ],

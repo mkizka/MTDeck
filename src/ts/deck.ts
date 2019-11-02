@@ -3,7 +3,7 @@ import { ScrollController } from './scroll';
 import { BackController } from './back';
 import { Config } from './config';
 import { Menu } from './menu';
-import { clickAll } from './utils';
+import { clickAll, Settings } from './utils';
 
 export class Deck {
   private config: Config = new Config();
@@ -49,12 +49,12 @@ export class Deck {
     document.body.classList.add('mtdeck');
     Menu.close();
 
-    if (this.config.getBoolean('mtdBackAtMounted')) {
-      clickAll('.js-dismiss');
-    }
-    if (this.config.getBoolean('mtdNoAnimation')) {
-      document.body.classList.add('mtdeck-no-animation');
-    }
+    Settings.getBool('mtdBackAtMounted', isTrue => {
+      if (isTrue) clickAll('.js-dismiss');
+    });
+    Settings.getBool('mtdNoAnimation', isTrue => {
+      if (isTrue) document.body.classList.add('mtdeck-no-animation');
+    });
     this.update();
 
     const $appContainer = document.querySelector('div.app-columns-container');

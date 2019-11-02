@@ -19,5 +19,8 @@
   },
   "configOptionNoAnimation": {
     "message": "Disable animation"
+  },
+  "configOptionNoImage": {
+    "message": "Hide image/video on tweet"
   }
 }

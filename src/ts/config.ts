@@ -1,4 +1,4 @@
-import { safeHtml, _ } from './utils';
+import { safeHtml, _, Settings } from './utils';
 
 interface ConfigItem {
   label: string
@@ -12,19 +12,8 @@ export class Config {
   private items: ConfigItem[] = [
     {label: _('configOptionBackAtMounted'), name: 'mtdBackAtMounted', type: 'checkbox', default: 'true'},
     {label: _('configOptionNoAnimation'), name: 'mtdNoAnimation', type: 'checkbox', default: 'false'},
+    {label: _('configOptionNoImage'), name: 'mtdNoImage', type: 'checkbox', default: 'false'},
   ];
-
-  public getString(key: string): string {
-    return localStorage.getItem(key).toString();
-  }
-
-  public getNumber(key: string): number {
-    return parseFloat(localStorage.getItem(key));
-  }
-
-  public getBoolean(key: string): boolean {
-    return localStorage.getItem(key) === 'true';
-  }
 
   public open() {
     this.$el.classList.add('is-open');
@@ -43,19 +32,21 @@ export class Config {
     const $inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll('.mtdeck-config-input');
     $inputs.forEach($input => {
       if ($input.type === 'checkbox') {
-        localStorage.setItem($input.name, `${$input.checked}`);
+        Settings.set($input.name, `${$input.checked}`);
       } else {
-        localStorage.setItem($input.name, $input.value);
+        Settings.set($input.name, $input.value);
       }
     });
   }
 
   private saveDefault() {
-    if (localStorage.getItem(this.items[0].name) === null) {
-      this.items.forEach(item => {
-        localStorage.setItem(item.name, item.default);
+    this.items.forEach(settingItem => {
+      Settings.get(settingItem.name, result => {
+        if (result === undefined) {
+          Settings.set(settingItem.name, settingItem.default);
+        }
       });
-    }
+    });
   }
 
   private createInfo() {
@@ -91,19 +82,24 @@ export class Config {
       const inputElement = safeHtml(`
         <input class="mtdeck-config-input" type="${item.type}" name="${item.name}"/>
       `) as HTMLInputElement;
-
-      if (item.type === 'checkbox') {
-        inputElement.defaultChecked = this.getBoolean(item.name);
-      } else {
-        inputElement.defaultValue = this.getString(item.name);
-      }
-
       this.$el.insertAdjacentElement('beforeend', safeHtml(`
         <label class="mtdeck-config-item">
           ${inputElement.outerHTML}  
           ${item.label}
         </label>
       `));
+    });
+  }
+
+  private setFormValue() {
+    document.querySelectorAll('.mtdeck-config-input').forEach(($input: HTMLInputElement) => {
+      Settings.get($input.name, result => {
+        if ($input.type === 'checkbox') {
+          $input.defaultChecked = result === 'true';
+        } else {
+          $input.defaultValue = result;
+        }
+      });
     });
   }
 
@@ -132,6 +128,7 @@ export class Config {
     this.createConfigBase();
     this.createInfo();
     this.createForm();
+    this.setFormValue();
     this.createFooter();
     this.createSettingButton();
   }
