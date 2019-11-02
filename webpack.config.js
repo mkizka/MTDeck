@@ -6,12 +6,18 @@ const CopyPlugin = require('copy-webpack-plugin')
 
 const packageJson = require('./package')
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 module.exports = {
-  entry: './src/index.ts',
+  entry: {
+    'mtdeck.user': path.resolve(__dirname, 'src', 'index.ts'),
+    background: path.resolve(__dirname, 'src', 'background.ts'),
+  },
   output: {
-    filename: 'mtdeck.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
+  devtool: isDevelopment && 'source-map',
   plugins: [
     new webpack.ProgressPlugin(),
     new WebpackUserScript({
@@ -21,6 +27,7 @@ module.exports = {
           match: 'https://tweetdeck.twitter.com'
         }
       },
+      renameExt: false,
       metajs: false
     }),
     new CopyPlugin([
