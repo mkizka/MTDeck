@@ -74,6 +74,25 @@
   resolved "https://registry.yarnpkg.com/@tkausl/userscript-meta/-/userscript-meta-1.0.2.tgz#1b9beaebe5a64ae43815ae87865b3d1e4b0f1fbf"
   integrity sha1-G5vq6+WmSuQ4Fa6Hhls9HksPH78=
 
+"@types/chrome@^0.0.91":
+  version "0.0.91"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.91.tgz#4b3996f55f344057e6a677c8366aa98080c6e380"
+  integrity sha512-vNvo9lJkp1AvViWrUwe1bxhoMwr5dRZWlgr1DTuaNkz97LsG56lDX1sceWeZir2gRACJ5vdHtoRdVAvm8C75Ug==
+  dependencies:
+    "@types/filesystem" "*"
+
+"@types/filesystem@*":
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/@types/filesystem/-/filesystem-0.0.29.tgz#ee3748eb5be140dcf980c3bd35f11aec5f7a3748"
+  integrity sha512-85/1KfRedmfPGsbK8YzeaQUyV1FQAvMPMTuWFQ5EkLd2w7szhNO96bk3Rh/SKmOfd9co2rCLf0Voy4o7ECBOvw==
+  dependencies:
+    "@types/filewriter" "*"
+
+"@types/filewriter@*":
+  version "0.0.28"
+  resolved "https://registry.yarnpkg.com/@types/filewriter/-/filewriter-0.0.28.tgz#c054e8af4d9dd75db4e63abc76f885168714d4b3"
+  integrity sha1-wFTor02d11205jq8dviFFocU1LM=
+
 "@types/hammerjs@^2.0.36":
   version "2.0.36"
   resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.36.tgz#17ce0a235e9ffbcdcdf5095646b374c2bf615a4c"
