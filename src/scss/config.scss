@@ -33,22 +33,26 @@ body.mtdeck-no-animation {
 
 body.mtdeck-hide-images {
   .stream-item .media-preview:not(.detail-preview) {
-    height: 40px !important;
+    height: 20px !important;
     border-radius: 0 !important;
 
-    a {
+    .media-image-container:first-child a, .media-preview-container a {
       height: inherit;
       width: max-content;
       background-image: none !important;
 
       &::before {
-        display: block;
         content: attr(href);
       }
 
       * {
         display: none;
       }
+    }
+
+    .media-image-container:not(:first-child) {
+      display: none !important;
+      background-image: none !important;
     }
   }
 }
