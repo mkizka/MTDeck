@@ -32,27 +32,39 @@ body.mtdeck-no-animation {
 }
 
 body.mtdeck-hide-images {
-  .stream-item .media-preview:not(.detail-preview) {
-    height: 20px !important;
+  .media-preview:not(.detail-preview), .item-box-full-bleed {
+    height: 25px !important;
     border-radius: 0 !important;
 
-    .media-image-container:first-child a, .media-preview-container a {
-      height: inherit;
-      width: max-content;
-      background-image: none !important;
+    .media-image-container:first-child,
+    .media-preview-container {
+      width: 100% !important;
 
-      &::before {
-        content: attr(href);
-      }
+      a {
+        height: inherit;
+        width: max-content;
+        background-image: none !important;
 
-      * {
-        display: none;
+        &::before {
+          content: attr(href);
+        }
+
+        * {
+          display: none;
+        }
       }
     }
 
     .media-image-container:not(:first-child) {
       display: none !important;
-      background-image: none !important;
+
+      a {
+        background-image: none !important;
+      }
     }
+  }
+
+  .item-box-full-bleed a {
+    margin: auto !important;
   }
 }
