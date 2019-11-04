@@ -1,7 +1,7 @@
 import { Menu } from './menu';
 import { clickAll } from './utils';
 
-class Backable {
+abstract class Backable {
   activeQuery: string;
   clickQuery: string;
 
@@ -27,6 +27,11 @@ class ModalSocial extends Backable {
 class ModalDetail extends Backable {
   activeQuery = '#open-modal .js-column-state-detail-view';
   clickQuery = '#open-modal .js-column-back';
+}
+
+class BackableModal extends Backable {
+  activeQuery = '.mdl .btn-back';
+  clickQuery = '.mdl .btn-back';
 }
 
 class Modal extends Backable {
@@ -64,7 +69,8 @@ export class BackController {
     new TweetDrawer(),
     new ModalSocial(),
     new ModalDetail(),
-    new Modal,
+    new BackableModal(),
+    new Modal(),
     new ColumnSocial(),
     new ColumnDetail(),
     new ColumnOption(),
