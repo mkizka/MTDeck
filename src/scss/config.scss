@@ -37,20 +37,21 @@ body.mtdeck-hide-images {
     border-radius: 0 !important;
 
     .media-image-container:first-child,
-    .media-preview-container {
+    .js-media-preview-container {
       width: 100% !important;
 
-      a {
+      .media-item, .media-image {
         height: inherit;
         width: max-content;
         background-image: none !important;
+        border-radius: 0;
 
         &::before {
-          content: attr(href);
+          content: "[media]";
         }
 
         * {
-          display: none;
+          display: none !important;
         }
       }
     }
@@ -58,13 +59,15 @@ body.mtdeck-hide-images {
     .media-image-container:not(:first-child) {
       display: none !important;
 
-      a {
+      .media-item, .media-image {
         background-image: none !important;
       }
     }
   }
 
-  .item-box-full-bleed a {
-    margin: auto !important;
+  .item-box-full-bleed {
+    .media-item, .media-image {
+      margin: auto !important;
+    }
   }
 }

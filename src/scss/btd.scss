@@ -3,5 +3,11 @@ html.btd-on {
     .js-media-image-link {
       background-color: inherit !important;
     }
+
+    .js-media-preview-container.is-video .media-item::before {
+      content: "";
+      top: 20px;
+      left: 20px;
+    }
   }
 }
