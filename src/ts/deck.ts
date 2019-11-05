@@ -73,8 +73,13 @@ export class Deck {
     });
 
     touchManager.on('swipe', e => {
+      const startX = e.changedPointers[0].screenX - e.deltaX;
       if (e.deltaX > 0) {
-        this.backColumn();
+        if (startX < 50) {
+          Menu.open();
+        } else {
+          this.backColumn();
+        }
       } else {
         this.pushColumn();
       }
