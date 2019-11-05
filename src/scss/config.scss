@@ -32,7 +32,7 @@ body.mtdeck-no-animation {
 }
 
 body.mtdeck-hide-images {
-  .media-preview:not(.detail-preview), .item-box-full-bleed {
+  .js-media:not(.detail-preview) {
     height: 25px !important;
     border-radius: 0 !important;
 
@@ -41,7 +41,7 @@ body.mtdeck-hide-images {
       width: 100% !important;
 
       .media-item, .media-image {
-        height: inherit;
+        height: 0;
         width: max-content;
         background-image: none !important;
         border-radius: 0;

@@ -4,10 +4,16 @@ html.btd-on {
       background-color: inherit !important;
     }
 
-    .js-media-preview-container.is-video .media-item::before {
-      content: "";
-      top: 20px;
-      left: 20px;
+    .js-media-preview-container.is-video .media-item {
+      &::before {
+        opacity: 1.0;
+        width: inherit;
+        background-image: none;
+      }
+
+      &::after {
+        background-color: transparent;
+      }
     }
   }
 }
