@@ -13,6 +13,7 @@ export class Config {
     {label: _('configOptionBackAtMounted'), name: 'mtdBackAtMounted', type: 'checkbox', default: 'true'},
     {label: _('configOptionNoAnimation'), name: 'mtdNoAnimation', type: 'checkbox', default: 'false'},
     {label: _('configOptionHideImages'), name: 'mtdHideImages', type: 'checkbox', default: 'false'},
+    {label: _('configOptionMenuOpenRange'), name: 'mtdMenuOpenRange', type: 'number', default: '30'},
   ];
 
   public getString(key: string): string {

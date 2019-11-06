@@ -22,5 +22,8 @@
   },
   "configOptionHideImages": {
     "message": "ツイートの画像サムネイルを非表示"
+  },
+  "configOptionMenuOpenRange": {
+    "message": "左からのスワイプでメニューを開く範囲"
   }
 }

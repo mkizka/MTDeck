@@ -22,5 +22,8 @@
   },
   "configOptionHideImages": {
     "message": "Hide image thumbnails on tweet"
+  },
+  "configOptionMenuOpenRange": {
+    "message": "Range to open menu with swipe"
   }
 }

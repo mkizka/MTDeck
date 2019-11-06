@@ -72,10 +72,11 @@ export class Deck {
       Menu.close();
     });
 
+    const menuOpenRange = this.config.getNumber('mtdMenuOpenRange');
     touchManager.on('swipe', e => {
       const startX = e.changedPointers[0].screenX - e.deltaX;
       if (e.deltaX > 0) {
-        if (startX < 50) {
+        if (startX < menuOpenRange) {
           Menu.open();
         } else {
           this.backColumn();

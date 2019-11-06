@@ -19,6 +19,11 @@
     margin-bottom: 20px !important;
   }
 
+  &-input[type=number] {
+    width: 80px;
+    margin-right: 10px;
+  }
+
   &-footer {
     position: fixed;
     bottom: 20px;
