@@ -52,11 +52,11 @@ export class Config {
   }
 
   private saveDefault() {
-    if (localStorage.getItem(this.items[0].name) === null) {
-      this.items.forEach(item => {
+    this.items.forEach(item => {
+      if (localStorage.getItem(item.name) === null) {
         localStorage.setItem(item.name, item.default);
-      });
-    }
+      }
+    });
   }
 
   private createInfo() {
