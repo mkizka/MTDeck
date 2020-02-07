@@ -17,10 +17,15 @@ export class ScrollController {
 
   scrollTo($target: Element) {
     const rect = $target.getBoundingClientRect();
+    const behavior = this.isNoAnimation ? 'auto' : 'smooth';
     this.$container.scrollBy({
       left: rect.left,
-      behavior: this.isNoAnimation ? 'auto' : 'smooth',
+      behavior: behavior,
     });
+
+    const columnId = ($target as HTMLElement).dataset.column;
+    const $navButton = document.querySelector(`.column-nav-item[data-column=${columnId}]`);
+    $navButton.scrollIntoView({behavior});
   }
 
   private setNoAnimationObserver() {
