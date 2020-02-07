@@ -11,7 +11,7 @@ export const clickAll = (query: string) => {
 };
 
 export const _ = (messageName: string): string => {
-  if (typeof chrome !== 'undefined') {
+  if (typeof chrome !== 'undefined' && typeof chrome.i18n !== 'undefined') {
     return chrome.i18n.getMessage(messageName);
   }
   const lang = /ja/.test(window.navigator.language) ? 'ja' : 'en';
