@@ -5,6 +5,8 @@ import { Config } from './config';
 import { Menu } from './menu';
 import { clickAll } from './utils';
 
+Hammer.defaults.cssProps.userSelect = null;
+
 export class Deck {
   private config: Config = new Config();
   private scrollController: ScrollController = new ScrollController();
