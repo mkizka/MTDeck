@@ -13,12 +13,21 @@ TweetDeckをスマホアプリのように使えるようにするUserScript
 4. [TweetDeck](https://tweetdeck.twitter.com)を開く
 5. メニューの「ホームに追加」からアプリ化
 
+KiwiBrowserでカクカクする場合はFirefoxまたはYandexを使ってみてください  
+→Firefoxアドオンは[こちら](https://addons.mozilla.org/ja/firefox/addon/mobiletweetdeck/)
+
 ### iOS
 1. [Ohajiki](http://ohajiki.ios-web.com/)や[Snippets](https://apps.apple.com/jp/app/safari-snippets/id1126048257)などUserScriptに対応しているアプリに[dist/mtdeck.user.js](https://github.com/Compeito/MTDeck/raw/master/dist/mtdeck.user.js)を貼り付け
 2. [TweetDeck](https://tweetdeck.twitter.com)を開く
 
-## Firefoxアドオン
-https://addons.mozilla.org/ja/firefox/addon/mobiletweetdeck/
+## 貢献
+以下のコマンドで開発できます
+```bash
+yarn run dev:chrome
+yarn run dev:firefox
+```
+
+Issue/PRご自由にどうぞ
 
 ## 参考
 [totoraj930/TJDeck](https://github.com/totoraj930/TJDeck)
