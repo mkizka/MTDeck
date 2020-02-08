@@ -25,7 +25,10 @@ export class ScrollController {
 
     const columnId = ($target as HTMLElement).dataset.column;
     const $navButton = document.querySelector(`.column-nav-item[data-column=${columnId}]`);
-    $navButton.scrollIntoView({behavior});
+    $navButton.scrollIntoView({
+      behavior: behavior,
+      inline: 'nearest'
+    });
   }
 
   private setNoAnimationObserver() {
