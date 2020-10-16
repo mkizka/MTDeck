@@ -23,28 +23,30 @@ module.exports = {
       },
       metajs: false
     }),
-    new CopyPlugin([
-      {
-        from: './src/manifest.json',
-        transform: (buffer) => {
-          const manifest = JSON.parse(buffer.toString())
-          manifest.version = packageJson.version
-          manifest.developer = {
-            name: packageJson.author,
-            url: packageJson.homepage
+    new CopyPlugin({
+      patterns: [
+        {
+          from: './src/manifest.json',
+          transform: (buffer) => {
+            const manifest = JSON.parse(buffer.toString())
+            manifest.version = packageJson.version
+            manifest.developer = {
+              name: packageJson.author,
+              url: packageJson.homepage
+            }
+            return JSON.stringify(manifest, null, 2)
           }
-          return JSON.stringify(manifest, null, 2)
+        },
+        {
+          from: './src/icons',
+          to: 'icons'
+        },
+        {
+          from: './src/_locales',
+          to: '_locales'
         }
-      },
-      {
-        from: './src/icons',
-        to: 'icons'
-      },
-      {
-        from: './src/_locales',
-        to: '_locales'
-      }
-    ])
+      ]
+    })
   ],
   module: {
     rules: [
