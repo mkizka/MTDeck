@@ -3,7 +3,7 @@
   "description": "TweetDeckをスマホアプリのように使えるようにするUserScript",
   "author": "mkizka",
   "homepage": "https://github.com/mkizka/MTDeck",
-  "version": "1.6.5",
+  "version": "1.6.7",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
