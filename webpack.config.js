@@ -69,6 +69,9 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
   },
+  optimization: {
+    minimize: false
+  },
   devServer: {
     inline: false,
     host: '0.0.0.0',
