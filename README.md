@@ -17,7 +17,7 @@ KiwiBrowserでカクカクする場合はFirefoxまたはYandexを使ってみ�
 →Firefoxアドオンは[こちら](https://addons.mozilla.org/ja/firefox/addon/mobiletweetdeck/)
 
 ### iOS
-1. [Ohajiki](http://ohajiki.ios-web.com/)や[Snippets](https://apps.apple.com/jp/app/safari-snippets/id1126048257)などUserScriptに対応しているアプリに[dist/mtdeck.user.js](https://github.com/Compeito/MTDeck/raw/master/dist/mtdeck.user.js)を貼り付け
+1. [Ohajiki](http://ohajiki.ios-web.com/)や[Snippets](https://apps.apple.com/jp/app/safari-snippets/id1126048257)などUserScriptに対応しているアプリに[dist/mtdeck.user.js](https://github.com/mkizka/MTDeck/raw/master/dist/mtdeck.user.js)を貼り付け
 2. [TweetDeck](https://tweetdeck.twitter.com)を開く
 
 ## 貢献

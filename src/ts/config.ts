@@ -65,8 +65,8 @@ export class Config {
       <div class="mtdeck-config-item">
         <p>MTDeck v${require('../../package.json').version}</p>
         <p>${_('configLinksLabel')}:
-          <a href="https://github.com/Compeito/MTDeck" target="_blank">Github</a>
-          <a href="https://twitter.com/ugo_compeito">Twitter</a>
+          <a href="https://github.com/mkizka/MTDeck" target="_blank">Github</a>
+          <a href="https://twitter.com/mkizka">Twitter</a>
         </p>
       </div>
     `));
