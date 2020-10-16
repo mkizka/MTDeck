@@ -32,30 +32,42 @@ export class Deck {
     document.querySelectorAll('section.column').forEach($column => {
       this.$columns.push($column);
     });
-    this.fixColumnState();
+    this.fixColumnState()
+    this.updateTweetButton()
   }
 
   private fixColumnState() {
-    this.columnIndex = 0;
-    let $nearColumn = this.$columns[0];
+    this.columnIndex = 0
+    let $nearColumn = this.$columns[0]
     for (let i = 1; i < this.$columns.length; i++) {
       if (this.$columns[i].getBoundingClientRect().left ** 2 < $nearColumn.getBoundingClientRect().left ** 2) {
-        $nearColumn = this.$columns[i];
-        this.columnIndex = i;
+        $nearColumn = this.$columns[i]
+        this.columnIndex = i
       }
     }
-    $nearColumn.scrollIntoView();
+    $nearColumn.scrollIntoView()
+  }
+
+  private updateTweetButton() {
+    const $tweetButton = document.querySelector<HTMLButtonElement>('.tweet-button')
+    setTimeout(() => {
+      if (this.$columns[this.columnIndex].classList.contains('js-column-state-detail-view')) {
+        $tweetButton.style.display = 'none'
+      } else {
+        $tweetButton.style.display = 'block'
+      }
+    }, 200)
   }
 
   private init(): void {
-    document.body.classList.add('mtdeck');
-    Menu.close();
+    document.body.classList.add('mtdeck')
+    Menu.close()
 
     if (this.config.getBoolean('mtdBackAtMounted')) {
-      clickAll('.js-dismiss');
+      clickAll('.js-dismiss')
     }
     if (this.config.getBoolean('mtdNoAnimation')) {
-      document.body.classList.add('mtdeck-no-animation');
+      document.body.classList.add('mtdeck-no-animation')
     }
     if (this.config.getBoolean('mtdHideImages')) {
       document.body.classList.add('mtdeck-hide-images');
