@@ -109,6 +109,7 @@ export class Deck {
   }
 
   private back() {
+    this.update()
     if (this.config.isOpen()) {
       this.config.close();
     } else {
