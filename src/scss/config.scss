@@ -41,6 +41,17 @@ body.mtdeck-hide-images {
     height: 25px !important;
     border-radius: 0 !important;
 
+    .media-sensitive {
+      height: 1rem;
+      background-color: transparent;
+      &::before {
+        content: "[sensitive]";
+      }
+      div {
+        display: none;
+      }
+    }
+
     .media-image-container:first-child,
     .js-media-preview-container {
       width: 100% !important;
