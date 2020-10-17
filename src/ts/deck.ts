@@ -110,11 +110,7 @@ export class Deck {
 
   private back() {
     this.update()
-    if (this.config.isOpen()) {
-      this.config.close();
-    } else {
-      this.backController.back();
-    }
+    this.backController.back();
     history.pushState(null, null, null);
   }
 

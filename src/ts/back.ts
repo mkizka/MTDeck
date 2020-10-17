@@ -14,6 +14,11 @@ abstract class Backable {
   }
 }
 
+class MTDeckConfig extends Backable {
+  activeQuery = '.mtdeck-config.is-open'
+  clickQuery = '#mtdeck-config-back'
+}
+
 class TweetDrawer extends Backable {
   activeQuery = '.app-content.is-open';
   clickQuery = '.js-drawer-close';
@@ -66,6 +71,7 @@ class SideMenu extends Backable {
 
 export class BackController {
   private backables: Array<Backable> = [
+    new MTDeckConfig(),
     new TweetDrawer(),
     new ModalSocial(),
     new ModalDetail(),
