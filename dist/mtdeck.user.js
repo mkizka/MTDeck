@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        MTDeck
-// @version     1.6.7
+// @version     1.6.8
 // @author      mkizka
 // @description TweetDeckをスマホアプリのように使えるようにするUserScript
 // @homepage    https://github.com/mkizka/MTDeck
@@ -23,7 +23,7 @@
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body.mtdeck button[data-drawer=compose]{z-index:1;position:fixed !important;right:20px;bottom:60px;width:4rem !important;height:4rem !important;filter:drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7))}body.mtdeck .app-columns{padding:0 0 50px 0 !important}body.mtdeck .app-content{left:0 !important}body.mtdeck .app-columns-container{overflow-x:hidden;overflow-y:auto}body.mtdeck section.column,body.mtdeck .js-modal-panel,body.mtdeck .prf-header,body.mtdeck .prf-header-inner-overlay,body.mtdeck .social-proof-container{width:100% !important}body.mtdeck .overlay:before{margin-right:-5px}body.mtdeck .mdl{width:100% !important;overflow-x:hidden}body.mtdeck .mdl .mdl-dismiss{right:10px !important}body.mtdeck .mdl-content{overflow:scroll !important}body.mtdeck .med-tweet{width:100% !important;left:0 !important}body.mtdeck .old-composer-footer,body.mtdeck .column-nav-flyout{display:none}body.mtdeck .js-search-in-popover .popover{width:200px !important}body.mtdeck .js-mediaembed .js-media-native-video,body.mtdeck .js-mediaembed .youtube-player{width:100% !important;position:fixed;left:0;top:0;bottom:0;margin:auto !important;z-index:1}body.mtdeck .column-navigator{top:50px}body.mtdeck .app-content{will-change:transform}body.mtdeck .app-content.is-open{margin-right:0 !important;transform:translateX(100%) !important}body.mtdeck .drawer[data-drawer=compose]{left:-100%;width:100%}body.mtdeck button.js-hide-drawer{display:none !important}body.mtdeck .js-int-scroller{position:fixed;bottom:0;left:0;right:0;background-color:#1c2938;overflow-x:auto;white-space:nowrap;padding-top:10px;height:40px}body.mtdeck .js-int-scroller .column-nav-item{height:35px}body.mtdeck .js-int-scroller .column-nav-item .icon-medium{font-size:20px}body.mtdeck .js-int-scroller .column-nav-item .js-header-action{padding-left:12px !important;padding-right:12px !important}body.mtdeck .hide-detail-view-inline .js-int-scroller,body.mtdeck .with-nav-border-t:before{display:none}body.mtdeck .column-nav-item{display:inline-block}body.mtdeck-close header.app-header{position:relative;top:-50px}body.mtdeck-close div.app-columns-container{left:0 !important}.mtdeck-config{display:none;width:100%;height:100%;position:fixed;z-index:201;background-color:#1c2938;padding:20px}.mtdeck-config.is-open{display:block}.mtdeck-config-button{color:#8a2be2 !important}.mtdeck-config-item{margin-bottom:20px !important}.mtdeck-config-input[type=number]{width:80px;margin-right:10px}.mtdeck-config-footer{position:fixed;bottom:20px}body.mtdeck-no-animation,body.mtdeck-no-animation *:not(iframe){transition-duration:1ms !important}body.mtdeck-hide-images .js-media:not(.detail-preview){height:25px !important;border-radius:0 !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container{width:100% !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image{height:0;width:max-content;background-image:none !important;border-radius:0}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image::before{content:\"[media]\"}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item *,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image *,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item *,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image *{display:none !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child){display:none !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-image{background-image:none !important}body.mtdeck-hide-images .item-box-full-bleed .media-item,body.mtdeck-hide-images .item-box-full-bleed .media-image{margin:auto !important}html.btd-on body.mtdeck-hide-images .js-media-image-link{background-color:inherit !important}html.btd-on body.mtdeck-hide-images .js-media-preview-container.is-video .media-item::before{opacity:1;width:inherit;background-image:none;top:20px;left:20px}html.btd-on body.mtdeck-hide-images .js-media-preview-container.is-video .media-item::after{background-color:transparent}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body.mtdeck button[data-drawer=compose]{z-index:1;position:fixed !important;right:20px;bottom:60px;width:4rem !important;height:4rem !important;filter:drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7))}body.mtdeck .app-columns{padding:0 0 50px 0 !important}body.mtdeck .app-content{left:0 !important}body.mtdeck .app-columns-container{overflow-x:hidden;overflow-y:auto}body.mtdeck section.column,body.mtdeck .js-modal-panel,body.mtdeck .prf-header,body.mtdeck .prf-header-inner-overlay,body.mtdeck .social-proof-container{width:100% !important}body.mtdeck .overlay:before{margin-right:-5px}body.mtdeck .mdl{width:100% !important;overflow-x:hidden}body.mtdeck .mdl .mdl-dismiss{right:10px !important}body.mtdeck .mdl-content{overflow:scroll !important}body.mtdeck .med-tweet{width:100% !important;left:0 !important}body.mtdeck .old-composer-footer,body.mtdeck .column-nav-flyout{display:none}body.mtdeck .js-search-in-popover .popover{width:200px !important}body.mtdeck .js-mediaembed .js-media-native-video,body.mtdeck .js-mediaembed .youtube-player{width:100% !important;position:fixed;left:0;top:0;bottom:0;margin:auto !important;z-index:1}body.mtdeck .column-navigator{top:50px}body.mtdeck .app-content{will-change:transform}body.mtdeck .app-content.is-open{margin-right:0 !important;transform:translateX(100%) !important}body.mtdeck .drawer[data-drawer=compose]{left:-100%;width:100%}body.mtdeck button.js-hide-drawer{display:none !important}body.mtdeck .js-int-scroller{position:fixed;bottom:0;left:0;right:0;background-color:#1c2938;overflow-x:auto;white-space:nowrap;padding-top:10px;height:40px}body.mtdeck .js-int-scroller .column-nav-item{height:35px}body.mtdeck .js-int-scroller .column-nav-item .icon-medium{font-size:20px}body.mtdeck .js-int-scroller .column-nav-item .js-header-action{padding-left:12px !important;padding-right:12px !important}body.mtdeck .hide-detail-view-inline .js-int-scroller,body.mtdeck .with-nav-border-t:before{display:none}body.mtdeck .column-nav-item{display:inline-block}body.mtdeck-close header.app-header{position:relative;top:-50px}body.mtdeck-close div.app-columns-container{left:0 !important}.mtdeck-config{display:none;width:100%;height:100%;position:fixed;z-index:201;background-color:#1c2938;padding:20px}.mtdeck-config.is-open{display:block}.mtdeck-config-button{color:#8a2be2 !important}.mtdeck-config-item{margin-bottom:20px !important}.mtdeck-config-input[type=number]{width:80px;margin-right:10px}.mtdeck-config-footer{position:fixed;bottom:20px}body.mtdeck-no-animation,body.mtdeck-no-animation *:not(iframe){transition-duration:1ms !important}body.mtdeck-hide-images .js-media:not(.detail-preview){height:25px !important;border-radius:0 !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive{height:1rem;background-color:transparent}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive::before{content:\"[sensitive]\"}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive div{display:none}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container{width:100% !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image{height:0;width:max-content;background-image:none !important;border-radius:0}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image::before{content:\"[media]\"}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item *,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image *,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item *,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image *{display:none !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child){display:none !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-image{background-image:none !important}body.mtdeck-hide-images .item-box-full-bleed .media-item,body.mtdeck-hide-images .item-box-full-bleed .media-image{margin:auto !important}html.btd-on body.mtdeck-hide-images .js-media-image-link{background-color:inherit !important}html.btd-on body.mtdeck-hide-images .js-media-preview-container.is-video .media-item::before{opacity:1;width:inherit;background-image:none;top:20px;left:20px}html.btd-on body.mtdeck-hide-images .js-media-preview-container.is-video .media-item::after{background-color:transparent}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3030,7 +3030,7 @@ module.exports = function (list, options) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = {"i8":"1.6.7"};
+module.exports = {"i8":"1.6.8"};
 
 /***/ }),
 
@@ -3296,6 +3296,16 @@ var Backable = /** @class */ (function () {
     };
     return Backable;
 }());
+var MTDeckConfig = /** @class */ (function (_super) {
+    __extends(MTDeckConfig, _super);
+    function MTDeckConfig() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.activeQuery = '.mtdeck-config.is-open';
+        _this.clickQuery = '#mtdeck-config-back';
+        return _this;
+    }
+    return MTDeckConfig;
+}(Backable));
 var TweetDrawer = /** @class */ (function (_super) {
     __extends(TweetDrawer, _super);
     function TweetDrawer() {
@@ -3396,6 +3406,7 @@ var SideMenu = /** @class */ (function (_super) {
 var BackController = /** @class */ (function () {
     function BackController() {
         this.backables = [
+            new MTDeckConfig(),
             new TweetDrawer(),
             new ModalSocial(),
             new ModalDetail(),
@@ -3635,12 +3646,8 @@ var Deck = /** @class */ (function () {
         });
     };
     Deck.prototype.back = function () {
-        if (this.config.isOpen()) {
-            this.config.close();
-        }
-        else {
-            this.backController.back();
-        }
+        this.update();
+        this.backController.back();
         history.pushState(null, null, null);
     };
     Deck.prototype.pushColumn = function () {
