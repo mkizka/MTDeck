@@ -1,11 +1,9 @@
-import Hammer from "hammerjs";
 import { ScrollController } from "./scroll";
 import { BackController } from "./back";
+import { TouchManager } from "./touch";
 import { Config } from "./config";
 import { Menu } from "./menu";
 import { clickAll } from "./utils";
-
-Hammer.defaults.cssProps.userSelect = null;
 
 export class Deck {
   private config: Config = new Config();
@@ -85,26 +83,19 @@ export class Deck {
     }
     this.update();
 
-    const $appContainer = document.querySelector("div.app-columns-container");
-    const touchManager = new Hammer.Manager($appContainer, {
-      inputClass: Hammer.TouchMouseInput,
-    });
-    touchManager.add(new Hammer.Tap());
-    touchManager.add(
-      new Hammer.Swipe({
-        direction: Hammer.DIRECTION_HORIZONTAL,
-      })
+    const $appContainer = document.querySelector<HTMLDivElement>(
+      "div.app-columns-container"
     );
+    const touchManager = new TouchManager($appContainer);
 
-    touchManager.on("tap", (e) => {
+    touchManager.onTap = () => {
       this.update();
       Menu.close();
-    });
+    };
 
     const menuOpenRange = this.config.getNumber("mtdMenuOpenRange");
-    touchManager.on("swipe", (e) => {
-      const startX = e.changedPointers[0].screenX - e.deltaX;
-      if (e.deltaX > 0) {
+    touchManager.onSwipe = (startX, direction) => {
+      if (direction == "right") {
         if (startX < menuOpenRange) {
           Menu.open();
         } else {
@@ -113,7 +104,7 @@ export class Deck {
       } else {
         this.pushColumn();
       }
-    });
+    };
 
     history.pushState(null, null, null);
     window.addEventListener("popstate", (e) => this.back());

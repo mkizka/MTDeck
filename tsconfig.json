@@ -6,7 +6,5 @@
     "target": "es5",
     "allowJs": true
   },
-  "include": [
-    "src/**/*.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }
