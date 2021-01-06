@@ -4,3 +4,4 @@ node_modules
 web-ext-artifacts
 dist/*
 !dist/mtdeck.user.js
+!dist/mtdeck.min.user.js
