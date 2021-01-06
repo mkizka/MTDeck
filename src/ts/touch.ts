@@ -15,7 +15,7 @@ export class TouchManager {
     );
   }
   constructor($element: HTMLElement) {
-    $element.addEventListener("click", () => this.onTap())
+    $element.addEventListener("click", () => this.onTap());
     $element.addEventListener("touchstart", (e) => {
       this.start = {
         x: e.touches[0].screenX,
