@@ -8,7 +8,7 @@ body.mtdeck {
     transform: translateX(100%) !important;
   }
 
-  .drawer[data-drawer=compose] {
+  .drawer[data-drawer="compose"] {
     left: -100%;
     width: 100%;
   }

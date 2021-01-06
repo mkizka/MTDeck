@@ -1,5 +1,5 @@
 body.mtdeck {
-  button[data-drawer=compose] {
+  button[data-drawer="compose"] {
     z-index: 1;
     position: fixed !important;
     right: 20px;
@@ -22,7 +22,11 @@ body.mtdeck {
     overflow-y: auto;
   }
 
-  section.column, .js-modal-panel, .prf-header, .prf-header-inner-overlay, .social-proof-container {
+  section.column,
+  .js-modal-panel,
+  .prf-header,
+  .prf-header-inner-overlay,
+  .social-proof-container {
     width: 100% !important;
   }
 
@@ -48,7 +52,8 @@ body.mtdeck {
     left: 0 !important;
   }
 
-  .old-composer-footer, .column-nav-flyout {
+  .old-composer-footer,
+  .column-nav-flyout {
     display: none;
   }
 
@@ -57,7 +62,8 @@ body.mtdeck {
   }
 
   .js-mediaembed {
-    .js-media-native-video, .youtube-player {
+    .js-media-native-video,
+    .youtube-player {
       width: 100% !important;
       position: fixed;
       left: 0;

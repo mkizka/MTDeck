@@ -1,5 +1,5 @@
-import { Menu } from './menu';
-import { clickAll } from './utils';
+import { Menu } from "./menu";
+import { clickAll } from "./utils";
 
 abstract class Backable {
   activeQuery: string;
@@ -15,48 +15,48 @@ abstract class Backable {
 }
 
 class MTDeckConfig extends Backable {
-  activeQuery = '.mtdeck-config.is-open'
-  clickQuery = '#mtdeck-config-back'
+  activeQuery = ".mtdeck-config.is-open";
+  clickQuery = "#mtdeck-config-back";
 }
 
 class TweetDrawer extends Backable {
-  activeQuery = '.app-content.is-open';
-  clickQuery = '.js-drawer-close';
+  activeQuery = ".app-content.is-open";
+  clickQuery = ".js-drawer-close";
 }
 
 class ModalSocial extends Backable {
-  activeQuery = '#open-modal .js-column-state-social-proof';
-  clickQuery = '#open-modal .js-tweet-social-proof-back';
+  activeQuery = "#open-modal .js-column-state-social-proof";
+  clickQuery = "#open-modal .js-tweet-social-proof-back";
 }
 
 class ModalDetail extends Backable {
-  activeQuery = '#open-modal .js-column-state-detail-view';
-  clickQuery = '#open-modal .js-column-back';
+  activeQuery = "#open-modal .js-column-state-detail-view";
+  clickQuery = "#open-modal .js-column-back";
 }
 
 class BackableModal extends Backable {
-  activeQuery = '.mdl .btn-back';
-  clickQuery = '.mdl .btn-back';
+  activeQuery = ".mdl .btn-back";
+  clickQuery = ".mdl .btn-back";
 }
 
 class Modal extends Backable {
-  activeQuery = '.mdl .js-dismiss';
-  clickQuery = '.mdl .js-dismiss';
+  activeQuery = ".mdl .js-dismiss";
+  clickQuery = ".mdl .js-dismiss";
 }
 
 class ColumnSocial extends Backable {
-  activeQuery = '#container .js-column-state-social-proof';
-  clickQuery = '#container .js-tweet-social-proof-back';
+  activeQuery = "#container .js-column-state-social-proof";
+  clickQuery = "#container .js-tweet-social-proof-back";
 }
 
 class ColumnDetail extends Backable {
-  activeQuery = '#container .js-column-state-detail-view';
-  clickQuery = '#container .js-column-back';
+  activeQuery = "#container .js-column-state-detail-view";
+  clickQuery = "#container .js-column-back";
 }
 
 class ColumnOption extends Backable {
-  activeQuery = '.is-options-open';
-  clickQuery = '.is-options-open .js-action-header-button';
+  activeQuery = ".is-options-open";
+  clickQuery = ".is-options-open .js-action-header-button";
 }
 
 class SideMenu extends Backable {

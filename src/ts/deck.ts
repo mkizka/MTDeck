@@ -1,9 +1,9 @@
-import Hammer from 'hammerjs';
-import { ScrollController } from './scroll';
-import { BackController } from './back';
-import { Config } from './config';
-import { Menu } from './menu';
-import { clickAll } from './utils';
+import Hammer from "hammerjs";
+import { ScrollController } from "./scroll";
+import { BackController } from "./back";
+import { Config } from "./config";
+import { Menu } from "./menu";
+import { clickAll } from "./utils";
 
 Hammer.defaults.cssProps.userSelect = null;
 
@@ -17,7 +17,9 @@ export class Deck {
 
   public ready(): void {
     const initInterval = setInterval(() => {
-      this.$drawerOpenButton = document.querySelector('button[data-drawer=compose]');
+      this.$drawerOpenButton = document.querySelector(
+        "button[data-drawer=compose]"
+      );
       if (this.$drawerOpenButton) {
         this.config.init();
         this.init();
@@ -29,65 +31,78 @@ export class Deck {
 
   private update() {
     this.$columns = [];
-    document.querySelectorAll('section.column').forEach($column => {
+    document.querySelectorAll("section.column").forEach(($column) => {
       this.$columns.push($column);
     });
-    this.fixColumnState()
-    this.updateTweetButton()
+    this.fixColumnState();
+    this.updateTweetButton();
   }
 
   private fixColumnState() {
-    this.columnIndex = 0
-    let $nearColumn = this.$columns[0]
+    this.columnIndex = 0;
+    let $nearColumn = this.$columns[0];
     for (let i = 1; i < this.$columns.length; i++) {
-      if (this.$columns[i].getBoundingClientRect().left ** 2 < $nearColumn.getBoundingClientRect().left ** 2) {
-        $nearColumn = this.$columns[i]
-        this.columnIndex = i
+      if (
+        this.$columns[i].getBoundingClientRect().left ** 2 <
+        $nearColumn.getBoundingClientRect().left ** 2
+      ) {
+        $nearColumn = this.$columns[i];
+        this.columnIndex = i;
       }
     }
-    $nearColumn.scrollIntoView()
+    $nearColumn.scrollIntoView();
   }
 
   private updateTweetButton() {
-    const $tweetButton = document.querySelector<HTMLButtonElement>('.tweet-button')
+    const $tweetButton = document.querySelector<HTMLButtonElement>(
+      ".tweet-button"
+    );
     setTimeout(() => {
-      if (this.$columns[this.columnIndex].classList.contains('js-column-state-detail-view')) {
-        $tweetButton.style.display = 'none'
+      if (
+        this.$columns[this.columnIndex].classList.contains(
+          "js-column-state-detail-view"
+        )
+      ) {
+        $tweetButton.style.display = "none";
       } else {
-        $tweetButton.style.display = 'block'
+        $tweetButton.style.display = "block";
       }
-    }, 200)
+    }, 200);
   }
 
   private init(): void {
-    document.body.classList.add('mtdeck')
-    Menu.close()
+    document.body.classList.add("mtdeck");
+    Menu.close();
 
-    if (this.config.getBoolean('mtdBackAtMounted')) {
-      clickAll('.js-dismiss')
+    if (this.config.getBoolean("mtdBackAtMounted")) {
+      clickAll(".js-dismiss");
     }
-    if (this.config.getBoolean('mtdNoAnimation')) {
-      document.body.classList.add('mtdeck-no-animation')
+    if (this.config.getBoolean("mtdNoAnimation")) {
+      document.body.classList.add("mtdeck-no-animation");
     }
-    if (this.config.getBoolean('mtdHideImages')) {
-      document.body.classList.add('mtdeck-hide-images');
+    if (this.config.getBoolean("mtdHideImages")) {
+      document.body.classList.add("mtdeck-hide-images");
     }
     this.update();
 
-    const $appContainer = document.querySelector('div.app-columns-container');
-    const touchManager = new Hammer.Manager($appContainer, {inputClass: Hammer.TouchMouseInput});
+    const $appContainer = document.querySelector("div.app-columns-container");
+    const touchManager = new Hammer.Manager($appContainer, {
+      inputClass: Hammer.TouchMouseInput,
+    });
     touchManager.add(new Hammer.Tap());
-    touchManager.add(new Hammer.Swipe({
-      direction: Hammer.DIRECTION_HORIZONTAL
-    }));
+    touchManager.add(
+      new Hammer.Swipe({
+        direction: Hammer.DIRECTION_HORIZONTAL,
+      })
+    );
 
-    touchManager.on('tap', e => {
+    touchManager.on("tap", (e) => {
       this.update();
       Menu.close();
     });
 
-    const menuOpenRange = this.config.getNumber('mtdMenuOpenRange');
-    touchManager.on('swipe', e => {
+    const menuOpenRange = this.config.getNumber("mtdMenuOpenRange");
+    touchManager.on("swipe", (e) => {
       const startX = e.changedPointers[0].screenX - e.deltaX;
       if (e.deltaX > 0) {
         if (startX < menuOpenRange) {
@@ -101,15 +116,15 @@ export class Deck {
     });
 
     history.pushState(null, null, null);
-    window.addEventListener('popstate', e => this.back());
+    window.addEventListener("popstate", (e) => this.back());
 
-    this.$drawerOpenButton.addEventListener('click', e => {
+    this.$drawerOpenButton.addEventListener("click", (e) => {
       Menu.close();
     });
   }
 
   private back() {
-    this.update()
+    this.update();
     this.backController.back();
     history.pushState(null, null, null);
   }

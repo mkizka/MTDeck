@@ -1,4 +1,4 @@
-import './scss/index.scss';
-import { Deck } from './ts/deck';
+import "./scss/index.scss";
+import { Deck } from "./ts/deck";
 
 new Deck().ready();

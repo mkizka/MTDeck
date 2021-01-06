@@ -10,12 +10,8 @@
   },
   "content_scripts": [
     {
-      "js": [
-        "./mtdeck.user.js"
-      ],
-      "matches": [
-        "https://tweetdeck.twitter.com/*"
-      ],
+      "js": ["./mtdeck.user.js"],
+      "matches": ["https://tweetdeck.twitter.com/*"],
       "run_at": "document_end"
     }
   ]

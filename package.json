@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production && web-ext build -s dist -o && web-ext lint -s dist",
+    "format": "prettier -w src",
     "_dev:pack": "webpack --mode development --watch",
     "_dev:ext": "web-ext run -v -s dist -u tweetdeck.twitter.com",
     "dev:firefox": "webpack --mode development && concurrently --kill-others \"yarn _dev:pack\" \"yarn _dev:ext -p default\"",
@@ -29,5 +30,8 @@
     "webpack": "^5.1.3",
     "webpack-cli": "^4.0.0",
     "webpack-userscript": "^2.5.6"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
   }
 }

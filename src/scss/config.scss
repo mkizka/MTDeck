@@ -19,7 +19,7 @@
     margin-bottom: 20px !important;
   }
 
-  &-input[type=number] {
+  &-input[type="number"] {
     width: 80px;
     margin-right: 10px;
   }
@@ -31,7 +31,8 @@
 }
 
 body.mtdeck-no-animation {
-  &, *:not(iframe) {
+  &,
+  *:not(iframe) {
     transition-duration: 1ms !important;
   }
 }
@@ -56,7 +57,8 @@ body.mtdeck-hide-images {
     .js-media-preview-container {
       width: 100% !important;
 
-      .media-item, .media-image {
+      .media-item,
+      .media-image {
         height: 0;
         width: max-content;
         background-image: none !important;
@@ -75,14 +77,16 @@ body.mtdeck-hide-images {
     .media-image-container:not(:first-child) {
       display: none !important;
 
-      .media-item, .media-image {
+      .media-item,
+      .media-image {
         background-image: none !important;
       }
     }
   }
 
   .item-box-full-bleed {
-    .media-item, .media-image {
+    .media-item,
+    .media-image {
       margin: auto !important;
     }
   }
