@@ -8,7 +8,6 @@ export class TouchManager {
     const diffY = this.end.y - this.start.y;
     const diffTime = this.end.time - this.start.time;
     const velocity = Math.sqrt(diffX ** 2 + diffY ** 2) / diffTime;
-    console.log(Math.abs(diffY / diffX), diffX, velocity);
     return (
       Math.abs(diffY / diffX) <= 1 && // スワイプ角度の絶対値が45度以下
       Math.abs(diffX) >= 10 && // 最小距離(px)
