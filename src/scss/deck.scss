@@ -34,17 +34,28 @@ body.mtdeck {
     margin-right: -5px;
   }
 
+  // ユーザーのモーダル
   .mdl {
     width: 100% !important;
     overflow-x: hidden;
-
+    .mdl-inner {
+      padding: 5px;
+      // 右カラム右にある領域を非表示
+      .js-right-column {
+        overflow-x: hidden;
+      }
+      // 左カラムを非表示
+      .mdl-column:first-child {
+        display: none;
+      }
+      // 右カラムのサイズ調整
+      .mdl-column:not(:first-child) {
+        width: 100% !important;
+      }
+    }
     .mdl-dismiss {
       right: 10px !important;
     }
-  }
-
-  .mdl-content {
-    overflow: scroll !important;
   }
 
   .med-tweet {
