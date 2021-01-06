@@ -7,17 +7,21 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode production && web-ext build -s dist -o && web-ext lint -s dist",
+    "build": "run-s _build:*",
+    "_build:pack": "webpack --mode production",
+    "_build:lint": "web-ext lint -s dist",
+    "_build:ext": "web-ext build -s dist -o",
     "format": "prettier -w src",
     "_dev:pack": "webpack --mode development --watch",
     "_dev:ext": "web-ext run -v -s dist -u tweetdeck.twitter.com",
-    "dev:firefox": "webpack --mode development && concurrently --kill-others \"yarn _dev:pack\" \"yarn _dev:ext -p default\"",
-    "dev:chrome": "webpack --mode development && concurrently --kill-others \"yarn _dev:pack\" \"yarn _dev:ext --target chromium\""
+    "_dev:ext:firefox": "yarn _dev:ext -p default",
+    "_dev:ext:chrome": "yarn _dev:ext --target chromium",
+    "dev:firefox": "webpack --mode development && run-p _dev:pack _dev:ext:firefox",
+    "dev:chrome": "webpack --mode development && run-p _dev:pack _dev:ext:chrome"
   },
   "dependencies": {
     "@types/chrome": "^0.0.124",
     "@types/hammerjs": "^2.0.36",
-    "concurrently": "^5.3.0",
     "copy-webpack-plugin": "^6.2.1",
     "css-loader": "^5.0.0",
     "hammerjs": "^2.0.8",
@@ -32,6 +36,7 @@
     "webpack-userscript": "^2.5.6"
   },
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1"
   }
 }
