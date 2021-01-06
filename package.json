@@ -3,11 +3,11 @@
   "description": "TweetDeckをスマホアプリのように使えるようにするUserScript",
   "author": "mkizka",
   "homepage": "https://github.com/mkizka/MTDeck",
-  "version": "1.6.8",
+  "version": "1.7.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "run-s _build:*",
+    "build": "rm -rf dist web-ext-artifacts && run-s _build:*",
     "_build:pack": "webpack --mode production",
     "_build:lint": "web-ext lint -s dist",
     "_build:ext": "web-ext build -s dist -o",
