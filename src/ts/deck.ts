@@ -10,7 +10,7 @@ export class Deck {
   private scrollController: ScrollController = new ScrollController();
   private backController: BackController = new BackController();
   private columnIndex: number = 0;
-  private $columns: Element[] = [];
+  private $columns: HTMLElement[] = [];
   private $drawerOpenButton: undefined | Element;
 
   public ready(): void {
@@ -29,7 +29,7 @@ export class Deck {
 
   private update() {
     this.$columns = [];
-    document.querySelectorAll("section.column").forEach(($column) => {
+    document.querySelectorAll<HTMLElement>("section.column").forEach(($column) => {
       this.$columns.push($column);
     });
     this.fixColumnState();
@@ -125,7 +125,7 @@ export class Deck {
     Menu.close();
     if (this.columnIndex < this.$columns.length - 1) {
       this.columnIndex++;
-      this.scrollController.scrollTo(this.$columns[this.columnIndex]);
+      this.scrollController.scrollTo(this.currentColumnId);
     }
   }
 
@@ -136,7 +136,11 @@ export class Deck {
       Menu.open();
     } else {
       this.columnIndex--;
-      this.scrollController.scrollTo(this.$columns[this.columnIndex]);
+      this.scrollController.scrollTo(this.currentColumnId);
     }
+  }
+
+  private get currentColumnId() {
+    return this.$columns[this.columnIndex].dataset.columnId
   }
 }

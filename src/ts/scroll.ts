@@ -17,8 +17,7 @@ export class ScrollController {
     }
   }
 
-  scrollTo($target: Element) {
-    const columnId = ($target as HTMLElement).dataset.column;
+  scrollTo(columnId: string) {
     const $navButton = document.querySelector<HTMLAnchorElement>(
       `.column-nav-item[data-column=${columnId}] a`
     );
