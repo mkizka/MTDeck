@@ -11,11 +11,11 @@ export class Deck {
   private backController: BackController = new BackController();
   private columnIndex: number = 0;
   private $columns: HTMLElement[] = [];
-  private $drawerOpenButton: undefined | Element;
+  private $drawerOpenButton: HTMLButtonElement | null = null;
 
   public ready(): void {
     const initInterval = setInterval(() => {
-      this.$drawerOpenButton = document.querySelector(
+      this.$drawerOpenButton = document.querySelector<HTMLButtonElement>(
         "button[data-drawer=compose]"
       );
       if (this.$drawerOpenButton) {
@@ -29,9 +29,11 @@ export class Deck {
 
   private update() {
     this.$columns = [];
-    document.querySelectorAll<HTMLElement>("section.column").forEach(($column) => {
-      this.$columns.push($column);
-    });
+    document
+      .querySelectorAll<HTMLElement>("section.column")
+      .forEach(($column) => {
+        this.$columns.push($column);
+      });
     this.fixColumnState();
     this.updateTweetButton();
   }
@@ -61,9 +63,9 @@ export class Deck {
           "js-column-state-detail-view"
         )
       ) {
-        $tweetButton.style.display = "none";
+        $tweetButton!.style.display = "none";
       } else {
-        $tweetButton.style.display = "block";
+        $tweetButton!.style.display = "block";
       }
     }, 200);
   }
@@ -86,7 +88,7 @@ export class Deck {
     const $appContainer = document.querySelector<HTMLDivElement>(
       "div.app-columns-container"
     );
-    const touchManager = new TouchManager($appContainer);
+    const touchManager = new TouchManager($appContainer!);
 
     touchManager.onTap = () => {
       this.update();
@@ -106,10 +108,10 @@ export class Deck {
       }
     };
 
-    history.pushState(null, null, null);
+    history.pushState(null, "", null);
     window.addEventListener("popstate", (e) => this.back());
 
-    this.$drawerOpenButton.addEventListener("click", (e) => {
+    this.$drawerOpenButton?.addEventListener("click", (e) => {
       Menu.close();
     });
   }
@@ -117,7 +119,7 @@ export class Deck {
   private back() {
     this.update();
     this.backController.back();
-    history.pushState(null, null, null);
+    history.pushState(null, "", null);
   }
 
   private pushColumn() {
@@ -141,6 +143,6 @@ export class Deck {
   }
 
   private get currentColumnId() {
-    return this.$columns[this.columnIndex].dataset.columnId
+    return this.$columns[this.columnIndex].dataset.columnId as string;
   }
 }

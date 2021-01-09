@@ -1,8 +1,11 @@
-export const safeHtml = (html: string): Element => {
+export const safeHtml = <T = HTMLElement>(html: string): T => {
   const parser = new DOMParser();
   const parsed = parser.parseFromString(html, `text/html`);
-  const body = parsed.querySelector("body");
-  return body.firstElementChild;
+  const body = parsed.querySelector<HTMLBodyElement>("body");
+  if (body?.firstElementChild == undefined) {
+    throw Error;
+  }
+  return (body?.firstElementChild as unknown) as T;
 };
 
 export const clickAll = (query: string) => {

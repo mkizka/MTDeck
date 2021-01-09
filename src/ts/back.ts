@@ -2,8 +2,8 @@ import { Menu } from "./menu";
 import { clickAll } from "./utils";
 
 abstract class Backable {
-  activeQuery: string;
-  clickQuery: string;
+  protected activeQuery: string = "";
+  protected clickQuery: string = "";
 
   get exists(): boolean {
     return document.querySelectorAll(this.activeQuery).length > 0;

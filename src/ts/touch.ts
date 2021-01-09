@@ -1,6 +1,9 @@
 export class TouchManager {
-  public onTap: () => void;
-  public onSwipe: (startX: number, direction: "left" | "right") => void;
+  public onTap: () => void = () => {};
+  public onSwipe: (
+    startX: number,
+    direction: "left" | "right"
+  ) => void = () => {};
   private start = { x: 0, y: 0, time: 0 };
   private end = { x: 0, y: 0, time: 0 };
   private get isSwipedX() {
