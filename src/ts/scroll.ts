@@ -18,19 +18,13 @@ export class ScrollController {
   }
 
   scrollTo($target: Element) {
-    const rect = $target.getBoundingClientRect();
-    const behavior = this.isNoAnimation ? "auto" : "smooth";
-    this.$container.scrollBy({
-      left: rect.left,
-      behavior: behavior,
-    });
-
     const columnId = ($target as HTMLElement).dataset.column;
-    const $navButton = document.querySelector(
-      `.column-nav-item[data-column=${columnId}]`
+    const $navButton = document.querySelector<HTMLAnchorElement>(
+      `.column-nav-item[data-column=${columnId}] a`
     );
+    $navButton.click();
     $navButton.scrollIntoView({
-      behavior: behavior,
+      behavior: this.isNoAnimation ? "auto" : "smooth",
       inline: "nearest",
     });
   }
@@ -45,24 +39,28 @@ export class ScrollController {
   }
 
   private setNoAnimationJump() {
-    const $jumpToAnchors: NodeListOf<HTMLAnchorElement> = this.$columnNavigator.querySelectorAll(
-      "li[data-column]"
+    const $anchors = this.$columnNavigator.querySelectorAll<HTMLAnchorElement>(
+      "li[data-column] a"
     );
-    $jumpToAnchors.forEach(($anchor) => {
-      if ($anchor.dataset.noAnimation) return;
-
-      const $replacedAnchor = safeHtml($anchor.outerHTML) as HTMLAnchorElement;
-      $anchor.insertAdjacentElement("afterend", $replacedAnchor);
-      $anchor.remove();
-
+    $anchors.forEach(($anchor) => {
+      const $replacedAnchor = removeEventHandler($anchor);
       $replacedAnchor.addEventListener("click", (e) => {
         const columnId = $anchor.dataset.column;
         const $targetColumn = this.$container.querySelector(
           `section[data-column=${columnId}]`
         );
-        this.scrollTo($targetColumn);
+        $targetColumn.scrollIntoView({
+          behavior: "auto",
+          inline: "nearest",
+        });
       });
-      $replacedAnchor.dataset.noAnimation = "true";
     });
   }
+}
+
+function removeEventHandler($element: Element): typeof $element {
+  const $replaced = safeHtml($element.outerHTML) as HTMLAnchorElement;
+  $element.insertAdjacentElement("afterend", $replaced);
+  $element.remove();
+  return $replaced;
 }
