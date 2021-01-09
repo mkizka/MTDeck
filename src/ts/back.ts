@@ -82,21 +82,13 @@ export class BackController {
     new ColumnOption(),
     new SideMenu(),
   ];
-  private queue: Array<Backable> = [];
-
-  updateQueue(): void {
-    this.queue = [];
-    for (let backable of this.backables) {
-      if (backable.exists) {
-        this.queue.push(backable);
-      }
-    }
-  }
 
   back(): void {
-    this.updateQueue();
-    if (this.queue.length > 0) {
-      this.queue[0].back();
+    for (let backable of this.backables) {
+      if (backable.exists) {
+        backable.back()
+        break
+      }
     }
   }
 }
