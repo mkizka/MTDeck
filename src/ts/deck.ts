@@ -143,6 +143,6 @@ export class Deck {
   }
 
   private get currentColumnId() {
-    return this.$columns[this.columnIndex].dataset.columnId as string;
+    return this.$columns[this.columnIndex].dataset.column as string;
   }
 }
