@@ -19,15 +19,16 @@ export class ScrollController {
     }
   }
 
-  scrollTo(columnId: string) {
-    const $navButton = this.$columnNavigator?.querySelector<HTMLAnchorElement>(
-      `li[data-column=${columnId}] a`
+  scrollTo($target: HTMLElement) {
+    const { left } = $target.getBoundingClientRect();
+    const behavior = this.isNoAnimation ? "auto" : "smooth";
+    // ナビゲーションバーのスクロール(scrollIntoView)と
+    // 同時に発火出来ない？ためscrollByでスクロール
+    this.$container!.scrollBy({ left, behavior });
+    const $navButton = this.$columnNavigator!.querySelector(
+      `li[data-column=${$target.dataset.column}]`
     );
-    $navButton?.click();
-    $navButton?.scrollIntoView({
-      behavior: this.isNoAnimation ? "auto" : "smooth",
-      inline: "nearest",
-    });
+    $navButton!.scrollIntoView({ behavior, inline: "nearest" });
   }
 
   private setNoAnimationObserver() {
@@ -45,15 +46,11 @@ export class ScrollController {
     );
     $anchors?.forEach(($anchor) => {
       const $replacedAnchor = removeEventHandler($anchor);
-      $replacedAnchor.addEventListener("click", (e) => {
-        const columnId = $anchor.dataset.column;
-        const $targetColumn = this.$container?.querySelector<HTMLElement>(
-          `section[data-column=${columnId}]`
+      $replacedAnchor.addEventListener("click", (_) => {
+        const $targetColumn = this.$container?.querySelector(
+          `section[data-column=${$anchor.dataset.column}]`
         );
-        $targetColumn?.scrollIntoView({
-          behavior: "auto",
-          inline: "nearest",
-        });
+        $targetColumn!.scrollIntoView({ inline: "nearest" });
       });
     });
   }

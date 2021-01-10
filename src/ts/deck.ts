@@ -132,7 +132,7 @@ export class Deck {
     Menu.close();
     if (this.columnIndex < this.$columns.length - 1) {
       this.columnIndex++;
-      this.scrollController.scrollTo(this.currentColumnId);
+      this.scrollController.scrollTo(this.$columns[this.columnIndex]);
     }
   }
 
@@ -143,12 +143,8 @@ export class Deck {
       Menu.open();
     } else {
       this.columnIndex--;
-      this.scrollController.scrollTo(this.currentColumnId);
+      this.scrollController.scrollTo(this.$columns[this.columnIndex]);
     }
-  }
-
-  private get currentColumnId() {
-    return this.$columns[this.columnIndex].dataset.column as string;
   }
 }
 

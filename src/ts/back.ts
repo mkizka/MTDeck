@@ -86,8 +86,8 @@ export class BackController {
   back(): void {
     for (let backable of this.backables) {
       if (backable.exists) {
-        backable.back()
-        break
+        backable.back();
+        break;
       }
     }
   }
