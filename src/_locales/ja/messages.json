@@ -23,6 +23,9 @@
   "configOptionHideImages": {
     "message": "ツイートの画像サムネイルを非表示"
   },
+  "configOptionLazyLoadImages": {
+    "message": "ツイートの画像サムネイルを遅延読み込み"
+  },
   "configOptionMenuOpenRange": {
     "message": "左からのスワイプでメニューを開く範囲"
   }

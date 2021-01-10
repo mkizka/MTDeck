@@ -29,6 +29,12 @@ export class Config {
       default: "false",
     },
     {
+      label: _("configOptionLazyLoadImages"),
+      name: "mtdLazyLoadImages",
+      type: "checkbox",
+      default: "false",
+    },
+    {
       label: _("configOptionMenuOpenRange"),
       name: "mtdMenuOpenRange",
       type: "number",

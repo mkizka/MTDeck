@@ -74,6 +74,10 @@ export class Deck {
     document.body.classList.add("mtdeck");
     Menu.close();
 
+    const $appContainer = document.querySelector<HTMLDivElement>(
+      "div.app-columns-container"
+    )!;
+
     if (this.config.getBoolean("mtdBackAtMounted")) {
       clickAll(".js-dismiss");
     }
@@ -83,13 +87,14 @@ export class Deck {
     if (this.config.getBoolean("mtdHideImages")) {
       document.body.classList.add("mtdeck-hide-images");
     }
+    // 画像非表示の場合は遅延読み込みしないためelse
+    else if (this.config.getBoolean("mtdLazyLoadImages")) {
+      document.body.classList.add("mtdeck-lazy-load-image");
+      setLazyLoadObservers($appContainer);
+    }
     this.update();
 
-    const $appContainer = document.querySelector<HTMLDivElement>(
-      "div.app-columns-container"
-    );
-    const touchManager = new TouchManager($appContainer!);
-
+    const touchManager = new TouchManager($appContainer);
     touchManager.onTap = () => {
       this.update();
       Menu.close();
@@ -145,4 +150,39 @@ export class Deck {
   private get currentColumnId() {
     return this.$columns[this.columnIndex].dataset.column as string;
   }
+}
+
+function setLazyLoadObservers($container: HTMLElement) {
+  const intersectionObserver = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        const style = (e.target as HTMLElement).style;
+        style.setProperty(
+          "background-image",
+          style.backgroundImage,
+          "important"
+        );
+      }
+    }
+  });
+  const mutationObserver = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      mutation.addedNodes.forEach((node) => {
+        if ("querySelector" in node) {
+          const mediaItems = (node as HTMLElement).querySelectorAll(
+            ".media-item, .media-image"
+          );
+          if (mediaItems) {
+            mediaItems.forEach((item) => intersectionObserver.observe(item));
+          }
+        }
+      });
+    }
+  });
+  mutationObserver.observe($container, {
+    childList: true,
+    attributes: false,
+    characterData: false,
+    subtree: true,
+  });
 }

@@ -91,3 +91,10 @@ body.mtdeck-hide-images {
     }
   }
 }
+
+body.mtdeck-lazy-load-image {
+  .media-item,
+  .media-image {
+    background-image: none !important;
+  }
+}
