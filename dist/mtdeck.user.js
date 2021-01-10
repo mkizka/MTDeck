@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        MTDeck
-// @version     1.7.0
+// @version     1.8.0
 // @author      mkizka
 // @description TweetDeckをスマホアプリのように使えるようにするUserScript
 // @homepage    https://github.com/mkizka/MTDeck
@@ -23,7 +23,7 @@
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body.mtdeck button[data-drawer=compose]{z-index:1;position:fixed !important;right:20px;bottom:60px;width:4rem !important;height:4rem !important;filter:drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7))}body.mtdeck .app-columns{padding:0 0 50px 0 !important}body.mtdeck .app-content{left:0 !important}body.mtdeck .app-columns-container{overflow-x:hidden;overflow-y:auto}body.mtdeck section.column,body.mtdeck .js-modal-panel,body.mtdeck .prf-header,body.mtdeck .prf-header-inner-overlay,body.mtdeck .social-proof-container{width:100% !important}body.mtdeck .overlay:before{margin-right:-5px}body.mtdeck .mdl{width:100% !important;overflow-x:hidden}body.mtdeck .mdl .mdl-inner{padding:5px}body.mtdeck .mdl .mdl-inner .js-right-column{overflow-x:hidden}body.mtdeck .mdl .mdl-inner .mdl-column:first-child{display:none}body.mtdeck .mdl .mdl-inner .mdl-column:not(:first-child){width:100% !important}body.mtdeck .mdl .mdl-dismiss{right:10px !important}body.mtdeck .med-tweet{width:100% !important;left:0 !important}body.mtdeck .old-composer-footer,body.mtdeck .column-nav-flyout{display:none}body.mtdeck .js-search-in-popover .popover{width:200px !important}body.mtdeck .js-mediaembed .js-media-native-video,body.mtdeck .js-mediaembed .youtube-player{width:100% !important;position:fixed;left:0;top:0;bottom:0;margin:auto !important;z-index:1}body.mtdeck .column-navigator{top:50px}body.mtdeck .app-content{will-change:transform}body.mtdeck .app-content.is-open{margin-right:0 !important;transform:translateX(100%) !important}body.mtdeck .drawer[data-drawer=compose]{left:-100%;width:100%}body.mtdeck button.js-hide-drawer{display:none !important}body.mtdeck .js-int-scroller{position:fixed;bottom:0;left:0;right:0;background-color:#1c2938;overflow-x:auto;white-space:nowrap;padding-top:10px;height:40px}body.mtdeck .js-int-scroller .column-nav-item{height:35px}body.mtdeck .js-int-scroller .column-nav-item .icon-medium{font-size:20px}body.mtdeck .js-int-scroller .column-nav-item .js-header-action{padding-left:12px !important;padding-right:12px !important}body.mtdeck .hide-detail-view-inline .js-int-scroller,body.mtdeck .with-nav-border-t:before{display:none}body.mtdeck .column-nav-item{display:inline-block}body.mtdeck-close header.app-header{position:relative;top:-50px}body.mtdeck-close div.app-columns-container{left:0 !important}.mtdeck-config{display:none;width:100%;height:100%;position:fixed;z-index:201;background-color:#1c2938;padding:20px}.mtdeck-config.is-open{display:block}.mtdeck-config-button{color:#8a2be2 !important}.mtdeck-config-item{margin-bottom:20px !important}.mtdeck-config-input[type=number]{width:80px;margin-right:10px}.mtdeck-config-footer{position:fixed;bottom:20px}body.mtdeck-no-animation,body.mtdeck-no-animation *:not(iframe){transition-duration:1ms !important}body.mtdeck-hide-images .js-media:not(.detail-preview){height:25px !important;border-radius:0 !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive{height:1rem;background-color:transparent}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive::before{content:\"[sensitive]\"}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive div{display:none}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container{width:100% !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image{height:0;width:max-content;background-image:none !important;border-radius:0}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image::before{content:\"[media]\"}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item *,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image *,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item *,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image *{display:none !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child){display:none !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-image{background-image:none !important}body.mtdeck-hide-images .item-box-full-bleed .media-item,body.mtdeck-hide-images .item-box-full-bleed .media-image{margin:auto !important}html.btd-on body.mtdeck-hide-images .js-media-image-link{background-color:inherit !important}html.btd-on body.mtdeck-hide-images .js-media-preview-container.is-video .media-item::before{opacity:1;width:inherit;background-image:none;top:20px;left:20px}html.btd-on body.mtdeck-hide-images .js-media-preview-container.is-video .media-item::after{background-color:transparent}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body.mtdeck button[data-drawer=compose]{z-index:1;position:fixed !important;right:20px;bottom:60px;width:4rem !important;height:4rem !important;filter:drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7))}body.mtdeck .app-columns{padding:0 0 50px 0 !important}body.mtdeck .app-content{left:0 !important}body.mtdeck .app-columns-container{overflow-x:hidden;overflow-y:auto}body.mtdeck section.column,body.mtdeck .js-modal-panel,body.mtdeck .prf-header,body.mtdeck .prf-header-inner-overlay,body.mtdeck .social-proof-container{width:100% !important}body.mtdeck .overlay:before{margin-right:-5px}body.mtdeck .mdl{width:100% !important;overflow-x:hidden}body.mtdeck .mdl .mdl-inner{padding:5px}body.mtdeck .mdl .mdl-inner .js-right-column{overflow-x:hidden}body.mtdeck .mdl .mdl-inner .mdl-column:first-child{display:none}body.mtdeck .mdl .mdl-inner .mdl-column:not(:first-child){width:100% !important}body.mtdeck .mdl .mdl-dismiss{right:10px !important}body.mtdeck .med-tweet{width:100% !important;left:0 !important}body.mtdeck .old-composer-footer,body.mtdeck .column-nav-flyout{display:none}body.mtdeck .js-search-in-popover .popover{width:200px !important}body.mtdeck .js-mediaembed .js-media-native-video,body.mtdeck .js-mediaembed .youtube-player{width:100% !important;position:fixed;left:0;top:0;bottom:0;margin:auto !important;z-index:1}body.mtdeck .column-navigator{top:50px}body.mtdeck .app-content{will-change:transform}body.mtdeck .app-content.is-open{margin-right:0 !important;transform:translateX(100%) !important}body.mtdeck .drawer[data-drawer=compose]{left:-100%;width:100%}body.mtdeck button.js-hide-drawer{display:none !important}body.mtdeck .js-int-scroller{position:fixed;bottom:0;left:0;right:0;background-color:#1c2938;overflow-x:auto;white-space:nowrap;padding-top:10px;height:40px}body.mtdeck .js-int-scroller .column-nav-item{height:35px}body.mtdeck .js-int-scroller .column-nav-item .icon-medium{font-size:20px}body.mtdeck .js-int-scroller .column-nav-item .js-header-action{padding-left:12px !important;padding-right:12px !important}body.mtdeck .hide-detail-view-inline .js-int-scroller,body.mtdeck .with-nav-border-t:before{display:none}body.mtdeck .column-nav-item{display:inline-block}body.mtdeck-close header.app-header{position:relative;top:-50px}body.mtdeck-close div.app-columns-container{left:0 !important}.mtdeck-config{display:none;width:100%;height:100%;position:fixed;z-index:201;background-color:#1c2938;padding:20px}.mtdeck-config.is-open{display:block}.mtdeck-config-button{color:#8a2be2 !important}.mtdeck-config-item{margin-bottom:20px !important}.mtdeck-config-input[type=number]{width:80px;margin-right:10px}.mtdeck-config-footer{position:fixed;bottom:20px}body.mtdeck-no-animation,body.mtdeck-no-animation *:not(iframe){transition-duration:1ms !important}body.mtdeck-hide-images .js-media:not(.detail-preview){height:25px !important;border-radius:0 !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive{height:1rem;background-color:transparent}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive::before{content:\"[sensitive]\"}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive div{display:none}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container{width:100% !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image{height:0;width:max-content;background-image:none !important;border-radius:0}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image::before{content:\"[media]\"}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item *,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image *,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item *,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image *{display:none !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child){display:none !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-image{background-image:none !important}body.mtdeck-hide-images .item-box-full-bleed .media-item,body.mtdeck-hide-images .item-box-full-bleed .media-image{margin:auto !important}body.mtdeck-lazy-load-image .media-item,body.mtdeck-lazy-load-image .media-image{background-image:none !important}html.btd-on body.mtdeck-hide-images .js-media-image-link{background-color:inherit !important}html.btd-on body.mtdeck-hide-images .js-media-preview-container.is-video .media-item::before{opacity:1;width:inherit;background-image:none;top:20px;left:20px}html.btd-on body.mtdeck-hide-images .js-media-preview-container.is-video .media-item::after{background-color:transparent}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -383,7 +383,7 @@ module.exports = function (list, options) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = {"i8":"1.7.0"};
+module.exports = {"i8":"1.8.0"};
 
 /***/ }),
 
@@ -391,7 +391,7 @@ module.exports = {"i8":"1.7.0"};
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse("{\"extensionDescription\":{\"message\":\"A browser extension to customize TweetDeck for mobile\"},\"configTitle\":{\"message\":\"Preference\"},\"configSaveLabel\":{\"message\":\"Save and Reload\"},\"configBackLabel\":{\"message\":\"Close\"},\"configLinksLabel\":{\"message\":\"Bug/Feature Report\"},\"configOptionBackAtMounted\":{\"message\":\"Close notifications at startup\"},\"configOptionNoAnimation\":{\"message\":\"Disable animation\"},\"configOptionHideImages\":{\"message\":\"Hide image thumbnails on tweet\"},\"configOptionMenuOpenRange\":{\"message\":\"Range to open menu with swipe\"}}");
+module.exports = JSON.parse("{\"extensionDescription\":{\"message\":\"A browser extension to customize TweetDeck for mobile\"},\"configTitle\":{\"message\":\"Preference\"},\"configSaveLabel\":{\"message\":\"Save and Reload\"},\"configBackLabel\":{\"message\":\"Close\"},\"configLinksLabel\":{\"message\":\"Bug/Feature Report\"},\"configOptionBackAtMounted\":{\"message\":\"Close notifications at startup\"},\"configOptionNoAnimation\":{\"message\":\"Disable animation\"},\"configOptionHideImages\":{\"message\":\"Hide image thumbnails on tweet\"},\"configOptionLazyLoadImages\":{\"message\":\"Lazy load image thumbnails on tweet\"},\"configOptionMenuOpenRange\":{\"message\":\"Range to open menu with swipe\"}}");
 
 /***/ }),
 
@@ -399,7 +399,7 @@ module.exports = JSON.parse("{\"extensionDescription\":{\"message\":\"A browser 
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse("{\"extensionDescription\":{\"message\":\"TweetDeckをスマホアプリのように使えるようにするアドオン\"},\"configTitle\":{\"message\":\"設定メニュー\"},\"configSaveLabel\":{\"message\":\"保存して再読み込み\"},\"configBackLabel\":{\"message\":\"戻る\"},\"configLinksLabel\":{\"message\":\"バグ報告/機能提案など\"},\"configOptionBackAtMounted\":{\"message\":\"起動直後に開いている通知などを閉じる\"},\"configOptionNoAnimation\":{\"message\":\"アニメーションの無効化\"},\"configOptionHideImages\":{\"message\":\"ツイートの画像サムネイルを非表示\"},\"configOptionMenuOpenRange\":{\"message\":\"左からのスワイプでメニューを開く範囲\"}}");
+module.exports = JSON.parse("{\"extensionDescription\":{\"message\":\"TweetDeckをスマホアプリのように使えるようにするアドオン\"},\"configTitle\":{\"message\":\"設定メニュー\"},\"configSaveLabel\":{\"message\":\"保存して再読み込み\"},\"configBackLabel\":{\"message\":\"戻る\"},\"configLinksLabel\":{\"message\":\"バグ報告/機能提案など\"},\"configOptionBackAtMounted\":{\"message\":\"起動直後に開いている通知などを閉じる\"},\"configOptionNoAnimation\":{\"message\":\"アニメーションの無効化\"},\"configOptionHideImages\":{\"message\":\"ツイートの画像サムネイルを非表示\"},\"configOptionLazyLoadImages\":{\"message\":\"ツイートの画像サムネイルを遅延読み込み\"},\"configOptionMenuOpenRange\":{\"message\":\"左からのスワイプでメニューを開く範囲\"}}");
 
 /***/ }),
 
@@ -516,7 +516,10 @@ var safeHtml = function (html) {
     var parser = new DOMParser();
     var parsed = parser.parseFromString(html, "text/html");
     var body = parsed.querySelector("body");
-    return body.firstElementChild;
+    if ((body === null || body === void 0 ? void 0 : body.firstElementChild) == undefined) {
+        throw Error;
+    }
+    return body === null || body === void 0 ? void 0 : body.firstElementChild;
 };
 var clickAll = function (query) {
     var $buttons = document.querySelectorAll(query);
@@ -534,6 +537,9 @@ var _ = function (messageName) {
 
 var ScrollController = /** @class */ (function () {
     function ScrollController() {
+        this.$container = null;
+        this.$columnNavigator = null;
+        this.isNoAnimation = false;
     }
     ScrollController.prototype.init = function () {
         this.$container = document.querySelector("#container");
@@ -545,18 +551,13 @@ var ScrollController = /** @class */ (function () {
         }
     };
     ScrollController.prototype.scrollTo = function ($target) {
-        var rect = $target.getBoundingClientRect();
+        var left = $target.getBoundingClientRect().left;
         var behavior = this.isNoAnimation ? "auto" : "smooth";
-        this.$container.scrollBy({
-            left: rect.left,
-            behavior: behavior,
-        });
-        var columnId = $target.dataset.column;
-        var $navButton = document.querySelector(".column-nav-item[data-column=" + columnId + "]");
-        $navButton.scrollIntoView({
-            behavior: behavior,
-            inline: "nearest",
-        });
+        // ナビゲーションバーのスクロール(scrollIntoView)と
+        // 同時に発火出来ない？ためscrollByでスクロール
+        this.$container.scrollBy({ left: left, behavior: behavior });
+        var $navButton = this.$columnNavigator.querySelector("li[data-column=" + $target.dataset.column + "]");
+        $navButton.scrollIntoView({ behavior: behavior, inline: "nearest" });
     };
     ScrollController.prototype.setNoAnimationObserver = function () {
         var _this = this;
@@ -569,24 +570,26 @@ var ScrollController = /** @class */ (function () {
     };
     ScrollController.prototype.setNoAnimationJump = function () {
         var _this = this;
-        var $jumpToAnchors = this.$columnNavigator.querySelectorAll("li[data-column]");
-        $jumpToAnchors.forEach(function ($anchor) {
-            if ($anchor.dataset.noAnimation)
-                return;
-            var $replacedAnchor = safeHtml($anchor.outerHTML);
-            $anchor.insertAdjacentElement("afterend", $replacedAnchor);
-            $anchor.remove();
-            $replacedAnchor.addEventListener("click", function (e) {
-                var columnId = $anchor.dataset.column;
-                var $targetColumn = _this.$container.querySelector("section[data-column=" + columnId + "]");
-                _this.scrollTo($targetColumn);
+        var _a;
+        var $anchors = (_a = this.$columnNavigator) === null || _a === void 0 ? void 0 : _a.querySelectorAll("li[data-column] a");
+        $anchors === null || $anchors === void 0 ? void 0 : $anchors.forEach(function ($anchor) {
+            var $replacedAnchor = removeEventHandler($anchor);
+            $replacedAnchor.addEventListener("click", function (_) {
+                var _a;
+                var $targetColumn = (_a = _this.$container) === null || _a === void 0 ? void 0 : _a.querySelector("section[data-column=" + $anchor.dataset.column + "]");
+                $targetColumn.scrollIntoView({ inline: "nearest" });
             });
-            $replacedAnchor.dataset.noAnimation = "true";
         });
     };
     return ScrollController;
 }());
 
+function removeEventHandler($element) {
+    var $replaced = safeHtml($element.outerHTML);
+    $element.insertAdjacentElement("afterend", $replaced);
+    $element.remove();
+    return $replaced;
+}
 
 ;// CONCATENATED MODULE: ./src/ts/menu.ts
 var Menu = /** @class */ (function () {
@@ -631,6 +634,8 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 var Backable = /** @class */ (function () {
     function Backable() {
+        this.activeQuery = "";
+        this.clickQuery = "";
     }
     Object.defineProperty(Backable.prototype, "exists", {
         get: function () {
@@ -765,21 +770,14 @@ var BackController = /** @class */ (function () {
             new ColumnOption(),
             new SideMenu(),
         ];
-        this.queue = [];
     }
-    BackController.prototype.updateQueue = function () {
-        this.queue = [];
+    BackController.prototype.back = function () {
         for (var _i = 0, _a = this.backables; _i < _a.length; _i++) {
             var backable = _a[_i];
             if (backable.exists) {
-                this.queue.push(backable);
+                backable.back();
+                break;
             }
-        }
-    };
-    BackController.prototype.back = function () {
-        this.updateQueue();
-        if (this.queue.length > 0) {
-            this.queue[0].back();
         }
     };
     return BackController;
@@ -790,6 +788,8 @@ var BackController = /** @class */ (function () {
 var TouchManager = /** @class */ (function () {
     function TouchManager($element) {
         var _this = this;
+        this.onTap = function () { };
+        this.onSwipe = function () { };
         this.start = { x: 0, y: 0, time: 0 };
         this.end = { x: 0, y: 0, time: 0 };
         $element.addEventListener("click", function () { return _this.onTap(); });
@@ -836,6 +836,7 @@ var TouchManager = /** @class */ (function () {
 
 var Config = /** @class */ (function () {
     function Config() {
+        this.$el = null;
         this.items = [
             {
                 label: _("configOptionBackAtMounted"),
@@ -852,6 +853,12 @@ var Config = /** @class */ (function () {
             {
                 label: _("configOptionHideImages"),
                 name: "mtdHideImages",
+                type: "checkbox",
+                default: "false",
+            },
+            {
+                label: _("configOptionLazyLoadImages"),
+                name: "mtdLazyLoadImages",
                 type: "checkbox",
                 default: "false",
             },
@@ -873,11 +880,13 @@ var Config = /** @class */ (function () {
         return localStorage.getItem(key) === "true";
     };
     Config.prototype.open = function () {
-        this.$el.classList.add("is-open");
+        var _a;
+        (_a = this.$el) === null || _a === void 0 ? void 0 : _a.classList.add("is-open");
     };
     Config.prototype.close = function () {
+        var _a;
         this.save();
-        this.$el.classList.remove("is-open");
+        (_a = this.$el) === null || _a === void 0 ? void 0 : _a.classList.remove("is-open");
     };
     Config.prototype.isOpen = function () {
         return this.$el.classList.contains("is-open");
@@ -901,11 +910,13 @@ var Config = /** @class */ (function () {
         });
     };
     Config.prototype.createInfo = function () {
-        this.$el.appendChild(safeHtml("\n      <div class=\"mtdeck-config-item\">\n        <p>MTDeck v" + __webpack_require__(306)/* .version */ .i8 + "</p>\n        <p>" + _("configLinksLabel") + ":\n          <a href=\"https://github.com/mkizka/MTDeck\" target=\"_blank\">Github</a>\n          <a href=\"https://twitter.com/mkizka\">Twitter</a>\n        </p>\n      </div>\n    "));
+        var _a;
+        (_a = this.$el) === null || _a === void 0 ? void 0 : _a.appendChild(safeHtml("\n      <div class=\"mtdeck-config-item\">\n        <p>MTDeck v" + __webpack_require__(306)/* .version */ .i8 + "</p>\n        <p>" + _("configLinksLabel") + ":\n          <a href=\"https://github.com/mkizka/MTDeck\" target=\"_blank\">Github</a>\n          <a href=\"https://twitter.com/mkizka\">Twitter</a>\n        </p>\n      </div>\n    "));
     };
     Config.prototype.createFooter = function () {
         var _this = this;
-        this.$el.appendChild(safeHtml("\n      <div class=\"mtdeck-config-footer\">\n        <button id=\"mtdeck-config-save\">" + _("configSaveLabel") + "</button>\n        <button id=\"mtdeck-config-back\">" + _("configBackLabel") + "</button>\n      </div>\n    "));
+        var _a;
+        (_a = this.$el) === null || _a === void 0 ? void 0 : _a.appendChild(safeHtml("\n      <div class=\"mtdeck-config-footer\">\n        <button id=\"mtdeck-config-save\">" + _("configSaveLabel") + "</button>\n        <button id=\"mtdeck-config-back\">" + _("configBackLabel") + "</button>\n      </div>\n    "));
         document
             .querySelector("#mtdeck-config-save")
             .addEventListener("click", function () {
@@ -921,6 +932,7 @@ var Config = /** @class */ (function () {
     Config.prototype.createForm = function () {
         var _this = this;
         this.items.forEach(function (item) {
+            var _a;
             var inputElement = safeHtml("\n        <input class=\"mtdeck-config-input\" type=\"" + item.type + "\" name=\"" + item.name + "\"/>\n      ");
             if (item.type === "checkbox") {
                 inputElement.defaultChecked = _this.getBoolean(item.name);
@@ -928,23 +940,22 @@ var Config = /** @class */ (function () {
             else {
                 inputElement.defaultValue = _this.getString(item.name);
             }
-            _this.$el.insertAdjacentElement("beforeend", safeHtml("\n        <label class=\"mtdeck-config-item\">\n          " + inputElement.outerHTML + "  \n          " + item.label + "\n        </label>\n      "));
+            (_a = _this.$el) === null || _a === void 0 ? void 0 : _a.insertAdjacentElement("beforeend", safeHtml("\n        <label class=\"mtdeck-config-item\">\n          " + inputElement.outerHTML + "  \n          " + item.label + "\n        </label>\n      "));
         });
     };
     Config.prototype.createSettingButton = function () {
         var _this = this;
+        var _a;
         var $settingsButton = document.querySelector(".js-app-settings");
-        var $copiedSettingsButton = $settingsButton.cloneNode(true);
+        var $copiedSettingsButton = safeHtml($settingsButton === null || $settingsButton === void 0 ? void 0 : $settingsButton.outerHTML);
         $copiedSettingsButton.dataset.action = "mtdeckConfig";
         $copiedSettingsButton.dataset.title = "MTDeck Config";
         $copiedSettingsButton.classList.add("mtdeck-config-button");
         $copiedSettingsButton
             .querySelector(".app-nav-link-text")
             .insertAdjacentText("afterbegin", "MTD");
-        $settingsButton.parentElement.insertAdjacentElement("afterbegin", safeHtml($copiedSettingsButton.outerHTML));
-        $settingsButton.parentElement.firstChild.addEventListener("click", function (e) {
-            return _this.open();
-        });
+        (_a = $settingsButton === null || $settingsButton === void 0 ? void 0 : $settingsButton.parentElement) === null || _a === void 0 ? void 0 : _a.insertAdjacentElement("afterbegin", $copiedSettingsButton);
+        $copiedSettingsButton.addEventListener("click", function (e) { return _this.open(); });
     };
     Config.prototype.createConfigBase = function () {
         this.$el = safeHtml("\n      <div class=\"mtdeck-config\">\n        <h1 class=\"mtdeck-config-item\">" + _("configTitle") + "</h1>\n      </div>\n    ");
@@ -976,6 +987,7 @@ var Deck = /** @class */ (function () {
         this.backController = new BackController();
         this.columnIndex = 0;
         this.$columns = [];
+        this.$drawerOpenButton = null;
     }
     Deck.prototype.ready = function () {
         var _this = this;
@@ -992,7 +1004,9 @@ var Deck = /** @class */ (function () {
     Deck.prototype.update = function () {
         var _this = this;
         this.$columns = [];
-        document.querySelectorAll("section.column").forEach(function ($column) {
+        document
+            .querySelectorAll("section.column")
+            .forEach(function ($column) {
             _this.$columns.push($column);
         });
         this.fixColumnState();
@@ -1024,8 +1038,10 @@ var Deck = /** @class */ (function () {
     };
     Deck.prototype.init = function () {
         var _this = this;
+        var _a;
         document.body.classList.add("mtdeck");
         Menu.close();
+        var $appContainer = document.querySelector("div.app-columns-container");
         if (this.config.getBoolean("mtdBackAtMounted")) {
             clickAll(".js-dismiss");
         }
@@ -1035,8 +1051,12 @@ var Deck = /** @class */ (function () {
         if (this.config.getBoolean("mtdHideImages")) {
             document.body.classList.add("mtdeck-hide-images");
         }
+        // 画像非表示の場合は遅延読み込みしないためelse
+        else if (this.config.getBoolean("mtdLazyLoadImages")) {
+            document.body.classList.add("mtdeck-lazy-load-image");
+            setLazyLoadObservers($appContainer);
+        }
         this.update();
-        var $appContainer = document.querySelector("div.app-columns-container");
         var touchManager = new TouchManager($appContainer);
         touchManager.onTap = function () {
             _this.update();
@@ -1056,16 +1076,16 @@ var Deck = /** @class */ (function () {
                 _this.pushColumn();
             }
         };
-        history.pushState(null, null, null);
+        history.pushState(null, "", null);
         window.addEventListener("popstate", function (e) { return _this.back(); });
-        this.$drawerOpenButton.addEventListener("click", function (e) {
+        (_a = this.$drawerOpenButton) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function (e) {
             Menu.close();
         });
     };
     Deck.prototype.back = function () {
         this.update();
         this.backController.back();
-        history.pushState(null, null, null);
+        history.pushState(null, "", null);
     };
     Deck.prototype.pushColumn = function () {
         this.update();
@@ -1089,6 +1109,36 @@ var Deck = /** @class */ (function () {
     return Deck;
 }());
 
+function setLazyLoadObservers($container) {
+    var intersectionObserver = new IntersectionObserver(function (entries) {
+        for (var _i = 0, entries_1 = entries; _i < entries_1.length; _i++) {
+            var e = entries_1[_i];
+            if (e.isIntersecting) {
+                var style = e.target.style;
+                style.setProperty("background-image", style.backgroundImage, "important");
+            }
+        }
+    });
+    var mutationObserver = new MutationObserver(function (mutations) {
+        for (var _i = 0, mutations_1 = mutations; _i < mutations_1.length; _i++) {
+            var mutation = mutations_1[_i];
+            mutation.addedNodes.forEach(function (node) {
+                if ("querySelector" in node) {
+                    var mediaItems = node.querySelectorAll(".media-item, .media-image");
+                    if (mediaItems) {
+                        mediaItems.forEach(function (item) { return intersectionObserver.observe(item); });
+                    }
+                }
+            });
+        }
+    });
+    mutationObserver.observe($container, {
+        childList: true,
+        attributes: false,
+        characterData: false,
+        subtree: true,
+    });
+}
 
 ;// CONCATENATED MODULE: ./src/index.ts
 
