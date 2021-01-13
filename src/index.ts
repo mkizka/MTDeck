@@ -1,4 +1,5 @@
 import "./scss/index.scss";
 import { Deck } from "./ts/deck";
 
-new Deck().ready();
+(window as any).MTD = new Deck();
+(window as any).MTD.ready();

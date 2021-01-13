@@ -1,3 +1,11 @@
+import messagesEN from "../_locales/en/messages.json";
+import messagesJA from "../_locales/ja/messages.json";
+
+const messages = {
+  en: messagesEN,
+  ja: messagesJA,
+};
+
 export const safeHtml = <T = HTMLElement>(html: string): T => {
   const parser = new DOMParser();
   const parsed = parser.parseFromString(html, `text/html`);
@@ -18,7 +26,5 @@ export const _ = (messageName: string): string => {
     return chrome.i18n.getMessage(messageName);
   }
   const lang = /ja/.test(window.navigator.language) ? "ja" : "en";
-  return (
-    require(`../_locales/${lang}/messages.json`)[messageName].message || ""
-  );
+  return (messages[lang] as any)[messageName].message || "";
 };
