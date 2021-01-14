@@ -56,12 +56,12 @@ export class Config {
   }
 
   public open() {
-    this.$el?.classList.add("is-open");
+    this.$el!.classList.add("is-open");
   }
 
   public close() {
     this.save();
-    this.$el?.classList.remove("is-open");
+    this.$el!.classList.remove("is-open");
   }
 
   public isOpen(): boolean {
@@ -90,7 +90,7 @@ export class Config {
   }
 
   private createInfo() {
-    this.$el?.appendChild(
+    this.$el!.appendChild(
       safeHtml(`
       <div class="mtdeck-config-item">
         <p>MTDeck v${version}</p>
@@ -104,7 +104,7 @@ export class Config {
   }
 
   private createFooter() {
-    this.$el?.appendChild(
+    this.$el!.appendChild(
       safeHtml(`
       <div class="mtdeck-config-footer">
         <button id="mtdeck-config-save">${_("configSaveLabel")}</button>
@@ -137,7 +137,7 @@ export class Config {
         inputElement.defaultValue = this.getString(item.name);
       }
 
-      this.$el?.insertAdjacentElement(
+      this.$el!.insertAdjacentElement(
         "beforeend",
         safeHtml(`
         <label class="mtdeck-config-item">
@@ -154,7 +154,7 @@ export class Config {
       ".js-app-settings"
     );
     const $copiedSettingsButton = safeHtml<HTMLAnchorElement>(
-      $settingsButton?.outerHTML!
+      $settingsButton!.outerHTML!
     );
     $copiedSettingsButton.dataset.action = "mtdeckConfig";
     $copiedSettingsButton.dataset.title = "MTDeck Config";
@@ -162,7 +162,7 @@ export class Config {
     $copiedSettingsButton
       .querySelector<HTMLDivElement>(".app-nav-link-text")!
       .insertAdjacentText("afterbegin", "MTD");
-    $settingsButton?.parentElement?.insertAdjacentElement(
+    $settingsButton!.parentElement!.insertAdjacentElement(
       "afterbegin",
       $copiedSettingsButton
     );

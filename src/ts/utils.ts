@@ -13,7 +13,7 @@ export const safeHtml = <T = HTMLElement>(html: string): T => {
   if (body?.firstElementChild == undefined) {
     throw Error;
   }
-  return (body?.firstElementChild as unknown) as T;
+  return (body.firstElementChild as unknown) as T;
 };
 
 export const clickAll = (query: string) => {

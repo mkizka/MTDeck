@@ -41,13 +41,13 @@ export class ScrollController {
   }
 
   private setNoAnimationJump() {
-    const $anchors = this.$columnNavigator?.querySelectorAll<HTMLAnchorElement>(
+    const $anchors = this.$columnNavigator!.querySelectorAll<HTMLAnchorElement>(
       "li[data-column] a"
     );
-    $anchors?.forEach(($anchor) => {
+    $anchors!.forEach(($anchor) => {
       const $replacedAnchor = removeEventHandler($anchor);
       $replacedAnchor.addEventListener("click", (_) => {
-        const $targetColumn = this.$container?.querySelector(
+        const $targetColumn = this.$container!.querySelector(
           `section[data-column=${$anchor.dataset.column}]`
         );
         $targetColumn!.scrollIntoView({ inline: "nearest" });

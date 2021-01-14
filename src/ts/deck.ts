@@ -116,7 +116,7 @@ export class Deck {
     history.pushState(null, "", null);
     window.addEventListener("popstate", (e) => this.back());
 
-    this.$drawerOpenButton?.addEventListener("click", (e) => {
+    this.$drawerOpenButton!.addEventListener("click", (e) => {
       Menu.close();
     });
   }
