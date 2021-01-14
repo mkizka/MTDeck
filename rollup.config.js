@@ -40,11 +40,11 @@ export default {
         },
         {
           src: "./src/icons",
-          dest: "./dist/icons",
+          dest: "./dist",
         },
         {
           src: "./src/_locales",
-          dest: "./dist/_locales",
+          dest: "./dist",
         },
       ],
     }),

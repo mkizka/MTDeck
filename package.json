@@ -6,24 +6,23 @@
   "version": "1.8.0",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist web-ext-artifacts && run-s _build:*",
-    "_build:pack": "webpack --mode production",
+    "build": "rm -rf dist web-ext-artifacts && run-s _build:* && yarn minify",
+    "_build:pack": "rollup -c",
     "_build:lint": "web-ext lint -s dist",
     "_build:ext": "web-ext build -s dist -o",
-    "_build:min": "webpack --mode production --env minimize=true",
+    "minify": "rollup -c rollup.config.minify.js",
     "format": "prettier -w \"./*.(js|json)\" src",
-    "_dev:pack": "webpack --mode development --watch",
+    "_dev:pack": "rollup -c -w",
     "_dev:ext": "web-ext run -v -s dist -u tweetdeck.twitter.com",
     "_dev:ext:firefox": "yarn _dev:ext -p default",
     "_dev:ext:chrome": "yarn _dev:ext --target chromium",
-    "dev:firefox": "webpack --mode development && run-p _dev:pack _dev:ext:firefox",
-    "dev:chrome": "webpack --mode development && run-p _dev:pack _dev:ext:chrome"
+    "dev:firefox": "rollup -c && run-p _dev:pack _dev:ext:firefox",
+    "dev:chrome": "rollup -c && run-p _dev:pack _dev:ext:chrome"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-typescript": "^8.1.0",
     "@types/chrome": "^0.0.127",
-    "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
@@ -36,10 +35,8 @@
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.14",
+    "tslib": "^2.1.0",
     "typescript": "^4.1.3",
-    "web-ext": "^5.4.1",
-    "webpack": "^5.11.1",
-    "webpack-cli": "^4.3.1",
-    "webpack-userscript": "^2.5.6"
+    "web-ext": "^5.4.1"
   }
 }
