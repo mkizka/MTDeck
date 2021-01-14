@@ -1,1151 +1,654 @@
 // ==UserScript==
-// @name        MTDeck
-// @version     1.8.0
-// @author      mkizka
+// @name MTDeck
+// @version 1.8.0
+// @author mkizka
 // @description TweetDeckをスマホアプリのように使えるようにするUserScript
-// @homepage    https://github.com/mkizka/MTDeck
-// @match       https://tweetdeck.twitter.com
+// @homepage https://github.com/mkizka/MTDeck
+// @match https://tweetdeck.twitter.com
 // ==/UserScript==
+(function () {
+  'use strict';
 
-/******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ({
-
-/***/ 44:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Z": () => __WEBPACK_DEFAULT_EXPORT__
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(645);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "body.mtdeck button[data-drawer=compose]{z-index:1;position:fixed !important;right:20px;bottom:60px;width:4rem !important;height:4rem !important;filter:drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7))}body.mtdeck .app-columns{padding:0 0 50px 0 !important}body.mtdeck .app-content{left:0 !important}body.mtdeck .app-columns-container{overflow-x:hidden;overflow-y:auto}body.mtdeck section.column,body.mtdeck .js-modal-panel,body.mtdeck .prf-header,body.mtdeck .prf-header-inner-overlay,body.mtdeck .social-proof-container{width:100% !important}body.mtdeck .overlay:before{margin-right:-5px}body.mtdeck .mdl{width:100% !important;overflow-x:hidden}body.mtdeck .mdl .mdl-inner{padding:5px}body.mtdeck .mdl .mdl-inner .js-right-column{overflow-x:hidden}body.mtdeck .mdl .mdl-inner .mdl-column:first-child{display:none}body.mtdeck .mdl .mdl-inner .mdl-column:not(:first-child){width:100% !important}body.mtdeck .mdl .mdl-dismiss{right:10px !important}body.mtdeck .med-tweet{width:100% !important;left:0 !important}body.mtdeck .old-composer-footer,body.mtdeck .column-nav-flyout{display:none}body.mtdeck .js-search-in-popover .popover{width:200px !important}body.mtdeck .js-mediaembed .js-media-native-video,body.mtdeck .js-mediaembed .youtube-player{width:100% !important;position:fixed;left:0;top:0;bottom:0;margin:auto !important;z-index:1}body.mtdeck .column-navigator{top:50px}body.mtdeck .app-content{will-change:transform}body.mtdeck .app-content.is-open{margin-right:0 !important;transform:translateX(100%) !important}body.mtdeck .drawer[data-drawer=compose]{left:-100%;width:100%}body.mtdeck button.js-hide-drawer{display:none !important}body.mtdeck .js-int-scroller{position:fixed;bottom:0;left:0;right:0;background-color:#1c2938;overflow-x:auto;white-space:nowrap;padding-top:10px;height:40px}body.mtdeck .js-int-scroller .column-nav-item{height:35px}body.mtdeck .js-int-scroller .column-nav-item .icon-medium{font-size:20px}body.mtdeck .js-int-scroller .column-nav-item .js-header-action{padding-left:12px !important;padding-right:12px !important}body.mtdeck .hide-detail-view-inline .js-int-scroller,body.mtdeck .with-nav-border-t:before{display:none}body.mtdeck .column-nav-item{display:inline-block}body.mtdeck-close header.app-header{position:relative;top:-50px}body.mtdeck-close div.app-columns-container{left:0 !important}.mtdeck-config{display:none;width:100%;height:100%;position:fixed;z-index:201;background-color:#1c2938;padding:20px}.mtdeck-config.is-open{display:block}.mtdeck-config-button{color:#8a2be2 !important}.mtdeck-config-item{margin-bottom:20px !important}.mtdeck-config-input[type=number]{width:80px;margin-right:10px}.mtdeck-config-footer{position:fixed;bottom:20px}body.mtdeck-no-animation,body.mtdeck-no-animation *:not(iframe){transition-duration:1ms !important}body.mtdeck-hide-images .js-media:not(.detail-preview){height:25px !important;border-radius:0 !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive{height:1rem;background-color:transparent}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive::before{content:\"[sensitive]\"}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive div{display:none}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container{width:100% !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image{height:0;width:max-content;background-image:none !important;border-radius:0}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item::before,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image::before{content:\"[media]\"}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item *,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image *,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item *,body.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image *{display:none !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child){display:none !important}body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-item,body.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-image{background-image:none !important}body.mtdeck-hide-images .item-box-full-bleed .media-item,body.mtdeck-hide-images .item-box-full-bleed .media-image{margin:auto !important}body.mtdeck-lazy-load-image .media-item,body.mtdeck-lazy-load-image .media-image{background-image:none !important}html.btd-on body.mtdeck-hide-images .js-media-image-link{background-color:inherit !important}html.btd-on body.mtdeck-hide-images .js-media-preview-container.is-video .media-item::before{opacity:1;width:inherit;background-image:none;top:20px;left:20px}html.btd-on body.mtdeck-hide-images .js-media-preview-container.is-video .media-item::after{background-color:transparent}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ 645:
-/***/ ((module) => {
-
-"use strict";
-
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-// eslint-disable-next-line func-names
-module.exports = function (cssWithMappingToString) {
-  var list = []; // return the list of modules as css string
-
-  list.toString = function toString() {
-    return this.map(function (item) {
-      var content = cssWithMappingToString(item);
-
-      if (item[2]) {
-        return "@media ".concat(item[2], " {").concat(content, "}");
-      }
-
-      return content;
-    }).join('');
-  }; // import a list of modules into the list
-  // eslint-disable-next-line func-names
-
-
-  list.i = function (modules, mediaQuery, dedupe) {
-    if (typeof modules === 'string') {
-      // eslint-disable-next-line no-param-reassign
-      modules = [[null, modules, '']];
-    }
-
-    var alreadyImportedModules = {};
-
-    if (dedupe) {
-      for (var i = 0; i < this.length; i++) {
-        // eslint-disable-next-line prefer-destructuring
-        var id = this[i][0];
-
-        if (id != null) {
-          alreadyImportedModules[id] = true;
-        }
-      }
-    }
-
-    for (var _i = 0; _i < modules.length; _i++) {
-      var item = [].concat(modules[_i]);
-
-      if (dedupe && alreadyImportedModules[item[0]]) {
-        // eslint-disable-next-line no-continue
-        continue;
-      }
-
-      if (mediaQuery) {
-        if (!item[2]) {
-          item[2] = mediaQuery;
-        } else {
-          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
-        }
-      }
-
-      list.push(item);
-    }
+  var extensionDescription = {
+  	message: "A browser extension to customize TweetDeck for mobile"
+  };
+  var configTitle = {
+  	message: "Preference"
+  };
+  var configSaveLabel = {
+  	message: "Save and Reload"
+  };
+  var configBackLabel = {
+  	message: "Close"
+  };
+  var configLinksLabel = {
+  	message: "Bug/Feature Report"
+  };
+  var configOptionBackAtMounted = {
+  	message: "Close notifications at startup"
+  };
+  var configOptionNoAnimation = {
+  	message: "Disable animation"
+  };
+  var configOptionHideImages = {
+  	message: "Hide image thumbnails on tweet"
+  };
+  var configOptionLazyLoadImages = {
+  	message: "Lazy load image thumbnails on tweet"
+  };
+  var configOptionMenuOpenRange = {
+  	message: "Range to open menu with swipe"
+  };
+  var messagesEN = {
+  	extensionDescription: extensionDescription,
+  	configTitle: configTitle,
+  	configSaveLabel: configSaveLabel,
+  	configBackLabel: configBackLabel,
+  	configLinksLabel: configLinksLabel,
+  	configOptionBackAtMounted: configOptionBackAtMounted,
+  	configOptionNoAnimation: configOptionNoAnimation,
+  	configOptionHideImages: configOptionHideImages,
+  	configOptionLazyLoadImages: configOptionLazyLoadImages,
+  	configOptionMenuOpenRange: configOptionMenuOpenRange
   };
 
-  return list;
-};
-
-/***/ }),
-
-/***/ 379:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-var isOldIE = function isOldIE() {
-  var memo;
-  return function memorize() {
-    if (typeof memo === 'undefined') {
-      // Test for IE <= 9 as proposed by Browserhacks
-      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-      // Tests for existence of standard globals is to allow style-loader
-      // to operate correctly into non-standard environments
-      // @see https://github.com/webpack-contrib/style-loader/issues/177
-      memo = Boolean(window && document && document.all && !window.atob);
-    }
-
-    return memo;
+  var extensionDescription$1 = {
+  	message: "TweetDeckをスマホアプリのように使えるようにするアドオン"
   };
-}();
+  var configTitle$1 = {
+  	message: "設定メニュー"
+  };
+  var configSaveLabel$1 = {
+  	message: "保存して再読み込み"
+  };
+  var configBackLabel$1 = {
+  	message: "戻る"
+  };
+  var configLinksLabel$1 = {
+  	message: "バグ報告/機能提案など"
+  };
+  var configOptionBackAtMounted$1 = {
+  	message: "起動直後に開いている通知などを閉じる"
+  };
+  var configOptionNoAnimation$1 = {
+  	message: "アニメーションの無効化"
+  };
+  var configOptionHideImages$1 = {
+  	message: "ツイートの画像サムネイルを非表示"
+  };
+  var configOptionLazyLoadImages$1 = {
+  	message: "ツイートの画像サムネイルを遅延読み込み"
+  };
+  var configOptionMenuOpenRange$1 = {
+  	message: "左からのスワイプでメニューを開く範囲"
+  };
+  var messagesJA = {
+  	extensionDescription: extensionDescription$1,
+  	configTitle: configTitle$1,
+  	configSaveLabel: configSaveLabel$1,
+  	configBackLabel: configBackLabel$1,
+  	configLinksLabel: configLinksLabel$1,
+  	configOptionBackAtMounted: configOptionBackAtMounted$1,
+  	configOptionNoAnimation: configOptionNoAnimation$1,
+  	configOptionHideImages: configOptionHideImages$1,
+  	configOptionLazyLoadImages: configOptionLazyLoadImages$1,
+  	configOptionMenuOpenRange: configOptionMenuOpenRange$1
+  };
 
-var getTarget = function getTarget() {
-  var memo = {};
-  return function memorize(target) {
-    if (typeof memo[target] === 'undefined') {
-      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
-
-      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-        try {
-          // This will throw an exception if access to iframe is blocked
-          // due to cross-origin restrictions
-          styleTarget = styleTarget.contentDocument.head;
-        } catch (e) {
-          // istanbul ignore next
-          styleTarget = null;
-        }
+  const messages = {
+      en: messagesEN,
+      ja: messagesJA,
+  };
+  const safeHtml = (html) => {
+      const parser = new DOMParser();
+      const parsed = parser.parseFromString(html, `text/html`);
+      const body = parsed.querySelector("body");
+      if ((body === null || body === void 0 ? void 0 : body.firstElementChild) == undefined) {
+          throw Error;
       }
-
-      memo[target] = styleTarget;
-    }
-
-    return memo[target];
+      return body.firstElementChild;
   };
-}();
+  const clickAll = (query) => {
+      const $buttons = document.querySelectorAll(query);
+      $buttons.forEach(($button) => $button.click());
+  };
+  const _ = (messageName) => {
+      if (typeof chrome !== "undefined" && typeof chrome.i18n !== "undefined") {
+          return chrome.i18n.getMessage(messageName);
+      }
+      const lang = /ja/.test(window.navigator.language) ? "ja" : "en";
+      return messages[lang][messageName].message || "";
+  };
+  const insertStyle = (css) => {
+      const style = document.createElement("style");
+      style.setAttribute("type", "text/css");
+      style.innerText = css;
+      document.head.appendChild(style);
+  };
 
-var stylesInDom = [];
-
-function getIndexByIdentifier(identifier) {
-  var result = -1;
-
-  for (var i = 0; i < stylesInDom.length; i++) {
-    if (stylesInDom[i].identifier === identifier) {
-      result = i;
-      break;
-    }
+  class ScrollController {
+      constructor() {
+          this.$container = null;
+          this.$columnNavigator = null;
+          this.isNoAnimation = false;
+      }
+      init() {
+          this.$container = document.querySelector("#container");
+          this.$columnNavigator = document.querySelector("#column-navigator");
+          this.isNoAnimation = document.body.classList.contains("mtdeck-no-animation");
+          if (this.isNoAnimation) {
+              this.setNoAnimationJump();
+              this.setNoAnimationObserver();
+          }
+      }
+      scrollTo($target) {
+          const { left } = $target.getBoundingClientRect();
+          const behavior = this.isNoAnimation ? "auto" : "smooth";
+          // ナビゲーションバーのスクロール(scrollIntoView)と
+          // 同時に発火出来ない？ためscrollByでスクロール
+          this.$container.scrollBy({ left, behavior });
+          const $navButton = this.$columnNavigator.querySelector(`li[data-column=${$target.dataset.column}]`);
+          $navButton.scrollIntoView({ behavior, inline: "nearest" });
+      }
+      setNoAnimationObserver() {
+          const observer = new MutationObserver(() => this.setNoAnimationJump());
+          observer.observe(this.$columnNavigator, {
+              childList: true,
+              attributes: false,
+              characterData: false,
+          });
+      }
+      setNoAnimationJump() {
+          const $anchors = this.$columnNavigator.querySelectorAll("li[data-column] a");
+          $anchors.forEach(($anchor) => {
+              const $replacedAnchor = removeEventHandler($anchor);
+              $replacedAnchor.addEventListener("click", (_) => {
+                  const $targetColumn = this.$container.querySelector(`section[data-column=${$anchor.dataset.column}]`);
+                  $targetColumn.scrollIntoView({ inline: "nearest" });
+              });
+          });
+      }
+  }
+  function removeEventHandler($element) {
+      const $replaced = safeHtml($element.outerHTML);
+      $element.insertAdjacentElement("afterend", $replaced);
+      $element.remove();
+      return $replaced;
   }
 
-  return result;
-}
+  class Menu {
+      static get isOpen() {
+          return !document.body.classList.contains("mtdeck-close");
+      }
+      static open() {
+          if (!Menu.isOpen) {
+              document.body.classList.remove("mtdeck-close");
+          }
+      }
+      static close() {
+          if (Menu.isOpen) {
+              document.body.classList.add("mtdeck-close");
+          }
+      }
+  }
 
-function modulesToDom(list, options) {
-  var idCountMap = {};
-  var identifiers = [];
+  class Backable {
+      constructor() {
+          this.activeQuery = "";
+          this.clickQuery = "";
+      }
+      get exists() {
+          return document.querySelectorAll(this.activeQuery).length > 0;
+      }
+      back() {
+          clickAll(this.clickQuery);
+      }
+  }
+  class MTDeckConfig extends Backable {
+      constructor() {
+          super(...arguments);
+          this.activeQuery = ".mtdeck-config.is-open";
+          this.clickQuery = "#mtdeck-config-back";
+      }
+  }
+  class TweetDrawer extends Backable {
+      constructor() {
+          super(...arguments);
+          this.activeQuery = ".app-content.is-open";
+          this.clickQuery = ".js-drawer-close";
+      }
+  }
+  class ModalSocial extends Backable {
+      constructor() {
+          super(...arguments);
+          this.activeQuery = "#open-modal .js-column-state-social-proof";
+          this.clickQuery = "#open-modal .js-tweet-social-proof-back";
+      }
+  }
+  class ModalDetail extends Backable {
+      constructor() {
+          super(...arguments);
+          this.activeQuery = "#open-modal .js-column-state-detail-view";
+          this.clickQuery = "#open-modal .js-column-back";
+      }
+  }
+  class BackableModal extends Backable {
+      constructor() {
+          super(...arguments);
+          this.activeQuery = ".mdl .btn-back";
+          this.clickQuery = ".mdl .btn-back";
+      }
+  }
+  class Modal extends Backable {
+      constructor() {
+          super(...arguments);
+          this.activeQuery = ".mdl .js-dismiss";
+          this.clickQuery = ".mdl .js-dismiss";
+      }
+  }
+  class ColumnSocial extends Backable {
+      constructor() {
+          super(...arguments);
+          this.activeQuery = "#container .js-column-state-social-proof";
+          this.clickQuery = "#container .js-tweet-social-proof-back";
+      }
+  }
+  class ColumnDetail extends Backable {
+      constructor() {
+          super(...arguments);
+          this.activeQuery = "#container .js-column-state-detail-view";
+          this.clickQuery = "#container .js-column-back";
+      }
+  }
+  class ColumnOption extends Backable {
+      constructor() {
+          super(...arguments);
+          this.activeQuery = ".is-options-open";
+          this.clickQuery = ".is-options-open .js-action-header-button";
+      }
+  }
+  class SideMenu extends Backable {
+      get exists() {
+          return Menu.isOpen;
+      }
+      back() {
+          Menu.close();
+      }
+  }
+  class BackController {
+      constructor() {
+          this.backables = [
+              new MTDeckConfig(),
+              new TweetDrawer(),
+              new ModalSocial(),
+              new ModalDetail(),
+              new BackableModal(),
+              new Modal(),
+              new ColumnSocial(),
+              new ColumnDetail(),
+              new ColumnOption(),
+              new SideMenu(),
+          ];
+      }
+      back() {
+          for (let backable of this.backables) {
+              if (backable.exists) {
+                  backable.back();
+                  break;
+              }
+          }
+      }
+  }
 
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i];
-    var id = options.base ? item[0] + options.base : item[0];
-    var count = idCountMap[id] || 0;
-    var identifier = "".concat(id, " ").concat(count);
-    idCountMap[id] = count + 1;
-    var index = getIndexByIdentifier(identifier);
-    var obj = {
-      css: item[1],
-      media: item[2],
-      sourceMap: item[3]
-    };
+  class TouchManager {
+      constructor($element) {
+          this.onTap = () => { };
+          this.onSwipe = () => { };
+          this.start = { x: 0, y: 0, time: 0 };
+          this.end = { x: 0, y: 0, time: 0 };
+          $element.addEventListener("click", () => this.onTap());
+          $element.addEventListener("touchstart", (e) => {
+              this.start = {
+                  x: e.touches[0].screenX,
+                  y: e.touches[0].screenY,
+                  time: new Date().getTime(),
+              };
+          });
+          $element.addEventListener("touchmove", (e) => {
+              this.end = {
+                  x: e.touches[0].screenX,
+                  y: e.touches[0].screenY,
+                  time: new Date().getTime(),
+              };
+          });
+          $element.addEventListener("touchend", (_) => {
+              if (this.isSwipedX) {
+                  const direction = this.start.x < this.end.x ? "right" : "left";
+                  this.onSwipe(this.start.x, direction);
+              }
+          });
+      }
+      get isSwipedX() {
+          const diffX = this.end.x - this.start.x;
+          const diffY = this.end.y - this.start.y;
+          const diffTime = this.end.time - this.start.time;
+          const velocity = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2)) / diffTime;
+          return (Math.abs(diffY / diffX) <= 1 && // スワイプ角度の絶対値が45度以下
+              Math.abs(diffX) >= 10 && // 最小距離(px)
+              Math.abs(velocity) >= 0.3 // 最小速度(px/ミリ秒)
+          );
+      }
+  }
 
-    if (index !== -1) {
-      stylesInDom[index].references++;
-      stylesInDom[index].updater(obj);
-    } else {
-      stylesInDom.push({
-        identifier: identifier,
-        updater: addStyle(obj, options),
-        references: 1
+  var version = "1.8.0";
+
+  class Config {
+      constructor() {
+          this.$el = null;
+          this.items = [
+              {
+                  label: _("configOptionBackAtMounted"),
+                  name: "mtdBackAtMounted",
+                  type: "checkbox",
+                  default: "true",
+              },
+              {
+                  label: _("configOptionNoAnimation"),
+                  name: "mtdNoAnimation",
+                  type: "checkbox",
+                  default: "false",
+              },
+              {
+                  label: _("configOptionHideImages"),
+                  name: "mtdHideImages",
+                  type: "checkbox",
+                  default: "false",
+              },
+              {
+                  label: _("configOptionLazyLoadImages"),
+                  name: "mtdLazyLoadImages",
+                  type: "checkbox",
+                  default: "false",
+              },
+              {
+                  label: _("configOptionMenuOpenRange"),
+                  name: "mtdMenuOpenRange",
+                  type: "number",
+                  default: "30",
+              },
+          ];
+      }
+      getString(key) {
+          return localStorage.getItem(key).toString();
+      }
+      getNumber(key) {
+          return parseFloat(localStorage.getItem(key));
+      }
+      getBoolean(key) {
+          return localStorage.getItem(key) === "true";
+      }
+      open() {
+          this.$el.classList.add("is-open");
+      }
+      close() {
+          this.save();
+          this.$el.classList.remove("is-open");
+      }
+      isOpen() {
+          return this.$el.classList.contains("is-open");
+      }
+      save() {
+          const $inputs = document.querySelectorAll(".mtdeck-config-input");
+          $inputs.forEach(($input) => {
+              if ($input.type === "checkbox") {
+                  localStorage.setItem($input.name, `${$input.checked}`);
+              }
+              else {
+                  localStorage.setItem($input.name, $input.value);
+              }
+          });
+      }
+      saveDefault() {
+          this.items.forEach((item) => {
+              if (localStorage.getItem(item.name) === null) {
+                  localStorage.setItem(item.name, item.default);
+              }
+          });
+      }
+      createInfo() {
+          this.$el.appendChild(safeHtml(`
+      <div class="mtdeck-config-item">
+        <p>MTDeck v${version}</p>
+        <p>${_("configLinksLabel")}:
+          <a href="https://github.com/mkizka/MTDeck" target="_blank">Github</a>
+          <a href="https://twitter.com/mkizka">Twitter</a>
+        </p>
+      </div>
+    `));
+      }
+      createFooter() {
+          this.$el.appendChild(safeHtml(`
+      <div class="mtdeck-config-footer">
+        <button id="mtdeck-config-save">${_("configSaveLabel")}</button>
+        <button id="mtdeck-config-back">${_("configBackLabel")}</button>
+      </div>
+    `));
+          document
+              .querySelector("#mtdeck-config-save")
+              .addEventListener("click", () => {
+              this.save();
+              location.reload();
+          });
+          document
+              .querySelector("#mtdeck-config-back")
+              .addEventListener("click", () => {
+              this.close();
+          });
+      }
+      createForm() {
+          this.items.forEach((item) => {
+              const inputElement = safeHtml(`
+        <input class="mtdeck-config-input" type="${item.type}" name="${item.name}"/>
+      `);
+              if (item.type === "checkbox") {
+                  inputElement.defaultChecked = this.getBoolean(item.name);
+              }
+              else {
+                  inputElement.defaultValue = this.getString(item.name);
+              }
+              this.$el.insertAdjacentElement("beforeend", safeHtml(`
+        <label class="mtdeck-config-item">
+          ${inputElement.outerHTML}  
+          ${item.label}
+        </label>
+      `));
+          });
+      }
+      createSettingButton() {
+          const $settingsButton = document.querySelector(".js-app-settings");
+          const $copiedSettingsButton = safeHtml($settingsButton.outerHTML);
+          $copiedSettingsButton.dataset.action = "mtdeckConfig";
+          $copiedSettingsButton.dataset.title = "MTDeck Config";
+          $copiedSettingsButton.classList.add("mtdeck-config-button");
+          $copiedSettingsButton
+              .querySelector(".app-nav-link-text")
+              .insertAdjacentText("afterbegin", "MTD");
+          $settingsButton.parentElement.insertAdjacentElement("afterbegin", $copiedSettingsButton);
+          $copiedSettingsButton.addEventListener("click", (e) => this.open());
+      }
+      createConfigBase() {
+          this.$el = safeHtml(`
+      <div class="mtdeck-config">
+        <h1 class="mtdeck-config-item">${_("configTitle")}</h1>
+      </div>
+    `);
+          document.body.appendChild(this.$el);
+      }
+      init() {
+          this.saveDefault();
+          this.createConfigBase();
+          this.createInfo();
+          this.createForm();
+          this.createFooter();
+          this.createSettingButton();
+      }
+  }
+
+  class Deck {
+      constructor() {
+          this.config = new Config();
+          this.scrollController = new ScrollController();
+          this.backController = new BackController();
+          this.columnIndex = 0;
+          this.$columns = [];
+          this.$drawerOpenButton = null;
+      }
+      ready() {
+          const initInterval = setInterval(() => {
+              this.$drawerOpenButton = document.querySelector("button[data-drawer=compose]");
+              if (this.$drawerOpenButton) {
+                  this.config.init();
+                  this.init();
+                  this.scrollController.init();
+                  clearInterval(initInterval);
+              }
+          }, 100);
+      }
+      update() {
+          this.$columns = [];
+          document
+              .querySelectorAll("section.column")
+              .forEach(($column) => {
+              this.$columns.push($column);
+          });
+          this.fixColumnState();
+          this.updateTweetButton();
+      }
+      fixColumnState() {
+          this.columnIndex = 0;
+          let $nearColumn = this.$columns[0];
+          for (let i = 1; i < this.$columns.length; i++) {
+              if (Math.pow(this.$columns[i].getBoundingClientRect().left, 2) <
+                  Math.pow($nearColumn.getBoundingClientRect().left, 2)) {
+                  $nearColumn = this.$columns[i];
+                  this.columnIndex = i;
+              }
+          }
+          $nearColumn.scrollIntoView();
+      }
+      updateTweetButton() {
+          const $tweetButton = document.querySelector(".tweet-button");
+          setTimeout(() => {
+              if (this.$columns[this.columnIndex].classList.contains("js-column-state-detail-view")) {
+                  $tweetButton.style.display = "none";
+              }
+              else {
+                  $tweetButton.style.display = "block";
+              }
+          }, 200);
+      }
+      init() {
+          document.body.classList.add("mtdeck");
+          Menu.close();
+          const $appContainer = document.querySelector("div.app-columns-container");
+          if (this.config.getBoolean("mtdBackAtMounted")) {
+              clickAll(".js-dismiss");
+          }
+          if (this.config.getBoolean("mtdNoAnimation")) {
+              document.body.classList.add("mtdeck-no-animation");
+          }
+          if (this.config.getBoolean("mtdHideImages")) {
+              document.body.classList.add("mtdeck-hide-images");
+          }
+          // 画像非表示の場合は遅延読み込みしないためelse
+          else if (this.config.getBoolean("mtdLazyLoadImages")) {
+              document.body.classList.add("mtdeck-lazy-load-image");
+              setLazyLoadObservers($appContainer);
+          }
+          this.update();
+          const touchManager = new TouchManager($appContainer);
+          touchManager.onTap = () => {
+              this.update();
+              Menu.close();
+          };
+          const menuOpenRange = this.config.getNumber("mtdMenuOpenRange");
+          touchManager.onSwipe = (startX, direction) => {
+              if (direction == "right") {
+                  if (startX < menuOpenRange) {
+                      Menu.open();
+                  }
+                  else {
+                      this.backColumn();
+                  }
+              }
+              else {
+                  this.pushColumn();
+              }
+          };
+          history.pushState(null, "", null);
+          window.addEventListener("popstate", (e) => this.back());
+          this.$drawerOpenButton.addEventListener("click", (e) => {
+              Menu.close();
+          });
+      }
+      back() {
+          this.update();
+          this.backController.back();
+          history.pushState(null, "", null);
+      }
+      pushColumn() {
+          this.update();
+          Menu.close();
+          if (this.columnIndex < this.$columns.length - 1) {
+              this.columnIndex++;
+              this.scrollController.scrollTo(this.$columns[this.columnIndex]);
+          }
+      }
+      backColumn() {
+          this.update();
+          Menu.close();
+          if (this.columnIndex == 0) {
+              Menu.open();
+          }
+          else {
+              this.columnIndex--;
+              this.scrollController.scrollTo(this.$columns[this.columnIndex]);
+          }
+      }
+  }
+  function setLazyLoadObservers($container) {
+      const intersectionObserver = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+              if (e.isIntersecting) {
+                  const style = e.target.style;
+                  style.setProperty("background-image", style.backgroundImage, "important");
+              }
+          }
       });
-    }
-
-    identifiers.push(identifier);
+      const mutationObserver = new MutationObserver((mutations) => {
+          for (const mutation of mutations) {
+              mutation.addedNodes.forEach((node) => {
+                  if ("querySelector" in node) {
+                      const mediaItems = node.querySelectorAll(".media-item, .media-image");
+                      if (mediaItems) {
+                          mediaItems.forEach((item) => intersectionObserver.observe(item));
+                      }
+                  }
+              });
+          }
+      });
+      mutationObserver.observe($container, {
+          childList: true,
+          attributes: false,
+          characterData: false,
+          subtree: true,
+      });
   }
 
-  return identifiers;
-}
+  var styles = "body.mtdeck button[data-drawer=compose] {\n  z-index: 1;\n  position: fixed !important;\n  right: 20px;\n  bottom: 60px;\n  width: 4rem !important;\n  height: 4rem !important;\n  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7));\n}\nbody.mtdeck .app-columns {\n  padding: 0 0 50px 0 !important;\n}\nbody.mtdeck .app-content {\n  left: 0 !important;\n}\nbody.mtdeck .app-columns-container {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\nbody.mtdeck section.column,\nbody.mtdeck .js-modal-panel,\nbody.mtdeck .prf-header,\nbody.mtdeck .prf-header-inner-overlay,\nbody.mtdeck .social-proof-container {\n  width: 100% !important;\n}\nbody.mtdeck .overlay:before {\n  margin-right: -5px;\n}\nbody.mtdeck .mdl {\n  width: 100% !important;\n  overflow-x: hidden;\n}\nbody.mtdeck .mdl .mdl-inner {\n  padding: 5px;\n}\nbody.mtdeck .mdl .mdl-inner .js-right-column {\n  overflow-x: hidden;\n}\nbody.mtdeck .mdl .mdl-inner .mdl-column:first-child {\n  display: none;\n}\nbody.mtdeck .mdl .mdl-inner .mdl-column:not(:first-child) {\n  width: 100% !important;\n}\nbody.mtdeck .mdl .mdl-dismiss {\n  right: 10px !important;\n}\nbody.mtdeck .med-tweet {\n  width: 100% !important;\n  left: 0 !important;\n}\nbody.mtdeck .old-composer-footer,\nbody.mtdeck .column-nav-flyout {\n  display: none;\n}\nbody.mtdeck .js-search-in-popover .popover {\n  width: 200px !important;\n}\nbody.mtdeck .js-mediaembed .js-media-native-video,\nbody.mtdeck .js-mediaembed .youtube-player {\n  width: 100% !important;\n  position: fixed;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  margin: auto !important;\n  z-index: 1;\n}\nbody.mtdeck .column-navigator {\n  top: 50px;\n}\n\nbody.mtdeck .app-content {\n  will-change: transform;\n}\nbody.mtdeck .app-content.is-open {\n  margin-right: 0 !important;\n  transform: translateX(100%) !important;\n}\nbody.mtdeck .drawer[data-drawer=compose] {\n  left: -100%;\n  width: 100%;\n}\nbody.mtdeck button.js-hide-drawer {\n  display: none !important;\n}\n\nbody.mtdeck .js-int-scroller {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: #1c2938;\n  overflow-x: auto;\n  white-space: nowrap;\n  padding-top: 10px;\n  height: 40px;\n}\nbody.mtdeck .js-int-scroller .column-nav-item {\n  height: 35px;\n}\nbody.mtdeck .js-int-scroller .column-nav-item .icon-medium {\n  font-size: 20px;\n}\nbody.mtdeck .js-int-scroller .column-nav-item .js-header-action {\n  padding-left: 12px !important;\n  padding-right: 12px !important;\n}\nbody.mtdeck .hide-detail-view-inline .js-int-scroller,\nbody.mtdeck .with-nav-border-t:before {\n  display: none;\n}\nbody.mtdeck .column-nav-item {\n  display: inline-block;\n}\n\nbody.mtdeck-close header.app-header {\n  position: relative;\n  top: -50px;\n}\nbody.mtdeck-close div.app-columns-container {\n  left: 0 !important;\n}\n\n.mtdeck-config {\n  display: none;\n  width: 100%;\n  height: 100%;\n  position: fixed;\n  z-index: 201;\n  background-color: #1c2938;\n  padding: 20px;\n}\n.mtdeck-config.is-open {\n  display: block;\n}\n.mtdeck-config-button {\n  color: blueviolet !important;\n}\n.mtdeck-config-item {\n  margin-bottom: 20px !important;\n}\n.mtdeck-config-input[type=number] {\n  width: 80px;\n  margin-right: 10px;\n}\n.mtdeck-config-footer {\n  position: fixed;\n  bottom: 20px;\n}\n\nbody.mtdeck-no-animation,\nbody.mtdeck-no-animation *:not(iframe) {\n  transition-duration: 1ms !important;\n}\n\nbody.mtdeck-hide-images .js-media:not(.detail-preview) {\n  height: 25px !important;\n  border-radius: 0 !important;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive {\n  height: 1rem;\n  background-color: transparent;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive::before {\n  content: \"[sensitive]\";\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive div {\n  display: none;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container {\n  width: 100% !important;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image {\n  height: 0;\n  width: max-content;\n  background-image: none !important;\n  border-radius: 0;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item::before,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image::before,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item::before,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image::before {\n  content: \"[media]\";\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item *,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image *,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item *,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image * {\n  display: none !important;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) {\n  display: none !important;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-item,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-image {\n  background-image: none !important;\n}\nbody.mtdeck-hide-images .item-box-full-bleed .media-item,\nbody.mtdeck-hide-images .item-box-full-bleed .media-image {\n  margin: auto !important;\n}\n\nbody.mtdeck-lazy-load-image .media-item,\nbody.mtdeck-lazy-load-image .media-image {\n  background-image: none !important;\n}\n\nhtml.btd-on body.mtdeck-hide-images .js-media-image-link {\n  background-color: inherit !important;\n}\nhtml.btd-on body.mtdeck-hide-images .js-media-preview-container.is-video .media-item::before {\n  opacity: 1;\n  width: inherit;\n  background-image: none;\n  top: 20px;\n  left: 20px;\n}\nhtml.btd-on body.mtdeck-hide-images .js-media-preview-container.is-video .media-item::after {\n  background-color: transparent;\n}";
 
-function insertStyleElement(options) {
-  var style = document.createElement('style');
-  var attributes = options.attributes || {};
+  insertStyle(styles);
+  window.MTD = new Deck();
+  window.MTD.ready();
 
-  if (typeof attributes.nonce === 'undefined') {
-    var nonce =  true ? __webpack_require__.nc : 0;
-
-    if (nonce) {
-      attributes.nonce = nonce;
-    }
-  }
-
-  Object.keys(attributes).forEach(function (key) {
-    style.setAttribute(key, attributes[key]);
-  });
-
-  if (typeof options.insert === 'function') {
-    options.insert(style);
-  } else {
-    var target = getTarget(options.insert || 'head');
-
-    if (!target) {
-      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
-    }
-
-    target.appendChild(style);
-  }
-
-  return style;
-}
-
-function removeStyleElement(style) {
-  // istanbul ignore if
-  if (style.parentNode === null) {
-    return false;
-  }
-
-  style.parentNode.removeChild(style);
-}
-/* istanbul ignore next  */
-
-
-var replaceText = function replaceText() {
-  var textStore = [];
-  return function replace(index, replacement) {
-    textStore[index] = replacement;
-    return textStore.filter(Boolean).join('\n');
-  };
-}();
-
-function applyToSingletonTag(style, index, remove, obj) {
-  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
-
-  /* istanbul ignore if  */
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = replaceText(index, css);
-  } else {
-    var cssNode = document.createTextNode(css);
-    var childNodes = style.childNodes;
-
-    if (childNodes[index]) {
-      style.removeChild(childNodes[index]);
-    }
-
-    if (childNodes.length) {
-      style.insertBefore(cssNode, childNodes[index]);
-    } else {
-      style.appendChild(cssNode);
-    }
-  }
-}
-
-function applyToTag(style, options, obj) {
-  var css = obj.css;
-  var media = obj.media;
-  var sourceMap = obj.sourceMap;
-
-  if (media) {
-    style.setAttribute('media', media);
-  } else {
-    style.removeAttribute('media');
-  }
-
-  if (sourceMap && typeof btoa !== 'undefined') {
-    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
-  } // For old IE
-
-  /* istanbul ignore if  */
-
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    while (style.firstChild) {
-      style.removeChild(style.firstChild);
-    }
-
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
-var singleton = null;
-var singletonCounter = 0;
-
-function addStyle(obj, options) {
-  var style;
-  var update;
-  var remove;
-
-  if (options.singleton) {
-    var styleIndex = singletonCounter++;
-    style = singleton || (singleton = insertStyleElement(options));
-    update = applyToSingletonTag.bind(null, style, styleIndex, false);
-    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-  } else {
-    style = insertStyleElement(options);
-    update = applyToTag.bind(null, style, options);
-
-    remove = function remove() {
-      removeStyleElement(style);
-    };
-  }
-
-  update(obj);
-  return function updateStyle(newObj) {
-    if (newObj) {
-      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
-        return;
-      }
-
-      update(obj = newObj);
-    } else {
-      remove();
-    }
-  };
-}
-
-module.exports = function (list, options) {
-  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-  // tags it will allow on a page
-
-  if (!options.singleton && typeof options.singleton !== 'boolean') {
-    options.singleton = isOldIE();
-  }
-
-  list = list || [];
-  var lastIdentifiers = modulesToDom(list, options);
-  return function update(newList) {
-    newList = newList || [];
-
-    if (Object.prototype.toString.call(newList) !== '[object Array]') {
-      return;
-    }
-
-    for (var i = 0; i < lastIdentifiers.length; i++) {
-      var identifier = lastIdentifiers[i];
-      var index = getIndexByIdentifier(identifier);
-      stylesInDom[index].references--;
-    }
-
-    var newLastIdentifiers = modulesToDom(newList, options);
-
-    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
-      var _identifier = lastIdentifiers[_i];
-
-      var _index = getIndexByIdentifier(_identifier);
-
-      if (stylesInDom[_index].references === 0) {
-        stylesInDom[_index].updater();
-
-        stylesInDom.splice(_index, 1);
-      }
-    }
-
-    lastIdentifiers = newLastIdentifiers;
-  };
-};
-
-/***/ }),
-
-/***/ 306:
-/***/ ((module) => {
-
-"use strict";
-module.exports = {"i8":"1.8.0"};
-
-/***/ }),
-
-/***/ 597:
-/***/ ((module) => {
-
-"use strict";
-module.exports = JSON.parse("{\"extensionDescription\":{\"message\":\"A browser extension to customize TweetDeck for mobile\"},\"configTitle\":{\"message\":\"Preference\"},\"configSaveLabel\":{\"message\":\"Save and Reload\"},\"configBackLabel\":{\"message\":\"Close\"},\"configLinksLabel\":{\"message\":\"Bug/Feature Report\"},\"configOptionBackAtMounted\":{\"message\":\"Close notifications at startup\"},\"configOptionNoAnimation\":{\"message\":\"Disable animation\"},\"configOptionHideImages\":{\"message\":\"Hide image thumbnails on tweet\"},\"configOptionLazyLoadImages\":{\"message\":\"Lazy load image thumbnails on tweet\"},\"configOptionMenuOpenRange\":{\"message\":\"Range to open menu with swipe\"}}");
-
-/***/ }),
-
-/***/ 515:
-/***/ ((module) => {
-
-"use strict";
-module.exports = JSON.parse("{\"extensionDescription\":{\"message\":\"TweetDeckをスマホアプリのように使えるようにするアドオン\"},\"configTitle\":{\"message\":\"設定メニュー\"},\"configSaveLabel\":{\"message\":\"保存して再読み込み\"},\"configBackLabel\":{\"message\":\"戻る\"},\"configLinksLabel\":{\"message\":\"バグ報告/機能提案など\"},\"configOptionBackAtMounted\":{\"message\":\"起動直後に開いている通知などを閉じる\"},\"configOptionNoAnimation\":{\"message\":\"アニメーションの無効化\"},\"configOptionHideImages\":{\"message\":\"ツイートの画像サムネイルを非表示\"},\"configOptionLazyLoadImages\":{\"message\":\"ツイートの画像サムネイルを遅延読み込み\"},\"configOptionMenuOpenRange\":{\"message\":\"左からのスワイプでメニューを開く範囲\"}}");
-
-/***/ }),
-
-/***/ 568:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var map = {
-	"./en/messages.json": 597,
-	"./ja/messages.json": 515
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 568;
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			id: moduleId,
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => module['default'] :
-/******/ 				() => module;
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-(() => {
-"use strict";
-
-// EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
-var injectStylesIntoStyleTag = __webpack_require__(379);
-var injectStylesIntoStyleTag_default = /*#__PURE__*/__webpack_require__.n(injectStylesIntoStyleTag);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/index.scss
-var scss = __webpack_require__(44);
-;// CONCATENATED MODULE: ./src/scss/index.scss
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = injectStylesIntoStyleTag_default()(scss/* default */.Z, options);
-
-
-
-/* harmony default export */ const src_scss = (scss/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/ts/utils.ts
-var safeHtml = function (html) {
-    var parser = new DOMParser();
-    var parsed = parser.parseFromString(html, "text/html");
-    var body = parsed.querySelector("body");
-    if ((body === null || body === void 0 ? void 0 : body.firstElementChild) == undefined) {
-        throw Error;
-    }
-    return body === null || body === void 0 ? void 0 : body.firstElementChild;
-};
-var clickAll = function (query) {
-    var $buttons = document.querySelectorAll(query);
-    $buttons.forEach(function ($button) { return $button.click(); });
-};
-var _ = function (messageName) {
-    if (typeof chrome !== "undefined" && typeof chrome.i18n !== "undefined") {
-        return chrome.i18n.getMessage(messageName);
-    }
-    var lang = /ja/.test(window.navigator.language) ? "ja" : "en";
-    return (__webpack_require__(568)("./" + lang + "/messages.json")[messageName].message || "");
-};
-
-;// CONCATENATED MODULE: ./src/ts/scroll.ts
-
-var ScrollController = /** @class */ (function () {
-    function ScrollController() {
-        this.$container = null;
-        this.$columnNavigator = null;
-        this.isNoAnimation = false;
-    }
-    ScrollController.prototype.init = function () {
-        this.$container = document.querySelector("#container");
-        this.$columnNavigator = document.querySelector("#column-navigator");
-        this.isNoAnimation = document.body.classList.contains("mtdeck-no-animation");
-        if (this.isNoAnimation) {
-            this.setNoAnimationJump();
-            this.setNoAnimationObserver();
-        }
-    };
-    ScrollController.prototype.scrollTo = function ($target) {
-        var left = $target.getBoundingClientRect().left;
-        var behavior = this.isNoAnimation ? "auto" : "smooth";
-        // ナビゲーションバーのスクロール(scrollIntoView)と
-        // 同時に発火出来ない？ためscrollByでスクロール
-        this.$container.scrollBy({ left: left, behavior: behavior });
-        var $navButton = this.$columnNavigator.querySelector("li[data-column=" + $target.dataset.column + "]");
-        $navButton.scrollIntoView({ behavior: behavior, inline: "nearest" });
-    };
-    ScrollController.prototype.setNoAnimationObserver = function () {
-        var _this = this;
-        var observer = new MutationObserver(function () { return _this.setNoAnimationJump(); });
-        observer.observe(this.$columnNavigator, {
-            childList: true,
-            attributes: false,
-            characterData: false,
-        });
-    };
-    ScrollController.prototype.setNoAnimationJump = function () {
-        var _this = this;
-        var _a;
-        var $anchors = (_a = this.$columnNavigator) === null || _a === void 0 ? void 0 : _a.querySelectorAll("li[data-column] a");
-        $anchors === null || $anchors === void 0 ? void 0 : $anchors.forEach(function ($anchor) {
-            var $replacedAnchor = removeEventHandler($anchor);
-            $replacedAnchor.addEventListener("click", function (_) {
-                var _a;
-                var $targetColumn = (_a = _this.$container) === null || _a === void 0 ? void 0 : _a.querySelector("section[data-column=" + $anchor.dataset.column + "]");
-                $targetColumn.scrollIntoView({ inline: "nearest" });
-            });
-        });
-    };
-    return ScrollController;
 }());
-
-function removeEventHandler($element) {
-    var $replaced = safeHtml($element.outerHTML);
-    $element.insertAdjacentElement("afterend", $replaced);
-    $element.remove();
-    return $replaced;
-}
-
-;// CONCATENATED MODULE: ./src/ts/menu.ts
-var Menu = /** @class */ (function () {
-    function Menu() {
-    }
-    Object.defineProperty(Menu, "isOpen", {
-        get: function () {
-            return !document.body.classList.contains("mtdeck-close");
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Menu.open = function () {
-        if (!Menu.isOpen) {
-            document.body.classList.remove("mtdeck-close");
-        }
-    };
-    Menu.close = function () {
-        if (Menu.isOpen) {
-            document.body.classList.add("mtdeck-close");
-        }
-    };
-    return Menu;
-}());
-
-
-;// CONCATENATED MODULE: ./src/ts/back.ts
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-var Backable = /** @class */ (function () {
-    function Backable() {
-        this.activeQuery = "";
-        this.clickQuery = "";
-    }
-    Object.defineProperty(Backable.prototype, "exists", {
-        get: function () {
-            return document.querySelectorAll(this.activeQuery).length > 0;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Backable.prototype.back = function () {
-        clickAll(this.clickQuery);
-    };
-    return Backable;
-}());
-var MTDeckConfig = /** @class */ (function (_super) {
-    __extends(MTDeckConfig, _super);
-    function MTDeckConfig() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.activeQuery = ".mtdeck-config.is-open";
-        _this.clickQuery = "#mtdeck-config-back";
-        return _this;
-    }
-    return MTDeckConfig;
-}(Backable));
-var TweetDrawer = /** @class */ (function (_super) {
-    __extends(TweetDrawer, _super);
-    function TweetDrawer() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.activeQuery = ".app-content.is-open";
-        _this.clickQuery = ".js-drawer-close";
-        return _this;
-    }
-    return TweetDrawer;
-}(Backable));
-var ModalSocial = /** @class */ (function (_super) {
-    __extends(ModalSocial, _super);
-    function ModalSocial() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.activeQuery = "#open-modal .js-column-state-social-proof";
-        _this.clickQuery = "#open-modal .js-tweet-social-proof-back";
-        return _this;
-    }
-    return ModalSocial;
-}(Backable));
-var ModalDetail = /** @class */ (function (_super) {
-    __extends(ModalDetail, _super);
-    function ModalDetail() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.activeQuery = "#open-modal .js-column-state-detail-view";
-        _this.clickQuery = "#open-modal .js-column-back";
-        return _this;
-    }
-    return ModalDetail;
-}(Backable));
-var BackableModal = /** @class */ (function (_super) {
-    __extends(BackableModal, _super);
-    function BackableModal() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.activeQuery = ".mdl .btn-back";
-        _this.clickQuery = ".mdl .btn-back";
-        return _this;
-    }
-    return BackableModal;
-}(Backable));
-var Modal = /** @class */ (function (_super) {
-    __extends(Modal, _super);
-    function Modal() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.activeQuery = ".mdl .js-dismiss";
-        _this.clickQuery = ".mdl .js-dismiss";
-        return _this;
-    }
-    return Modal;
-}(Backable));
-var ColumnSocial = /** @class */ (function (_super) {
-    __extends(ColumnSocial, _super);
-    function ColumnSocial() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.activeQuery = "#container .js-column-state-social-proof";
-        _this.clickQuery = "#container .js-tweet-social-proof-back";
-        return _this;
-    }
-    return ColumnSocial;
-}(Backable));
-var ColumnDetail = /** @class */ (function (_super) {
-    __extends(ColumnDetail, _super);
-    function ColumnDetail() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.activeQuery = "#container .js-column-state-detail-view";
-        _this.clickQuery = "#container .js-column-back";
-        return _this;
-    }
-    return ColumnDetail;
-}(Backable));
-var ColumnOption = /** @class */ (function (_super) {
-    __extends(ColumnOption, _super);
-    function ColumnOption() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.activeQuery = ".is-options-open";
-        _this.clickQuery = ".is-options-open .js-action-header-button";
-        return _this;
-    }
-    return ColumnOption;
-}(Backable));
-var SideMenu = /** @class */ (function (_super) {
-    __extends(SideMenu, _super);
-    function SideMenu() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Object.defineProperty(SideMenu.prototype, "exists", {
-        get: function () {
-            return Menu.isOpen;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    SideMenu.prototype.back = function () {
-        Menu.close();
-    };
-    return SideMenu;
-}(Backable));
-var BackController = /** @class */ (function () {
-    function BackController() {
-        this.backables = [
-            new MTDeckConfig(),
-            new TweetDrawer(),
-            new ModalSocial(),
-            new ModalDetail(),
-            new BackableModal(),
-            new Modal(),
-            new ColumnSocial(),
-            new ColumnDetail(),
-            new ColumnOption(),
-            new SideMenu(),
-        ];
-    }
-    BackController.prototype.back = function () {
-        for (var _i = 0, _a = this.backables; _i < _a.length; _i++) {
-            var backable = _a[_i];
-            if (backable.exists) {
-                backable.back();
-                break;
-            }
-        }
-    };
-    return BackController;
-}());
-
-
-;// CONCATENATED MODULE: ./src/ts/touch.ts
-var TouchManager = /** @class */ (function () {
-    function TouchManager($element) {
-        var _this = this;
-        this.onTap = function () { };
-        this.onSwipe = function () { };
-        this.start = { x: 0, y: 0, time: 0 };
-        this.end = { x: 0, y: 0, time: 0 };
-        $element.addEventListener("click", function () { return _this.onTap(); });
-        $element.addEventListener("touchstart", function (e) {
-            _this.start = {
-                x: e.touches[0].screenX,
-                y: e.touches[0].screenY,
-                time: new Date().getTime(),
-            };
-        });
-        $element.addEventListener("touchmove", function (e) {
-            _this.end = {
-                x: e.touches[0].screenX,
-                y: e.touches[0].screenY,
-                time: new Date().getTime(),
-            };
-        });
-        $element.addEventListener("touchend", function (_) {
-            if (_this.isSwipedX) {
-                var direction = _this.start.x < _this.end.x ? "right" : "left";
-                _this.onSwipe(_this.start.x, direction);
-            }
-        });
-    }
-    Object.defineProperty(TouchManager.prototype, "isSwipedX", {
-        get: function () {
-            var diffX = this.end.x - this.start.x;
-            var diffY = this.end.y - this.start.y;
-            var diffTime = this.end.time - this.start.time;
-            var velocity = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2)) / diffTime;
-            return (Math.abs(diffY / diffX) <= 1 && // スワイプ角度の絶対値が45度以下
-                Math.abs(diffX) >= 10 && // 最小距離(px)
-                Math.abs(velocity) >= 0.3 // 最小速度(px/ミリ秒)
-            );
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return TouchManager;
-}());
-
-
-;// CONCATENATED MODULE: ./src/ts/config.ts
-
-var Config = /** @class */ (function () {
-    function Config() {
-        this.$el = null;
-        this.items = [
-            {
-                label: _("configOptionBackAtMounted"),
-                name: "mtdBackAtMounted",
-                type: "checkbox",
-                default: "true",
-            },
-            {
-                label: _("configOptionNoAnimation"),
-                name: "mtdNoAnimation",
-                type: "checkbox",
-                default: "false",
-            },
-            {
-                label: _("configOptionHideImages"),
-                name: "mtdHideImages",
-                type: "checkbox",
-                default: "false",
-            },
-            {
-                label: _("configOptionLazyLoadImages"),
-                name: "mtdLazyLoadImages",
-                type: "checkbox",
-                default: "false",
-            },
-            {
-                label: _("configOptionMenuOpenRange"),
-                name: "mtdMenuOpenRange",
-                type: "number",
-                default: "30",
-            },
-        ];
-    }
-    Config.prototype.getString = function (key) {
-        return localStorage.getItem(key).toString();
-    };
-    Config.prototype.getNumber = function (key) {
-        return parseFloat(localStorage.getItem(key));
-    };
-    Config.prototype.getBoolean = function (key) {
-        return localStorage.getItem(key) === "true";
-    };
-    Config.prototype.open = function () {
-        var _a;
-        (_a = this.$el) === null || _a === void 0 ? void 0 : _a.classList.add("is-open");
-    };
-    Config.prototype.close = function () {
-        var _a;
-        this.save();
-        (_a = this.$el) === null || _a === void 0 ? void 0 : _a.classList.remove("is-open");
-    };
-    Config.prototype.isOpen = function () {
-        return this.$el.classList.contains("is-open");
-    };
-    Config.prototype.save = function () {
-        var $inputs = document.querySelectorAll(".mtdeck-config-input");
-        $inputs.forEach(function ($input) {
-            if ($input.type === "checkbox") {
-                localStorage.setItem($input.name, "" + $input.checked);
-            }
-            else {
-                localStorage.setItem($input.name, $input.value);
-            }
-        });
-    };
-    Config.prototype.saveDefault = function () {
-        this.items.forEach(function (item) {
-            if (localStorage.getItem(item.name) === null) {
-                localStorage.setItem(item.name, item.default);
-            }
-        });
-    };
-    Config.prototype.createInfo = function () {
-        var _a;
-        (_a = this.$el) === null || _a === void 0 ? void 0 : _a.appendChild(safeHtml("\n      <div class=\"mtdeck-config-item\">\n        <p>MTDeck v" + __webpack_require__(306)/* .version */ .i8 + "</p>\n        <p>" + _("configLinksLabel") + ":\n          <a href=\"https://github.com/mkizka/MTDeck\" target=\"_blank\">Github</a>\n          <a href=\"https://twitter.com/mkizka\">Twitter</a>\n        </p>\n      </div>\n    "));
-    };
-    Config.prototype.createFooter = function () {
-        var _this = this;
-        var _a;
-        (_a = this.$el) === null || _a === void 0 ? void 0 : _a.appendChild(safeHtml("\n      <div class=\"mtdeck-config-footer\">\n        <button id=\"mtdeck-config-save\">" + _("configSaveLabel") + "</button>\n        <button id=\"mtdeck-config-back\">" + _("configBackLabel") + "</button>\n      </div>\n    "));
-        document
-            .querySelector("#mtdeck-config-save")
-            .addEventListener("click", function () {
-            _this.save();
-            location.reload();
-        });
-        document
-            .querySelector("#mtdeck-config-back")
-            .addEventListener("click", function () {
-            _this.close();
-        });
-    };
-    Config.prototype.createForm = function () {
-        var _this = this;
-        this.items.forEach(function (item) {
-            var _a;
-            var inputElement = safeHtml("\n        <input class=\"mtdeck-config-input\" type=\"" + item.type + "\" name=\"" + item.name + "\"/>\n      ");
-            if (item.type === "checkbox") {
-                inputElement.defaultChecked = _this.getBoolean(item.name);
-            }
-            else {
-                inputElement.defaultValue = _this.getString(item.name);
-            }
-            (_a = _this.$el) === null || _a === void 0 ? void 0 : _a.insertAdjacentElement("beforeend", safeHtml("\n        <label class=\"mtdeck-config-item\">\n          " + inputElement.outerHTML + "  \n          " + item.label + "\n        </label>\n      "));
-        });
-    };
-    Config.prototype.createSettingButton = function () {
-        var _this = this;
-        var _a;
-        var $settingsButton = document.querySelector(".js-app-settings");
-        var $copiedSettingsButton = safeHtml($settingsButton === null || $settingsButton === void 0 ? void 0 : $settingsButton.outerHTML);
-        $copiedSettingsButton.dataset.action = "mtdeckConfig";
-        $copiedSettingsButton.dataset.title = "MTDeck Config";
-        $copiedSettingsButton.classList.add("mtdeck-config-button");
-        $copiedSettingsButton
-            .querySelector(".app-nav-link-text")
-            .insertAdjacentText("afterbegin", "MTD");
-        (_a = $settingsButton === null || $settingsButton === void 0 ? void 0 : $settingsButton.parentElement) === null || _a === void 0 ? void 0 : _a.insertAdjacentElement("afterbegin", $copiedSettingsButton);
-        $copiedSettingsButton.addEventListener("click", function (e) { return _this.open(); });
-    };
-    Config.prototype.createConfigBase = function () {
-        this.$el = safeHtml("\n      <div class=\"mtdeck-config\">\n        <h1 class=\"mtdeck-config-item\">" + _("configTitle") + "</h1>\n      </div>\n    ");
-        document.body.appendChild(this.$el);
-    };
-    Config.prototype.init = function () {
-        this.saveDefault();
-        this.createConfigBase();
-        this.createInfo();
-        this.createForm();
-        this.createFooter();
-        this.createSettingButton();
-    };
-    return Config;
-}());
-
-
-;// CONCATENATED MODULE: ./src/ts/deck.ts
-
-
-
-
-
-
-var Deck = /** @class */ (function () {
-    function Deck() {
-        this.config = new Config();
-        this.scrollController = new ScrollController();
-        this.backController = new BackController();
-        this.columnIndex = 0;
-        this.$columns = [];
-        this.$drawerOpenButton = null;
-    }
-    Deck.prototype.ready = function () {
-        var _this = this;
-        var initInterval = setInterval(function () {
-            _this.$drawerOpenButton = document.querySelector("button[data-drawer=compose]");
-            if (_this.$drawerOpenButton) {
-                _this.config.init();
-                _this.init();
-                _this.scrollController.init();
-                clearInterval(initInterval);
-            }
-        }, 100);
-    };
-    Deck.prototype.update = function () {
-        var _this = this;
-        this.$columns = [];
-        document
-            .querySelectorAll("section.column")
-            .forEach(function ($column) {
-            _this.$columns.push($column);
-        });
-        this.fixColumnState();
-        this.updateTweetButton();
-    };
-    Deck.prototype.fixColumnState = function () {
-        this.columnIndex = 0;
-        var $nearColumn = this.$columns[0];
-        for (var i = 1; i < this.$columns.length; i++) {
-            if (Math.pow(this.$columns[i].getBoundingClientRect().left, 2) <
-                Math.pow($nearColumn.getBoundingClientRect().left, 2)) {
-                $nearColumn = this.$columns[i];
-                this.columnIndex = i;
-            }
-        }
-        $nearColumn.scrollIntoView();
-    };
-    Deck.prototype.updateTweetButton = function () {
-        var _this = this;
-        var $tweetButton = document.querySelector(".tweet-button");
-        setTimeout(function () {
-            if (_this.$columns[_this.columnIndex].classList.contains("js-column-state-detail-view")) {
-                $tweetButton.style.display = "none";
-            }
-            else {
-                $tweetButton.style.display = "block";
-            }
-        }, 200);
-    };
-    Deck.prototype.init = function () {
-        var _this = this;
-        var _a;
-        document.body.classList.add("mtdeck");
-        Menu.close();
-        var $appContainer = document.querySelector("div.app-columns-container");
-        if (this.config.getBoolean("mtdBackAtMounted")) {
-            clickAll(".js-dismiss");
-        }
-        if (this.config.getBoolean("mtdNoAnimation")) {
-            document.body.classList.add("mtdeck-no-animation");
-        }
-        if (this.config.getBoolean("mtdHideImages")) {
-            document.body.classList.add("mtdeck-hide-images");
-        }
-        // 画像非表示の場合は遅延読み込みしないためelse
-        else if (this.config.getBoolean("mtdLazyLoadImages")) {
-            document.body.classList.add("mtdeck-lazy-load-image");
-            setLazyLoadObservers($appContainer);
-        }
-        this.update();
-        var touchManager = new TouchManager($appContainer);
-        touchManager.onTap = function () {
-            _this.update();
-            Menu.close();
-        };
-        var menuOpenRange = this.config.getNumber("mtdMenuOpenRange");
-        touchManager.onSwipe = function (startX, direction) {
-            if (direction == "right") {
-                if (startX < menuOpenRange) {
-                    Menu.open();
-                }
-                else {
-                    _this.backColumn();
-                }
-            }
-            else {
-                _this.pushColumn();
-            }
-        };
-        history.pushState(null, "", null);
-        window.addEventListener("popstate", function (e) { return _this.back(); });
-        (_a = this.$drawerOpenButton) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function (e) {
-            Menu.close();
-        });
-    };
-    Deck.prototype.back = function () {
-        this.update();
-        this.backController.back();
-        history.pushState(null, "", null);
-    };
-    Deck.prototype.pushColumn = function () {
-        this.update();
-        Menu.close();
-        if (this.columnIndex < this.$columns.length - 1) {
-            this.columnIndex++;
-            this.scrollController.scrollTo(this.$columns[this.columnIndex]);
-        }
-    };
-    Deck.prototype.backColumn = function () {
-        this.update();
-        Menu.close();
-        if (this.columnIndex == 0) {
-            Menu.open();
-        }
-        else {
-            this.columnIndex--;
-            this.scrollController.scrollTo(this.$columns[this.columnIndex]);
-        }
-    };
-    return Deck;
-}());
-
-function setLazyLoadObservers($container) {
-    var intersectionObserver = new IntersectionObserver(function (entries) {
-        for (var _i = 0, entries_1 = entries; _i < entries_1.length; _i++) {
-            var e = entries_1[_i];
-            if (e.isIntersecting) {
-                var style = e.target.style;
-                style.setProperty("background-image", style.backgroundImage, "important");
-            }
-        }
-    });
-    var mutationObserver = new MutationObserver(function (mutations) {
-        for (var _i = 0, mutations_1 = mutations; _i < mutations_1.length; _i++) {
-            var mutation = mutations_1[_i];
-            mutation.addedNodes.forEach(function (node) {
-                if ("querySelector" in node) {
-                    var mediaItems = node.querySelectorAll(".media-item, .media-image");
-                    if (mediaItems) {
-                        mediaItems.forEach(function (item) { return intersectionObserver.observe(item); });
-                    }
-                }
-            });
-        }
-    });
-    mutationObserver.observe($container, {
-        childList: true,
-        attributes: false,
-        characterData: false,
-        subtree: true,
-    });
-}
-
-;// CONCATENATED MODULE: ./src/index.ts
-
-
-new Deck().ready();
-
-})();
-
-/******/ })()
-;
