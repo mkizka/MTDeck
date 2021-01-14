@@ -17,7 +17,9 @@
     "_dev:ext:firefox": "yarn _dev:ext -p default-release",
     "_dev:ext:chrome": "yarn _dev:ext --target chromium",
     "dev:firefox": "rollup -c && run-p _dev:pack _dev:ext:firefox",
-    "dev:chrome": "rollup -c && run-p _dev:pack _dev:ext:chrome"
+    "dev:chrome": "rollup -c && run-p _dev:pack _dev:ext:chrome",
+    "_dev:serve": "serve dist",
+    "dev:serve": "run-p _dev:pack _dev:serve"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
@@ -30,6 +32,7 @@
     "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-userscript-header": "^1.0.0",
+    "serve": "^11.3.2",
     "tslib": "^2.1.0",
     "typescript": "^4.1.3",
     "web-ext": "^5.4.1"
