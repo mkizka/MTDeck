@@ -3,7 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "module": "esnext",
-    "target": "es2020",
+    "target": "es6",
     "allowJs": true,
     "strict": true,
     "moduleResolution": "node",
