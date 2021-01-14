@@ -8,9 +8,7 @@ import pkg from "./package.json";
 export const bundlePlugins = [
   typescript(),
   json(),
-  sass({
-    insert: true,
-  }),
+  sass(),
 ];
 
 export const userscriptPlugin = userscriptHeader({

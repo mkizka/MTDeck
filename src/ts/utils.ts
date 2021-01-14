@@ -28,3 +28,10 @@ export const _ = (messageName: string): string => {
   const lang = /ja/.test(window.navigator.language) ? "ja" : "en";
   return (messages[lang] as any)[messageName].message || "";
 };
+
+export const insertStyle = (css: string): void => {
+  const style = document.createElement("style");
+  style.setAttribute("type", "text/css");
+  style.innerText = css;
+  document.head.appendChild(style);
+};
