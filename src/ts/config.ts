@@ -1,3 +1,4 @@
+import { version } from "../../package.json";
 import { safeHtml, _ } from "./utils";
 
 interface ConfigItem {
@@ -92,7 +93,7 @@ export class Config {
     this.$el?.appendChild(
       safeHtml(`
       <div class="mtdeck-config-item">
-        <p>MTDeck v${require("../../package.json").version}</p>
+        <p>MTDeck v${version}</p>
         <p>${_("configLinksLabel")}:
           <a href="https://github.com/mkizka/MTDeck" target="_blank">Github</a>
           <a href="https://twitter.com/mkizka">Twitter</a>
