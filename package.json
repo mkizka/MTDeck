@@ -14,7 +14,7 @@
     "format": "prettier -w \"./*.(js|json)\" src",
     "_dev:pack": "rollup -c -w",
     "_dev:ext": "web-ext run -s dist -u tweetdeck.twitter.com",
-    "_dev:ext:firefox": "yarn _dev:ext -p default",
+    "_dev:ext:firefox": "yarn _dev:ext -p default-release",
     "_dev:ext:chrome": "yarn _dev:ext --target chromium",
     "dev:firefox": "rollup -c && run-p _dev:pack _dev:ext:firefox",
     "dev:chrome": "rollup -c && run-p _dev:pack _dev:ext:chrome"
