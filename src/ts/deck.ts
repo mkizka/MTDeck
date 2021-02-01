@@ -90,7 +90,8 @@ export class Deck {
     // 画像非表示の場合は遅延読み込みしないためelse
     else if (this.config.getBoolean("mtdLazyLoadImages")) {
       document.body.classList.add("mtdeck-lazy-load-image");
-      setLazyLoadObservers($appContainer);
+      const $openModal = document.querySelector<HTMLElement>('#open-modal')!
+      setLazyLoadObservers([$appContainer, $openModal]);
     }
     this.update();
 
@@ -148,7 +149,7 @@ export class Deck {
   }
 }
 
-function setLazyLoadObservers($container: HTMLElement) {
+function setLazyLoadObservers($targets: HTMLElement[]) {
   const intersectionObserver = new IntersectionObserver((entries) => {
     for (const e of entries) {
       if (e.isIntersecting) {
@@ -175,10 +176,12 @@ function setLazyLoadObservers($container: HTMLElement) {
       });
     }
   });
-  mutationObserver.observe($container, {
-    childList: true,
-    attributes: false,
-    characterData: false,
-    subtree: true,
-  });
+  $targets.forEach($target => {
+    mutationObserver.observe($target, {
+      childList: true,
+      attributes: false,
+      characterData: false,
+      subtree: true,
+    });
+  })
 }
