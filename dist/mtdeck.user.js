@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name MTDeck
-// @version 1.8.0
+// @version 1.8.1
 // @author mkizka
 // @description TweetDeckをスマホアプリのように使えるようにするUserScript
 // @homepage https://github.com/mkizka/MTDeck
@@ -340,7 +340,7 @@
       }
   }
 
-  var version = "1.8.0";
+  var version = "1.8.1";
 
   class Config {
       constructor() {
@@ -563,7 +563,8 @@
           // 画像非表示の場合は遅延読み込みしないためelse
           else if (this.config.getBoolean("mtdLazyLoadImages")) {
               document.body.classList.add("mtdeck-lazy-load-image");
-              setLazyLoadObservers($appContainer);
+              const $openModal = document.querySelector('#open-modal');
+              setLazyLoadObservers([$appContainer, $openModal]);
           }
           this.update();
           const touchManager = new TouchManager($appContainer);
@@ -616,7 +617,7 @@
           }
       }
   }
-  function setLazyLoadObservers($container) {
+  function setLazyLoadObservers($targets) {
       const intersectionObserver = new IntersectionObserver((entries) => {
           for (const e of entries) {
               if (e.isIntersecting) {
@@ -637,11 +638,13 @@
               });
           }
       });
-      mutationObserver.observe($container, {
-          childList: true,
-          attributes: false,
-          characterData: false,
-          subtree: true,
+      $targets.forEach($target => {
+          mutationObserver.observe($target, {
+              childList: true,
+              attributes: false,
+              characterData: false,
+              subtree: true,
+          });
       });
   }
 
