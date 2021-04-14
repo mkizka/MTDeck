@@ -1,45 +1,67 @@
 import { version } from "../../package.json";
 import { safeHtml, _ } from "./utils";
 
-interface ConfigItem {
+interface ConfigBase {
   label: string;
-  type: "checkbox" | "number";
+  type: unknown;
   name: string;
-  default: string;
+  default: unknown;
 }
+
+interface ConfigCheckbox extends ConfigBase {
+  type: "checkbox";
+  default: boolean;
+}
+
+interface ConfigNumber extends ConfigBase {
+  type: "number";
+  default: number;
+}
+
+interface ConfigSelect extends ConfigBase {
+  type: "select";
+  default: string;
+  options: string[][];
+}
+
+type ConfigItem = ConfigCheckbox | ConfigNumber | ConfigSelect;
 
 export class Config {
   private $el: HTMLDivElement | null = null;
   private items: ConfigItem[] = [
     {
-      label: _("configOptionBackAtMounted"),
-      name: "mtdBackAtMounted",
-      type: "checkbox",
-      default: "true",
+      label: _("configOptionHScroll"),
+      name: "mtdHScroll",
+      type: "select",
+      options: [
+        ["swipe", _("configSelectSwipe")],
+        ["gesture", _("configSelectGesture")],
+      ],
+      default: "swipe",
     },
     {
       label: _("configOptionNoAnimation"),
       name: "mtdNoAnimation",
       type: "checkbox",
-      default: "false",
+      default: false,
     },
     {
       label: _("configOptionHideImages"),
       name: "mtdHideImages",
       type: "checkbox",
-      default: "false",
+      default: true,
     },
     {
       label: _("configOptionLazyLoadImages"),
       name: "mtdLazyLoadImages",
       type: "checkbox",
-      default: "false",
+      default: false,
     },
     {
       label: _("configOptionMenuOpenRange"),
       name: "mtdMenuOpenRange",
       type: "number",
-      default: "30",
+      default: 30,
     },
   ];
 
@@ -69,14 +91,18 @@ export class Config {
   }
 
   private save() {
-    const $inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll(
-      ".mtdeck-config-input"
-    );
+    const $inputs: NodeListOf<
+      HTMLInputElement | HTMLSelectElement
+    > = document.querySelectorAll(".mtdeck-config-input");
     $inputs.forEach(($input) => {
-      if ($input.type === "checkbox") {
-        localStorage.setItem($input.name, `${$input.checked}`);
-      } else {
-        localStorage.setItem($input.name, $input.value);
+      switch ($input.type) {
+        case "checkbox":
+          // @ts-ignore
+          localStorage.setItem($input.name, `${$input.checked}`);
+          break;
+        default:
+          localStorage.setItem($input.name, $input.value);
+          break;
       }
     });
   }
@@ -84,7 +110,7 @@ export class Config {
   private saveDefault() {
     this.items.forEach((item) => {
       if (localStorage.getItem(item.name) === null) {
-        localStorage.setItem(item.name, item.default);
+        localStorage.setItem(item.name, item.default.toString());
       }
     });
   }
@@ -126,22 +152,46 @@ export class Config {
   }
 
   private createForm() {
-    this.items.forEach((item) => {
-      const inputElement = safeHtml<HTMLInputElement>(`
-        <input class="mtdeck-config-input" type="${item.type}" name="${item.name}"/>
-      `);
-
-      if (item.type === "checkbox") {
-        inputElement.defaultChecked = this.getBoolean(item.name);
-      } else {
-        inputElement.defaultValue = this.getString(item.name);
+    const getElement = (item: ConfigItem) => {
+      switch (item.type) {
+        case "checkbox":
+          return safeHtml<HTMLInputElement>(`
+          <input
+            class="mtdeck-config-input"
+            type="${item.type}"
+            name="${item.name}"
+            ${this.getBoolean(item.name) ? "checked" : ""}
+          />
+        `);
+        case "number":
+          return safeHtml<HTMLInputElement>(`
+          <input
+            class="mtdeck-config-input"
+            type="${item.type}"
+            name="${item.name}"
+            value="${this.getString(item.name)}"
+          />
+        `);
+        case "select":
+          return safeHtml<HTMLSelectElement>(`
+          <select
+            class="mtdeck-config-input"
+            name="${item.name}"
+          >${item.options.map(([value, label]) => {
+            const selected =
+              value == this.getString(item.name) ? "selected" : "";
+            return `<option value="${value}" ${selected}>${label}</option>`;
+          })}
+          </select>
+        `);
       }
-
+    };
+    this.items.forEach((item) => {
       this.$el!.insertAdjacentElement(
         "beforeend",
         safeHtml(`
         <label class="mtdeck-config-item">
-          ${inputElement.outerHTML}  
+          ${getElement(item)!.outerHTML}  
           ${item.label}
         </label>
       `)

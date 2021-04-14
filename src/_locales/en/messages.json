@@ -28,5 +28,14 @@
   },
   "configOptionMenuOpenRange": {
     "message": "Range to open menu with swipe"
+  },
+  "configOptionHScroll": {
+    "message": "Horizontal scrolling method"
+  },
+  "configSelectSwipe": {
+    "message": "Swipe"
+  },
+  "configSelectGesture": {
+    "message": "Gesture"
   }
 }

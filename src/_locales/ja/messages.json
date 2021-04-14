@@ -28,5 +28,14 @@
   },
   "configOptionMenuOpenRange": {
     "message": "左からのスワイプでメニューを開く範囲"
+  },
+  "configOptionHScroll": {
+    "message": "左右スクロールの操作方法"
+  },
+  "configSelectSwipe": {
+    "message": "スワイプ"
+  },
+  "configSelectGesture": {
+    "message": "ジェスチャー"
   }
 }
