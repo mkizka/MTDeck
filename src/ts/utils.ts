@@ -32,6 +32,6 @@ export const _ = (messageName: string): string => {
 export const insertStyle = (css: string): void => {
   const style = document.createElement("style");
   style.setAttribute("type", "text/css");
-  style.innerText = css;
+  style.textContent = css;
   document.head.appendChild(style);
 };

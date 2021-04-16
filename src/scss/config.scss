@@ -30,6 +30,23 @@
   }
 }
 
+body.mtdeck-hscroll-swipe {
+  .app-columns-container {
+    scroll-snap-type: x mandatory;
+    .column {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+  }
+}
+
+body.mtdeck-hscroll-gesture {
+  .app-columns-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
 body.mtdeck-no-animation {
   &,
   *:not(iframe) {

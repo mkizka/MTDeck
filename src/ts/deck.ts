@@ -70,37 +70,12 @@ export class Deck {
     }, 200);
   }
 
-  private init(): void {
-    document.body.classList.add("mtdeck");
-    Menu.close();
-
-    const $appContainer = document.querySelector<HTMLDivElement>(
-      "div.app-columns-container"
-    )!;
-
-    if (this.config.getBoolean("mtdBackAtMounted")) {
-      clickAll(".js-dismiss");
-    }
-    if (this.config.getBoolean("mtdNoAnimation")) {
-      document.body.classList.add("mtdeck-no-animation");
-    }
-    if (this.config.getBoolean("mtdHideImages")) {
-      document.body.classList.add("mtdeck-hide-images");
-    }
-    // 画像非表示の場合は遅延読み込みしないためelse
-    else if (this.config.getBoolean("mtdLazyLoadImages")) {
-      document.body.classList.add("mtdeck-lazy-load-image");
-      const $openModal = document.querySelector<HTMLElement>('#open-modal')!
-      setLazyLoadObservers([$appContainer, $openModal]);
-    }
-    this.update();
-
+  private setupTouchManager($appContainer: HTMLElement) {
     const touchManager = new TouchManager($appContainer);
     touchManager.onTap = () => {
       this.update();
       Menu.close();
     };
-
     const menuOpenRange = this.config.getNumber("mtdMenuOpenRange");
     touchManager.onSwipe = (startX, direction) => {
       if (direction == "right") {
@@ -113,6 +88,38 @@ export class Deck {
         this.pushColumn();
       }
     };
+  }
+
+  private init(): void {
+    document.body.classList.add("mtdeck");
+    Menu.close();
+
+    const $appContainer = document.querySelector<HTMLDivElement>(
+      "div.app-columns-container"
+    )!;
+
+    if (this.config.getString("mtdHScroll") == "swipe") {
+      document.body.classList.add("mtdeck-hscroll-swipe");
+    } else {
+      document.body.classList.add("mtdeck-hscroll-gesture");
+      this.setupTouchManager($appContainer);
+    }
+    if (this.config.getBoolean("mtdBackAtMounted")) {
+      clickAll(".js-dismiss");
+    }
+    if (this.config.getBoolean("mtdNoAnimation")) {
+      document.body.classList.add("mtdeck-no-animation");
+    }
+    if (this.config.getBoolean("mtdHideImages")) {
+      document.body.classList.add("mtdeck-hide-images");
+    }
+    // 画像非表示の場合は遅延読み込みしないためelse
+    else if (this.config.getBoolean("mtdLazyLoadImages")) {
+      document.body.classList.add("mtdeck-lazy-load-image");
+      const $openModal = document.querySelector<HTMLElement>("#open-modal")!;
+      setLazyLoadObservers([$appContainer, $openModal]);
+    }
+    this.update();
 
     history.pushState(null, "", null);
     window.addEventListener("popstate", (e) => this.back());
@@ -176,12 +183,12 @@ function setLazyLoadObservers($targets: HTMLElement[]) {
       });
     }
   });
-  $targets.forEach($target => {
+  $targets.forEach(($target) => {
     mutationObserver.observe($target, {
       childList: true,
       attributes: false,
       characterData: false,
       subtree: true,
     });
-  })
+  });
 }
