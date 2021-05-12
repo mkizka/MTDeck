@@ -5,11 +5,7 @@ import userscriptHeader from "rollup-plugin-userscript-header";
 import copy from "rollup-plugin-copy";
 import pkg from "./package.json";
 
-export const bundlePlugins = [
-  typescript(),
-  json(),
-  sass(),
-];
+export const bundlePlugins = [typescript(), json(), sass()];
 
 export const userscriptPlugin = userscriptHeader({
   overwrite: {
