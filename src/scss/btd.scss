@@ -1,21 +1,10 @@
-html.btd-on {
-  body.mtdeck-hide-images {
-    .js-media-image-link {
-      background-color: inherit !important;
-    }
-
-    .js-media-preview-container.is-video .media-item {
-      &::before {
-        opacity: 1;
-        width: inherit;
-        background-image: none;
-        top: 20px;
-        left: 20px;
-      }
-
-      &::after {
-        background-color: transparent;
-      }
-    }
+body.mtdeck[data-btd-ready="true"] {
+  // BTDのuseOriginalAspectRatioでは実装にmin()が用いられているが、
+  // KiwiBrowserではmin()が未実装なため、使わないように置き換える
+  // https://github.com/eramdam/BetterTweetDeck/blob/2926a7e448bb735460de7b6f08e2cb8bd4f3775a/src/features/useOriginalAspectRatio.css#L8
+  // https://github.com/kiwibrowser/src/issues/277
+  .media-size-medium.btd-aspect-ratio-thumbnail,
+  .media-size-large.btd-aspect-ratio-thumbnail {
+    padding-top: calc(var(--btd-thumb-height) / var(--btd-thumb-width) * 100%);
   }
 }
