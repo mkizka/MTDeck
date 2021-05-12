@@ -7,4 +7,9 @@ body.mtdeck[data-btd-ready="true"] {
   .media-size-large.btd-aspect-ratio-thumbnail {
     padding-top: calc(var(--btd-thumb-height) / var(--btd-thumb-width) * 100%);
   }
+
+  // カラムナビゲーターの下部移動後、背景にテーマ色を適用
+  .js-int-scroller {
+    background-color: var(--btd-theme-background-lighter);
+  }
 }
