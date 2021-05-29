@@ -84,11 +84,11 @@ export class Deck {
     if (this.config.getBoolean("mtdNoAnimation")) {
       document.body.classList.add("mtdeck-no-animation");
     }
-    if (this.config.getBoolean("mtdHideImages")) {
-      document.body.classList.add("mtdeck-hide-images");
-    }
     if (this.config.getBoolean("mtdHideCounts")) {
       document.body.classList.add("mtdeck-hide-counts");
+    }
+    if (this.config.getBoolean("mtdHideImages")) {
+      document.body.classList.add("mtdeck-hide-images");
     }
     // 画像非表示の場合は遅延読み込みしないためelse
     else if (this.config.getBoolean("mtdLazyLoadImages")) {
