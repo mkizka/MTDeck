@@ -13,6 +13,11 @@ body.mtdeck {
     width: 100%;
   }
 
+  .drawer[data-drawer="accountSettings"] {
+    left: calc(-1 * 100vw + 60px);
+    width: calc(100vw - 60px);
+  }
+
   button.js-hide-drawer {
     display: none !important;
   }

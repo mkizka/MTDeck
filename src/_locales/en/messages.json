@@ -23,6 +23,9 @@
   "configOptionHideImages": {
     "message": "Hide image thumbnails on tweet"
   },
+  "configOptionHideEngagementCounts": {
+    "message": "Hide Reply,Retweet,Like counts on tweet"
+  },
   "configOptionLazyLoadImages": {
     "message": "Lazy load image thumbnails on tweet"
   },
