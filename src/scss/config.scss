@@ -118,110 +118,122 @@ body.mtdeck-lazy-load-image {
 }
 
 body.mtdeck-mobile {
-  .item-box {
-    padding: 12px 16px;
-  }
-
-  .tweet-detail.js-has-replies {
-    margin-left: 48px !important;
-  }
-  .thread {
-    left: 37px;
-  }
-
-  .tweet {
-    padding-left: 60px;
-  }
-
-  .other-replies {
-    margin-bottom: 2px;
-  }
-
-  .tweet-img{
-    margin-left: -60px;
-  }
-  .item-img {
-    width: 48px;
-  }
-  .avatar {
-    width: 48px;
-    height: 48px;
-  }
-
-  .tweet-header {
-    margin-bottom: 2px;
-  }
-  .activity-header {
-    display: flex;
-    align-items: center;
-    margin-top: 0;
-    .item-img {
-      margin-top: 0 !important;
-    }
-    i {
-      font-size: 2em !important;
-      line-height: 1em;
-    }
-    .avatar {
-      width: 30px;
-      height: 30px;
-    }
-  }
-  .account-summary {
-    margin-bottom: 12px !important;
-    .item-img {
-      margin-right: 12px !important;
-    }
-    .tweet-text {
-      margin-bottom: 12px !important;
-    }
-  }
-
-  .quoted-tweet, .media-preview {
-    margin-top: 12px !important;
-    margin-bottom: 0 !important;
-  }
-  video {
-    width: 100%;
-    height: auto;
-  }
-
-  .tweet-footer {
-    margin-top: 12px;
-  }
-
-  .tweet-actions {
+  // フッターナビゲーション
+  .js-int-scroller {
     display: flex;
     justify-content: space-between;
   }
 
-  .js-show-this-thread > p {
-    margin-top: 12px !important;
-  }
+  // ツイート
+  .item-box {
+    padding: 12px 16px;
 
-  .dropdown-menu {
-    width: 90vw;
-    margin-right: -5vw;
-    font-size: 15px;
-    .caret {
-      right: 13px;
+    // アイコンのサイズ
+    .item-img {
+      width: 48px;
     }
-    [data-action] {
-      padding: 8px 20px;
+    .avatar {
+      width: 48px;
+      height: 48px;
     }
-  }
 
-  .app-columns {
-    .column-detail .tweet-detail footer {
+    // カラム内のツイートのメニュー
+    .dropdown-menu {
+      width: 90vw;
+      margin-right: -5vw;
+      font-size: 15px;
+      .caret {
+        right: 13px;
+      }
+      [data-action] {
+        padding: 8px 20px;
+      }
+    }
+
+    // カラム内の各ツイート、通知カラムのリプツイートのスタイル
+    .tweet {
+      padding-left: 60px;
+      .tweet-header {
+        margin-bottom: 2px;
+        .tweet-img {
+          margin-left: -60px;
+        }
+      }
+      .thread {
+        left: 38px;
+      }
+      .tweet-body {
+        .other-replies {
+          margin-bottom: 2px;
+        }
+      }
+      .tweet-footer {
+        margin-top: 12px;
+        .tweet-actions {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+      .js-show-this-thread > p {
+        margin-top: 12px !important;
+      }
+    }
+
+    // ツイートの詳細表示
+    .tweet-detail {
+      &.js-has-replies {
+        margin-left: 48px !important;
+        .thread {
+          left: 38px;
+        }
+      }
+
+      .account-summary {
+        margin-bottom: 12px !important;
+        .item-img {
+          margin-right: 12px !important;
+        }
+        .tweet-text {
+          margin-bottom: 12px !important;
+        }
+      }
+
       .tweet-detail-actions {
         padding-top: 4px;
         padding-bottom: 4px;
       }
     }
-  }
 
-  .js-int-scroller {
-    display: flex;
-    justify-content: space-between;
+    // 通知カラムの各通知
+    .activity-header {
+      display: flex;
+      align-items: center;
+      margin-top: 0;
+      margin-bottom: 2px;
+      .item-img {
+        margin-top: 0 !important;
+      }
+      i {
+        font-size: 1.3em !important;
+        line-height: 1em;
+        &.icon-user-filled {
+          font-size: 1em !important;
+        }
+      }
+      .avatar {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    // 引用RT、メディア、ビデオ表示
+    .quoted-tweet, .media-preview {
+      margin-top: 12px !important;
+      margin-bottom: 0 !important;
+    }
+    video {
+      width: 100%;
+      height: auto;
+    }
   }
 }
