@@ -1,10 +1,14 @@
+html.dark .mtdeck-config {
+  background-color: #1c2938;
+}
+
 .mtdeck-config {
   display: none;
   width: 100%;
   height: 100%;
   position: fixed;
   z-index: 201;
-  background-color: #1c2938;
+  background-color: #fff;
   padding: 20px;
 
   &.is-open {
