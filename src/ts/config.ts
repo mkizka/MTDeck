@@ -30,6 +30,12 @@ export class Config {
       default: "false",
     },
     {
+      label: _("configOptionHideEngagementCounts"),
+      name: "mtdHideCounts",
+      type: "checkbox",
+      default: "false"
+    },
+    {
       label: _("configOptionLazyLoadImages"),
       name: "mtdLazyLoadImages",
       type: "checkbox",
