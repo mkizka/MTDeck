@@ -87,14 +87,14 @@ export class Deck {
     if (this.config.getBoolean("mtdHideImages")) {
       document.body.classList.add("mtdeck-hide-images");
     }
-    if (this.config.getBoolean("mtdMenuMobileStyle")) {
-      document.body.classList.add("mtdeck-mobile");
-    }
     // 画像非表示の場合は遅延読み込みしないためelse
     else if (this.config.getBoolean("mtdLazyLoadImages")) {
       document.body.classList.add("mtdeck-lazy-load-image");
       const $openModal = document.querySelector<HTMLElement>("#open-modal")!;
       setLazyLoadObservers([$appContainer, $openModal]);
+    }
+    if (this.config.getBoolean("mtdMenuMobileStyle")) {
+      document.body.classList.add("mtdeck-mobile");
     }
     this.update();
 
