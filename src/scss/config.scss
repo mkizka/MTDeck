@@ -92,6 +92,20 @@ body.mtdeck-hide-images {
   }
 }
 
+body.mtdeck-hide-counts {
+  .reply-count, .retweet-count, .like-count {
+    display: none;
+  }
+
+  .app-columns {
+    .column-detail .tweet-detail footer {
+      .js-tweet-stats {
+        display: none;
+      }
+    }
+  }
+}
+
 body.mtdeck-lazy-load-image {
   .media-item,
   .media-image {

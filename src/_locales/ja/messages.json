@@ -23,6 +23,9 @@
   "configOptionHideImages": {
     "message": "ツイートの画像サムネイルを非表示"
   },
+  "configOptionHideEngagementCounts": {
+    "message": "ツイートのリプライ、いいね、RT数を非表示"
+  },
   "configOptionLazyLoadImages": {
     "message": "ツイートの画像サムネイルを遅延読み込み"
   },

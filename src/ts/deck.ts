@@ -87,6 +87,9 @@ export class Deck {
     if (this.config.getBoolean("mtdHideImages")) {
       document.body.classList.add("mtdeck-hide-images");
     }
+    if (this.config.getBoolean("mtdHideCounts")) {
+      document.body.classList.add("mtdeck-hide-counts");
+    }
     // 画像非表示の場合は遅延読み込みしないためelse
     else if (this.config.getBoolean("mtdLazyLoadImages")) {
       document.body.classList.add("mtdeck-lazy-load-image");
