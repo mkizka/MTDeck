@@ -28,5 +28,8 @@
   },
   "configOptionMenuOpenRange": {
     "message": "Range to open menu with swipe"
+  },
+  "configOptionMobileFriendlyStyle": {
+    "message": "Enable mobile friendly styles"
   }
 }

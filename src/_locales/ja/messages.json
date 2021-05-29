@@ -28,5 +28,8 @@
   },
   "configOptionMenuOpenRange": {
     "message": "左からのスワイプでメニューを開く範囲"
+  },
+  "configOptionMobileFriendlyStyle": {
+    "message": "スマホ向けのスタイルを適用"
   }
 }
