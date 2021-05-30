@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name MTDeck
-// @version 1.8.2
+// @version 1.9.0
 // @author mkizka
 // @description TweetDeckをスマホアプリのように使えるようにするUserScript
 // @homepage https://github.com/mkizka/MTDeck
@@ -33,11 +33,17 @@
   var configOptionHideImages = {
   	message: "Hide image thumbnails on tweet"
   };
+  var configOptionHideEngagementCounts = {
+  	message: "Hide Reply,Retweet,Like counts on tweet"
+  };
   var configOptionLazyLoadImages = {
   	message: "Lazy load image thumbnails on tweet"
   };
   var configOptionMenuOpenRange = {
   	message: "Range to open menu with swipe"
+  };
+  var configOptionMobileFriendlyOnCol = {
+  	message: "Enable mobile friendly styles on columns"
   };
   var messagesEN = {
   	extensionDescription: extensionDescription,
@@ -48,8 +54,10 @@
   	configOptionBackAtMounted: configOptionBackAtMounted,
   	configOptionNoAnimation: configOptionNoAnimation,
   	configOptionHideImages: configOptionHideImages,
+  	configOptionHideEngagementCounts: configOptionHideEngagementCounts,
   	configOptionLazyLoadImages: configOptionLazyLoadImages,
-  	configOptionMenuOpenRange: configOptionMenuOpenRange
+  	configOptionMenuOpenRange: configOptionMenuOpenRange,
+  	configOptionMobileFriendlyOnCol: configOptionMobileFriendlyOnCol
   };
 
   var extensionDescription$1 = {
@@ -76,11 +84,17 @@
   var configOptionHideImages$1 = {
   	message: "ツイートの画像サムネイルを非表示"
   };
+  var configOptionHideEngagementCounts$1 = {
+  	message: "ツイートのリプライ、いいね、RT数を非表示"
+  };
   var configOptionLazyLoadImages$1 = {
   	message: "ツイートの画像サムネイルを遅延読み込み"
   };
   var configOptionMenuOpenRange$1 = {
   	message: "左からのスワイプでメニューを開く範囲"
+  };
+  var configOptionMobileFriendlyOnCol$1 = {
+  	message: "カラム内にスマホ向けのスタイルを適用"
   };
   var messagesJA = {
   	extensionDescription: extensionDescription$1,
@@ -91,8 +105,10 @@
   	configOptionBackAtMounted: configOptionBackAtMounted$1,
   	configOptionNoAnimation: configOptionNoAnimation$1,
   	configOptionHideImages: configOptionHideImages$1,
+  	configOptionHideEngagementCounts: configOptionHideEngagementCounts$1,
   	configOptionLazyLoadImages: configOptionLazyLoadImages$1,
-  	configOptionMenuOpenRange: configOptionMenuOpenRange$1
+  	configOptionMenuOpenRange: configOptionMenuOpenRange$1,
+  	configOptionMobileFriendlyOnCol: configOptionMobileFriendlyOnCol$1
   };
 
   const messages = {
@@ -340,7 +356,7 @@
       }
   }
 
-  var version = "1.8.2";
+  var version = "1.9.0";
 
   class Config {
       constructor() {
@@ -365,6 +381,12 @@
                   default: "false",
               },
               {
+                  label: _("configOptionHideEngagementCounts"),
+                  name: "mtdHideCounts",
+                  type: "checkbox",
+                  default: "false"
+              },
+              {
                   label: _("configOptionLazyLoadImages"),
                   name: "mtdLazyLoadImages",
                   type: "checkbox",
@@ -375,6 +397,12 @@
                   name: "mtdMenuOpenRange",
                   type: "number",
                   default: "30",
+              },
+              {
+                  label: _("configOptionMobileFriendlyOnCol"),
+                  name: "mtdMobileStyleFriendly",
+                  type: "checkbox",
+                  default: "true",
               },
           ];
       }
@@ -557,6 +585,9 @@
           if (this.config.getBoolean("mtdNoAnimation")) {
               document.body.classList.add("mtdeck-no-animation");
           }
+          if (this.config.getBoolean("mtdHideCounts")) {
+              document.body.classList.add("mtdeck-hide-counts");
+          }
           if (this.config.getBoolean("mtdHideImages")) {
               document.body.classList.add("mtdeck-hide-images");
           }
@@ -565,6 +596,9 @@
               document.body.classList.add("mtdeck-lazy-load-image");
               const $openModal = document.querySelector("#open-modal");
               setLazyLoadObservers([$appContainer, $openModal]);
+          }
+          if (this.config.getBoolean("mtdMobileStyleFriendly")) {
+              document.body.classList.add("mtdeck-mobile");
           }
           this.update();
           const touchManager = new TouchManager($appContainer);
@@ -648,7 +682,7 @@
       });
   }
 
-  var styles = "body.mtdeck button[data-drawer=compose] {\n  z-index: 1;\n  position: fixed !important;\n  right: 20px;\n  bottom: 60px;\n  width: 4rem !important;\n  height: 4rem !important;\n  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7));\n}\nbody.mtdeck .app-columns {\n  padding: 0 0 50px 0 !important;\n}\nbody.mtdeck .app-content {\n  left: 0 !important;\n}\nbody.mtdeck .app-columns-container {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\nbody.mtdeck section.column,\nbody.mtdeck .js-modal-panel,\nbody.mtdeck .prf-header,\nbody.mtdeck .prf-header-inner-overlay,\nbody.mtdeck .social-proof-container {\n  width: 100% !important;\n}\nbody.mtdeck .overlay:before {\n  margin-right: -5px;\n}\nbody.mtdeck .mdl {\n  width: 100% !important;\n  overflow-x: hidden;\n}\nbody.mtdeck .mdl .mdl-inner {\n  padding: 5px;\n}\nbody.mtdeck .mdl .mdl-inner .js-right-column {\n  overflow-x: hidden;\n}\nbody.mtdeck .mdl .mdl-inner .mdl-column:first-child {\n  display: none;\n}\nbody.mtdeck .mdl .mdl-inner .mdl-column:not(:first-child) {\n  width: 100% !important;\n}\nbody.mtdeck .mdl .mdl-dismiss {\n  right: 10px !important;\n}\nbody.mtdeck .med-tweet {\n  width: 100% !important;\n  left: 0 !important;\n}\nbody.mtdeck .old-composer-footer,\nbody.mtdeck .column-nav-flyout {\n  display: none;\n}\nbody.mtdeck .js-search-in-popover .popover {\n  width: 200px !important;\n}\nbody.mtdeck .js-mediaembed .js-media-native-video,\nbody.mtdeck .js-mediaembed .youtube-player {\n  width: 100% !important;\n  position: fixed;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  margin: auto !important;\n  z-index: 1;\n}\nbody.mtdeck .column-navigator {\n  top: 50px;\n}\n\nbody.mtdeck .app-content {\n  will-change: transform;\n}\nbody.mtdeck .app-content.is-open {\n  margin-right: 0 !important;\n  transform: translateX(100%) !important;\n}\nbody.mtdeck .drawer[data-drawer=compose] {\n  left: -100%;\n  width: 100%;\n}\nbody.mtdeck button.js-hide-drawer {\n  display: none !important;\n}\n\nbody.mtdeck .js-int-scroller {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: #1c2938;\n  overflow-x: auto;\n  white-space: nowrap;\n  padding-top: 10px;\n  height: 40px;\n}\nbody.mtdeck .js-int-scroller .column-nav-item {\n  height: 35px;\n}\nbody.mtdeck .js-int-scroller .column-nav-item .icon-medium {\n  font-size: 20px;\n}\nbody.mtdeck .js-int-scroller .column-nav-item .js-header-action {\n  padding-left: 12px !important;\n  padding-right: 12px !important;\n}\nbody.mtdeck .hide-detail-view-inline .js-int-scroller,\nbody.mtdeck .with-nav-border-t:before {\n  display: none;\n}\nbody.mtdeck .column-nav-item {\n  display: inline-block;\n}\n\nbody.mtdeck-close header.app-header {\n  position: relative;\n  top: -50px;\n}\nbody.mtdeck-close div.app-columns-container {\n  left: 0 !important;\n}\n\n.mtdeck-config {\n  display: none;\n  width: 100%;\n  height: 100%;\n  position: fixed;\n  z-index: 201;\n  background-color: #1c2938;\n  padding: 20px;\n}\n.mtdeck-config.is-open {\n  display: block;\n}\n.mtdeck-config-button {\n  color: blueviolet !important;\n}\n.mtdeck-config-item {\n  margin-bottom: 20px !important;\n}\n.mtdeck-config-input[type=number] {\n  width: 80px;\n  margin-right: 10px;\n}\n.mtdeck-config-footer {\n  position: fixed;\n  bottom: 20px;\n}\n\nbody.mtdeck-no-animation,\nbody.mtdeck-no-animation *:not(iframe) {\n  transition-duration: 1ms !important;\n}\n\nbody.mtdeck-hide-images .js-media:not(.detail-preview) {\n  height: 25px !important;\n  border-radius: 0 !important;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive {\n  height: 1rem;\n  background-color: transparent;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive::before {\n  content: \"[sensitive]\";\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive div {\n  display: none;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container {\n  width: 100% !important;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image {\n  height: 0;\n  width: max-content;\n  background-image: none !important;\n  border-radius: 0;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item::before,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image::before,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item::before,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image::before {\n  content: \"[media]\";\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item *,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image *,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item *,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image * {\n  display: none !important;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) {\n  display: none !important;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-item,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-image {\n  background-image: none !important;\n}\nbody.mtdeck-hide-images .item-box-full-bleed .media-item,\nbody.mtdeck-hide-images .item-box-full-bleed .media-image {\n  margin: auto !important;\n}\n\nbody.mtdeck-lazy-load-image .media-item,\nbody.mtdeck-lazy-load-image .media-image {\n  background-image: none !important;\n}\n\nbody.mtdeck[data-btd-ready=true] .media-size-medium.btd-aspect-ratio-thumbnail,\nbody.mtdeck[data-btd-ready=true] .media-size-large.btd-aspect-ratio-thumbnail {\n  padding-top: calc(var(--btd-thumb-height) / var(--btd-thumb-width) * 100%);\n}\nbody.mtdeck[data-btd-ready=true] .js-int-scroller {\n  background-color: var(--btd-theme-background-lighter);\n}";
+  var styles = "body.mtdeck button[data-drawer=compose] {\n  z-index: 1;\n  position: fixed !important;\n  right: 20px;\n  bottom: 60px;\n  width: 4rem !important;\n  height: 4rem !important;\n  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.7));\n}\nbody.mtdeck .app-columns {\n  padding: 0 0 50px 0 !important;\n}\nbody.mtdeck .app-content {\n  left: 0 !important;\n}\nbody.mtdeck .app-columns-container {\n  overflow-x: hidden;\n  overflow-y: auto;\n}\nbody.mtdeck section.column,\nbody.mtdeck .js-modal-panel,\nbody.mtdeck .prf-header,\nbody.mtdeck .prf-header-inner-overlay,\nbody.mtdeck .social-proof-container {\n  width: 100% !important;\n}\nbody.mtdeck .overlay:before {\n  margin-right: -5px;\n}\nbody.mtdeck .mdl {\n  width: 100% !important;\n  overflow-x: hidden;\n}\nbody.mtdeck .mdl .mdl-inner {\n  padding: 5px;\n}\nbody.mtdeck .mdl .mdl-inner .js-right-column {\n  overflow-x: hidden;\n}\nbody.mtdeck .mdl .mdl-inner .mdl-column:first-child {\n  display: none;\n}\nbody.mtdeck .mdl .mdl-inner .mdl-column:not(:first-child) {\n  width: 100% !important;\n}\nbody.mtdeck .mdl .mdl-dismiss {\n  right: 10px !important;\n}\nbody.mtdeck .med-tweet {\n  width: 100% !important;\n  left: 0 !important;\n}\nbody.mtdeck .old-composer-footer,\nbody.mtdeck .column-nav-flyout {\n  display: none;\n}\nbody.mtdeck .js-search-in-popover .popover {\n  width: 200px !important;\n}\nbody.mtdeck .js-mediaembed .js-media-native-video,\nbody.mtdeck .js-mediaembed .youtube-player {\n  width: 100% !important;\n  position: fixed;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  margin: auto !important;\n  z-index: 1;\n}\nbody.mtdeck .column-navigator {\n  top: 50px;\n}\n\nbody.mtdeck .app-content {\n  will-change: transform;\n}\nbody.mtdeck .app-content.is-open {\n  margin-right: 0 !important;\n  transform: translateX(100%) !important;\n}\nbody.mtdeck .drawer[data-drawer=compose] {\n  left: -100%;\n  width: 100%;\n}\nbody.mtdeck .drawer[data-drawer=accountSettings] {\n  left: calc(-1 * 100vw + 60px);\n  width: calc(100vw - 60px);\n}\nbody.mtdeck button.js-hide-drawer {\n  display: none !important;\n}\n\nbody.mtdeck .js-int-scroller {\n  display: flex;\n  justify-content: space-between;\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: #1c2938;\n  overflow-x: auto;\n  white-space: nowrap;\n  padding-top: 10px;\n  height: 40px;\n}\nbody.mtdeck .js-int-scroller .column-nav-item {\n  height: 35px;\n}\nbody.mtdeck .js-int-scroller .column-nav-item .icon-medium {\n  font-size: 20px;\n}\nbody.mtdeck .js-int-scroller .column-nav-item .js-header-action {\n  padding-left: 12px !important;\n  padding-right: 12px !important;\n}\nbody.mtdeck .hide-detail-view-inline .js-int-scroller,\nbody.mtdeck .with-nav-border-t:before {\n  display: none;\n}\nbody.mtdeck .column-nav-item {\n  display: inline-block;\n}\n\nbody.mtdeck-close header.app-header {\n  position: relative;\n  top: -50px;\n}\nbody.mtdeck-close div.app-columns-container {\n  left: 0 !important;\n}\n\nhtml.dark .mtdeck-config {\n  background-color: #1c2938;\n}\n\n.mtdeck-config {\n  display: none;\n  width: 100%;\n  height: 100%;\n  position: fixed;\n  z-index: 201;\n  background-color: #fff;\n  padding: 20px;\n}\n.mtdeck-config.is-open {\n  display: block;\n}\n.mtdeck-config-button {\n  color: blueviolet !important;\n}\n.mtdeck-config-item {\n  margin-bottom: 20px !important;\n}\n.mtdeck-config-input[type=number] {\n  width: 80px;\n  margin-right: 10px;\n}\n.mtdeck-config-footer {\n  position: fixed;\n  bottom: 20px;\n}\n\nbody.mtdeck-no-animation,\nbody.mtdeck-no-animation *:not(iframe) {\n  transition-duration: 1ms !important;\n}\n\nbody.mtdeck-hide-images .js-media:not(.detail-preview) {\n  height: 25px !important;\n  border-radius: 0 !important;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive {\n  height: 1rem;\n  background-color: transparent;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive::before {\n  content: \"[sensitive]\";\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-sensitive div {\n  display: none;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container {\n  width: 100% !important;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image {\n  height: 0;\n  width: max-content;\n  background-image: none !important;\n  border-radius: 0;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item::before,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image::before,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item::before,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image::before {\n  content: \"[media]\";\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-item *,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:first-child .media-image *,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-item *,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .js-media-preview-container .media-image * {\n  display: none !important;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) {\n  display: none !important;\n}\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-item,\nbody.mtdeck-hide-images .js-media:not(.detail-preview) .media-image-container:not(:first-child) .media-image {\n  background-image: none !important;\n}\nbody.mtdeck-hide-images .item-box-full-bleed .media-item,\nbody.mtdeck-hide-images .item-box-full-bleed .media-image {\n  margin: auto !important;\n}\n\nbody.mtdeck-hide-counts .reply-count, body.mtdeck-hide-counts .retweet-count, body.mtdeck-hide-counts .like-count {\n  display: none;\n}\nbody.mtdeck-hide-counts .app-columns .column-detail .tweet-detail footer .js-tweet-stats {\n  display: none;\n}\n\nbody.mtdeck-lazy-load-image .media-item,\nbody.mtdeck-lazy-load-image .media-image {\n  background-image: none !important;\n}\n\nbody.mtdeck-mobile .item-box {\n  padding: 12px 16px;\n}\nbody.mtdeck-mobile .item-box .item-img {\n  width: 48px;\n}\nbody.mtdeck-mobile .item-box .avatar {\n  width: 48px;\n  height: 48px;\n}\nbody.mtdeck-mobile .item-box .dropdown-menu {\n  width: 90vw;\n  margin-right: -5vw;\n  font-size: 15px;\n}\nbody.mtdeck-mobile .item-box .dropdown-menu .caret {\n  right: 13px;\n}\nbody.mtdeck-mobile .item-box .dropdown-menu [data-action] {\n  padding: 8px 20px;\n}\nbody.mtdeck-mobile .item-box .tweet {\n  padding-left: 60px;\n}\nbody.mtdeck-mobile .item-box .tweet .tweet-header {\n  margin-bottom: 2px;\n}\nbody.mtdeck-mobile .item-box .tweet .tweet-header .tweet-img {\n  margin-left: -60px;\n}\nbody.mtdeck-mobile .item-box .tweet .thread {\n  left: 38px;\n}\nbody.mtdeck-mobile .item-box .tweet .tweet-body .other-replies {\n  margin-bottom: 2px;\n}\nbody.mtdeck-mobile .item-box .tweet .tweet-footer {\n  margin-top: 12px;\n}\nbody.mtdeck-mobile .item-box .tweet .tweet-footer .tweet-actions {\n  display: flex;\n  justify-content: space-between;\n}\nbody.mtdeck-mobile .item-box .tweet .js-show-this-thread > p {\n  margin-top: 12px !important;\n}\nbody.mtdeck-mobile .item-box .tweet-detail.js-has-replies {\n  margin-left: 48px !important;\n}\nbody.mtdeck-mobile .item-box .tweet-detail.js-has-replies .thread {\n  left: 38px;\n}\nbody.mtdeck-mobile .item-box .tweet-detail .account-summary {\n  margin-bottom: 12px !important;\n}\nbody.mtdeck-mobile .item-box .tweet-detail .account-summary .item-img {\n  margin-right: 12px !important;\n}\nbody.mtdeck-mobile .item-box .tweet-detail .account-summary .tweet-text {\n  margin-bottom: 12px !important;\n}\nbody.mtdeck-mobile .item-box .tweet-detail .tweet-detail-actions {\n  padding-top: 4px;\n  padding-bottom: 4px;\n}\nbody.mtdeck-mobile .item-box .activity-header {\n  display: flex;\n  align-items: center;\n  margin-top: 0;\n  margin-bottom: 2px;\n}\nbody.mtdeck-mobile .item-box .activity-header .item-img {\n  margin-top: 0 !important;\n}\nbody.mtdeck-mobile .item-box .activity-header i {\n  font-size: 1.3em !important;\n  line-height: 1em;\n}\nbody.mtdeck-mobile .item-box .activity-header i.icon-user-filled {\n  font-size: 1em !important;\n}\nbody.mtdeck-mobile .item-box .activity-header .avatar {\n  width: 30px;\n  height: 30px;\n}\nbody.mtdeck-mobile .item-box .quoted-tweet, body.mtdeck-mobile .item-box .media-preview {\n  margin-top: 12px !important;\n  margin-bottom: 0 !important;\n}\nbody.mtdeck-mobile .item-box video {\n  width: 100%;\n  height: auto;\n}\n\nbody.mtdeck[data-btd-ready=true] .media-size-medium.btd-aspect-ratio-thumbnail,\nbody.mtdeck[data-btd-ready=true] .media-size-large.btd-aspect-ratio-thumbnail {\n  padding-top: calc(var(--btd-thumb-height) / var(--btd-thumb-width) * 100%);\n}\nbody.mtdeck[data-btd-ready=true] .js-int-scroller {\n  background-color: var(--btd-theme-background-lighter);\n}";
 
   insertStyle(styles);
   window.MTD = new Deck();
