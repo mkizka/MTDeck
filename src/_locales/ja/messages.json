@@ -31,5 +31,8 @@
   },
   "configOptionMenuOpenRange": {
     "message": "左からのスワイプでメニューを開く範囲"
+  },
+  "configOptionMobileFriendlyOnCol": {
+    "message": "カラム内にスマホ向けのスタイルを適用"
   }
 }

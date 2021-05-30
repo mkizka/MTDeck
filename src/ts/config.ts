@@ -47,6 +47,12 @@ export class Config {
       type: "number",
       default: "30",
     },
+    {
+      label: _("configOptionMobileFriendlyOnCol"),
+      name: "mtdMobileStyleFriendly",
+      type: "checkbox",
+      default: "true",
+    },
   ];
 
   public getString(key: string): string {

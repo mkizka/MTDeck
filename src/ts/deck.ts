@@ -96,6 +96,9 @@ export class Deck {
       const $openModal = document.querySelector<HTMLElement>("#open-modal")!;
       setLazyLoadObservers([$appContainer, $openModal]);
     }
+    if (this.config.getBoolean("mtdMobileStyleFriendly")) {
+      document.body.classList.add("mtdeck-mobile");
+    }
     this.update();
 
     const touchManager = new TouchManager($appContainer);
