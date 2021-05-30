@@ -49,7 +49,7 @@ export class Config {
     },
     {
       label: _("configOptionMobileFriendlyOnCol"),
-      name: "mtdMenuMobileStyle",
+      name: "mtdMobileStyleFriendly",
       type: "checkbox",
       default: "true",
     },
